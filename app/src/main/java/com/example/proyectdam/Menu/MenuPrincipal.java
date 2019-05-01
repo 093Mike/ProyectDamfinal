@@ -12,6 +12,7 @@ import com.example.proyectdam.R;
 import com.example.proyectdam.Users.Admin.PermisoAdmin;
 import com.example.proyectdam.Users.Encagado.PermisoEncargado;
 import com.example.proyectdam.Users.SuperAdmin.PermisoSuperAdmin;
+import com.example.proyectdam.Users.Trabajador.PermisosTrabajador;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,13 +23,13 @@ public class MenuPrincipal extends AppCompatActivity {
 
     DatabaseReference mref;
     FirebaseDatabase database;
-    private Button almacen;
     private TextView t_main;
-    private Button gestion_usuarios;
+    private Button almacen,gestion_usuarios;
     public Button[] options = new Button[] {almacen,gestion_usuarios};
     private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2};
-    private String permisos;
-    private String tipo_encargo;
+
+    public String permisos;
+    public String tipo_encargo;
 
 
     @Override
@@ -53,7 +54,7 @@ public class MenuPrincipal extends AppCompatActivity {
                 for (DataSnapshot user : dataSnapshot.getChildren()){
                         t_main.setText("Bienvenido "+user.child("Nombre").getValue(String.class));
                         permisos = user.child("Permisos").getValue(String.class);
-                        if(permisos.equals("Encargado")){
+                        if(permisos.equals("Encargado") || permisos.equals("Trabajador")){
                             tipo_encargo = user.child("Encargo").getValue(String.class);
                         }
                         controlPermisos();
@@ -68,6 +69,9 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
     }
+
+
+
     private void controlPermisos() {
         switch (permisos){
             case "Super":
@@ -81,11 +85,29 @@ public class MenuPrincipal extends AppCompatActivity {
                 PermisoEncargado permisoEncargado = new PermisoEncargado(tipo_encargo);
                 permisoEncargado.permisosMenu();
                 break;
+            case "Trabajador":
+                PermisosTrabajador permisosTrabajador = new PermisosTrabajador(tipo_encargo);
+                permisosTrabajador.permisosMenu();
         }
     }
+
+    public void botonesMenu(View view) {
+        int id = view.getId();
+        String texto_boton="";
+        for (int i = 0 ; i < id_buttons.length;i++){
+            if(id_buttons[i] == id){
+               texto_boton = options[i].getText().toString();
+            }
+        }
+        IntentsMenu intentsMenu = new IntentsMenu();
+        startActivity(intentsMenu.gestioIntent_Menu(texto_boton));
+    }
+
 
 
     private static MenuPrincipal myContext;
     public MenuPrincipal() { myContext = this; }
     public static MenuPrincipal getInstance() { return myContext; }
+
+
 }

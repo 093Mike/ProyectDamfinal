@@ -20,6 +20,8 @@
         </activity>
         <!-- MENU PRINCIPAL -->
         <activity android:name=".Menu.MenuPrincipal"/>
+        <activity android:name=".Menu.GestioUsers.MenuUsers" />
+        <activity android:name=".Menu.GestioUsers.MenuAddUser" />
     </application>
 
 </manifest>

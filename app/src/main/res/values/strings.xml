@@ -6,5 +6,15 @@
     <string name="contrasenya">Contraseña</string>
     <string name="Login">Log In</string>
 
+    <string-array name="rol">
+        <item>SuperAdmin</item>
+        <item>Administrador</item>
+        <item>Encargado</item>
+        <item>Trabajador</item>
+    </string-array>
+
+    <string-array name="puesto">
+        <item>Almacen</item>
+    </string-array>
 
 </resources>
