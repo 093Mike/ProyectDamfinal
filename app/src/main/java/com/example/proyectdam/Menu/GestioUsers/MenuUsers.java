@@ -44,6 +44,7 @@ public class MenuUsers  extends AppCompatActivity  {
                 case "Admin":
                     PermisoAdmin permisoAdmin = new PermisoAdmin();
                     permisoAdmin.permisosMenuUsers();
+                    break;
                 case "Encargado":
                     PermisoEncargado permisoEncargado = new PermisoEncargado(MenuPrincipal.getInstance().tipo_encargo);
                     permisoEncargado.permisosMenuUsers();
@@ -51,6 +52,7 @@ public class MenuUsers  extends AppCompatActivity  {
                 case "Trabajador":
                     PermisosTrabajador permisosTrabajador = new PermisosTrabajador(MenuPrincipal.getInstance().tipo_encargo);
                     permisosTrabajador.permisosMenuUsers();
+                    break;
             }
     }
 

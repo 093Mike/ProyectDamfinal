@@ -81,13 +81,18 @@ public class MenuPrincipal extends AppCompatActivity {
             case "Admin":
                 PermisoAdmin permisoAdmin = new PermisoAdmin();
                 permisoAdmin.permisosMenu();
+                break;
+
             case "Encargado":
                 PermisoEncargado permisoEncargado = new PermisoEncargado(tipo_encargo);
                 permisoEncargado.permisosMenu();
                 break;
+
             case "Trabajador":
                 PermisosTrabajador permisosTrabajador = new PermisosTrabajador(tipo_encargo);
                 permisosTrabajador.permisosMenu();
+                break;
+
         }
     }
 

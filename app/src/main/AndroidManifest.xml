@@ -18,10 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PerdidoContrasenya" />
         <!-- MENU PRINCIPAL -->
         <activity android:name=".Menu.MenuPrincipal"/>
+
+
+        <!-- USERS -->
         <activity android:name=".Menu.GestioUsers.MenuUsers" />
         <activity android:name=".Menu.GestioUsers.MenuAddUser" />
+
     </application>
 
 </manifest>

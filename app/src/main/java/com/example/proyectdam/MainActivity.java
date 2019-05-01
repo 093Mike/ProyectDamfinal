@@ -1,9 +1,9 @@
 package com.example.proyectdam;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    public void olvidaIntent(View view) {
+        Intent intent = new Intent(this,PerdidoContrasenya.class);
+        startActivity(intent);
+    }
 
     public FirebaseAuth getmAuth() {
         return mAuth;
@@ -97,4 +101,6 @@ public class MainActivity extends AppCompatActivity {
     private static MainActivity myContext;
     public MainActivity() { myContext = this; }
     public static MainActivity getInstance() { return myContext; }
+
+
 }

@@ -5,14 +5,15 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 
 import com.example.proyectdam.Menu.GestioUsers.MenuUsers;
+import com.example.proyectdam.Menu.MenuPrincipal;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Users.Permiso;
 
 public class PermisoAdmin implements Permiso {
     @Override
     public void permisosMenu() {
-        for (int i = 0; i < MenuUsers.getInstance().options.length; i++) {
-            MenuUsers.getInstance().options[i].setVisibility(View.VISIBLE);
+        for (int i = 0; i < MenuPrincipal.getInstance().options.length; i++) {
+            MenuPrincipal.getInstance().options[i].setVisibility(View.VISIBLE);
         }
     }
 
