@@ -1,37 +1,28 @@
 package com.example.proyectdam.Vista;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.example.proyectdam.Controlador.Activitys.C_ActivityMain;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Fragment_Menu.Activity_Menu;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private FirebaseUser user;
-
     EditText e_user, password;
+    public C_ActivityMain c_activityMain ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
+        getSupportActionBar().hide();
+        c_activityMain = new C_ActivityMain();
+        c_activityMain.setmAuth(FirebaseAuth.getInstance());
         e_user = findViewById(R.id.editText);
         password = findViewById(R.id.editText2);
-        getSupportActionBar().hide();
         password.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -47,66 +38,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        user = mAuth.getCurrentUser();
-//        updateUI(currentUser);
+        c_activityMain.initialize();
     }
 
-
-    public void iniciarLogin(View view){
-        if(e_user.getText().toString().contains("@") && password.getText().toString().length() >=6) {
-            controlLogin(e_user.getText().toString(), password.getText().toString());
-        }
-        else{
-            Toast.makeText(myContext, "Campos incorrectos", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    private void controlLogin(String email, String password){
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("LOGIN", "signInWithEmail:success");
-                            user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), Activity_Menu.class);
-                            startActivity(intent);
-//                          updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("NO LOGIN", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "La autentificación a sido incorrecta.",
-                                    Toast.LENGTH_SHORT).show();
-//                            updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-    }
+    public void iniciarLogin(View view){ c_activityMain.iniciarLogin(e_user.getText().toString(),password.getText().toString()); }
 
     public void olvidaIntent(View view) {
-        Intent intent = new Intent(this, PerdidoContrasenya.class);
-        startActivity(intent);
-    }
-
-    public FirebaseAuth getmAuth() {
-        return mAuth;
-    }
-
-    public void setmAuth(FirebaseAuth mAuth) {
-        this.mAuth = mAuth;
-    }
-
-    public FirebaseUser getUser() {
-        return user;
-    }
-
-    public void setUser(FirebaseUser user) {
-        this.user = user;
+        c_activityMain.olvidaIntent();
     }
 
 

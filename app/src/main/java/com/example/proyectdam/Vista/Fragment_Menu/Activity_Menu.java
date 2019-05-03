@@ -7,8 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
+import com.example.proyectdam.Model.UserActual;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_gestor;
 import com.example.proyectdam.Vista.MainActivity;
@@ -21,6 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Activity_Menu extends AppCompatActivity {
     DatabaseReference mref;
     FirebaseDatabase database;
+    public UserActual userActual;
+    public C_Activity_Menu c_activity_menu;
     public String permisos;
     public String tipo_encargo;
 
@@ -33,7 +37,7 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     public void leerUsuario() {
-        mref = database.getReference("users/" + MainActivity.getInstance().getUser().getUid());
+        mref = database.getReference("users/" + MainActivity.getInstance().c_activityMain.getUser().getUid());
         mref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

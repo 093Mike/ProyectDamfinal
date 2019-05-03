@@ -18,6 +18,6 @@ public class PerdidoContrasenya extends AppCompatActivity {
     }
 
     public void olvidarContrasenya(View view) {
-        MainActivity.getInstance().getmAuth().sendPasswordResetEmail(email.getText().toString());
+        MainActivity.getInstance().c_activityMain.getmAuth().sendPasswordResetEmail(email.getText().toString());
     }
 }

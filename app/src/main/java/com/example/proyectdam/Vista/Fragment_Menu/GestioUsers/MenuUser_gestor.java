@@ -44,7 +44,7 @@ public class MenuUser_gestor extends AppCompatActivity {
     private void leerUsuario() {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mref = database.getReference("users/"+ MainActivity.getInstance().getUser().getUid());
+        mref = database.getReference("users/"+ MainActivity.getInstance().c_activityMain.getUser().getUid());
         mref.addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -85,7 +85,7 @@ public class MenuUser_gestor extends AppCompatActivity {
 
 
     public void crearUser(View view) {
-       MainActivity.getInstance().getmAuth().createUserWithEmailAndPassword(correo.getText().toString(), contrasenya.getText().toString())
+       MainActivity.getInstance().c_activityMain.getmAuth().createUserWithEmailAndPassword(correo.getText().toString(), contrasenya.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -93,7 +93,7 @@ public class MenuUser_gestor extends AppCompatActivity {
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "createUserWithEmail:success");
-                            FirebaseUser user = MainActivity.getInstance().getmAuth().getCurrentUser();
+                            FirebaseUser user = MainActivity.getInstance().c_activityMain.getmAuth().getCurrentUser();
                             DatabaseReference myRef = database.getReference( "users/" +  user.getUid()+"/user");
                             myRef.child("Nombre").setValue(nombre.getText().toString());
                             if(rol.getSelectedItem().equals("SuperAdmin")){ myRef.child("Permisos").setValue("Super"); }
