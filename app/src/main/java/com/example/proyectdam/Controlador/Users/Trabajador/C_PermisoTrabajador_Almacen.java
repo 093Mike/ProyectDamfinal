@@ -8,7 +8,7 @@ import com.example.proyectdam.Controlador.Users.Permiso;
 import com.example.proyectdam.Vista.Fragment_Menu.MenuUsers;
 import com.example.proyectdam.R;
 
-public class C_PermisosTrabajador_Almacen implements Permiso {
+public class C_PermisoTrabajador_Almacen implements Permiso {
 
     private int[] permisos_Menu = new int[]{1};
     private int[] permisos_MenuUsers = new int[]{0};

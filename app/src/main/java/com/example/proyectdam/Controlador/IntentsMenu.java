@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 import com.example.proyectdam.Vista.Fragment_Menu.Activity_Menu;
-import com.example.proyectdam.Vista.Fragment_Menu.MenuUser_gestor;
-import com.example.proyectdam.Vista.Fragment_Menu.Fragment_GestioUsuarios;
+import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_gestor;
+import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 
 public class IntentsMenu {
 

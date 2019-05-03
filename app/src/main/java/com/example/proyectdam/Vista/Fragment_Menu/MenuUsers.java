@@ -16,7 +16,7 @@ import com.example.proyectdam.R;
 import com.example.proyectdam.Controlador.Users.Admin.C_PermisoAdmin;
 import com.example.proyectdam.Controlador.Users.Encagado.C_PermisoEncargado;
 import com.example.proyectdam.Controlador.Users.SuperAdmin.C_PermisoSuperAdmin;
-import com.example.proyectdam.Controlador.Users.Trabajador.C_PermisosTrabajador;
+import com.example.proyectdam.Controlador.Users.Trabajador.C_PermisoTrabajador;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,7 +84,7 @@ public class MenuUsers  extends AppCompatActivity  {
                     permisoEncargado.permisosMenuUsers();
                     break;
                 case "Trabajador":
-                    C_PermisosTrabajador CPermisosTrabajador = new C_PermisosTrabajador(MenuPrincipal.getInstance().tipo_encargo);
+                    C_PermisoTrabajador CPermisosTrabajador = new C_PermisoTrabajador(MenuPrincipal.getInstance().tipo_encargo);
                     CPermisosTrabajador.permisosMenuUsers();
                     break;
             }

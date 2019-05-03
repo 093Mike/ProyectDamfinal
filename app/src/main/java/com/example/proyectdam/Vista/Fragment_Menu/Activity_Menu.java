@@ -8,8 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.proyectdam.Controlador.IntentsMenu;
-import com.example.proyectdam.Model.Users.M_Permisos;
+import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_gestor;
 import com.example.proyectdam.Vista.MainActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,10 +46,10 @@ public class Activity_Menu extends AppCompatActivity {
                     }
 
                 }
-                M_Permisos m_permisos = new M_Permisos();
+                C_Permisos c_permisos = new C_Permisos();
                 Fragment_Menu fragment_menu = new Fragment_Menu();
                 fragment_menu.actualiza();
-                Fragment_Menu.asignarBotones(m_permisos.controlPermisos_menu());
+                Fragment_Menu.asignarBotones(c_permisos.controlPermisos_menu());
             }
 
             @Override
