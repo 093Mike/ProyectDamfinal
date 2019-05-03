@@ -1,20 +1,17 @@
-package com.example.proyectdam.Users.Admin;
+package com.example.proyectdam.Controlador.Users.Admin;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 
-import com.example.proyectdam.Menu.GestioUsers.MenuUsers;
-import com.example.proyectdam.Menu.MenuPrincipal;
+import com.example.proyectdam.Controlador.Users.Permiso;
+import com.example.proyectdam.Vista.Fragment_Menu.MenuUsers;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Users.Permiso;
 
-public class PermisoAdmin implements Permiso {
+public class C_PermisoAdmin implements Permiso {
     @Override
-    public void permisosMenu() {
-        for (int i = 0; i < MenuPrincipal.getInstance().options.length; i++) {
-            MenuPrincipal.getInstance().options[i].setVisibility(View.VISIBLE);
-        }
+    public int[] permisosMenu() {
+        return new int[]{0};
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

@@ -11,21 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Vista.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PerdidoContrasenya" />
+        <activity android:name=".Vista.PerdidoContrasenya" />
         <!-- MENU PRINCIPAL -->
         <activity android:name=".Menu.MenuPrincipal"/>
+        <activity android:name=".Vista.Fragment_Menu.Activity_Menu" />
 
 
         <!-- USERS -->
-        <activity android:name=".Menu.GestioUsers.MenuUsers" />
-        <activity android:name=".Menu.GestioUsers.MenuAddUser" />
+        <activity android:name=".Vista.Fragment_Menu.MenuUser_gestor" />
 
     </application>
 

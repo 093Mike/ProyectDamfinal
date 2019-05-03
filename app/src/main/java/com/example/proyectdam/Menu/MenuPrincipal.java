@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.proyectdam.MainActivity;
+import com.example.proyectdam.Controlador.IntentsMenu;
+import com.example.proyectdam.Controlador.Users.Trabajador.C_PermisosTrabajador;
+import com.example.proyectdam.Vista.MainActivity;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Users.Admin.PermisoAdmin;
-import com.example.proyectdam.Users.Encagado.PermisoEncargado;
-import com.example.proyectdam.Users.SuperAdmin.PermisoSuperAdmin;
-import com.example.proyectdam.Users.Trabajador.PermisosTrabajador;
+import com.example.proyectdam.Controlador.Users.Admin.C_PermisoAdmin;
+import com.example.proyectdam.Controlador.Users.Encagado.C_PermisoEncargado;
+import com.example.proyectdam.Controlador.Users.SuperAdmin.C_PermisoSuperAdmin;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +27,7 @@ public class MenuPrincipal extends AppCompatActivity {
     private TextView t_main;
     private Button almacen,gestion_usuarios;
     public Button[] options = new Button[] {almacen,gestion_usuarios};
-    private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2};
+    private int[] id_buttons = new int[]{R.id.boton_1,R.id.boton_menu_principal2};
 
     public String permisos;
     public String tipo_encargo;
@@ -45,7 +46,7 @@ public class MenuPrincipal extends AppCompatActivity {
         leerUsuario();
     }
 
-    private void leerUsuario() {
+    public void leerUsuario() {
         mref = database.getReference("users/"+ MainActivity.getInstance().getUser().getUid());
         mref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,7 +61,6 @@ public class MenuPrincipal extends AppCompatActivity {
                         controlPermisos();
 
                 }
-                mref.removeEventListener(this);
             }
 
             @Override
@@ -75,22 +75,22 @@ public class MenuPrincipal extends AppCompatActivity {
     private void controlPermisos() {
         switch (permisos){
             case "Super":
-                PermisoSuperAdmin permisoSuperAdmin = new PermisoSuperAdmin();
+                C_PermisoSuperAdmin permisoSuperAdmin = new C_PermisoSuperAdmin();
                 permisoSuperAdmin.permisosMenu();
                 break;
             case "Admin":
-                PermisoAdmin permisoAdmin = new PermisoAdmin();
-                permisoAdmin.permisosMenu();
+                C_PermisoAdmin RPermisoAdmin = new C_PermisoAdmin();
+                RPermisoAdmin.permisosMenu();
                 break;
 
             case "Encargado":
-                PermisoEncargado permisoEncargado = new PermisoEncargado(tipo_encargo);
+                C_PermisoEncargado permisoEncargado = new C_PermisoEncargado(tipo_encargo);
                 permisoEncargado.permisosMenu();
                 break;
 
             case "Trabajador":
-                PermisosTrabajador permisosTrabajador = new PermisosTrabajador(tipo_encargo);
-                permisosTrabajador.permisosMenu();
+                C_PermisosTrabajador CPermisosTrabajador = new C_PermisosTrabajador(tipo_encargo);
+                CPermisosTrabajador.permisosMenu();
                 break;
 
         }
@@ -105,7 +105,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         }
         IntentsMenu intentsMenu = new IntentsMenu();
-        startActivity(intentsMenu.gestioIntent_Menu(texto_boton));
+        //startActivity(intentsMenu.gestioIntent_Menu(texto_boton));
     }
 
 

@@ -1,4 +1,4 @@
-package com.example.proyectdam;
+package com.example.proyectdam.Vista;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.proyectdam.Menu.MenuPrincipal;
+import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Fragment_Menu.Activity_Menu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("LOGIN", "signInWithEmail:success");
                             user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), MenuPrincipal.class);
+                            Intent intent = new Intent(getApplicationContext(), Activity_Menu.class);
                             startActivity(intent);
 //                          updateUI(user);
                         } else {
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void olvidaIntent(View view) {
-        Intent intent = new Intent(this,PerdidoContrasenya.class);
+        Intent intent = new Intent(this, PerdidoContrasenya.class);
         startActivity(intent);
     }
 
