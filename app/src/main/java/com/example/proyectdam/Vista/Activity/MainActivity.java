@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
-
 import com.example.proyectdam.Controlador.Activitys.C_ActivityMain;
 import com.example.proyectdam.R;
 import com.google.firebase.auth.FirebaseAuth;

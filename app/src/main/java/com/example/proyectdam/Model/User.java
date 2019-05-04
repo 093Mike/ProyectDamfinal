@@ -1,18 +1,18 @@
 package com.example.proyectdam.Model;
 
-public class UserActual {
+public class User {
     private String nombre;
     private String permisos;
     private String tipo_permisos;
     private String uid;
 
-    public UserActual(String nombre, String permisos, String uid) {
+    public User(String nombre, String permisos, String uid) {
         this.nombre = nombre;
         this.permisos = permisos;
         this.uid = uid;
     }
 
-    public UserActual(String nombre, String permisos, String tipo_permisos, String uid) {
+    public User(String nombre, String permisos, String tipo_permisos, String uid) {
         this.nombre = nombre;
         this.permisos = permisos;
         this.tipo_permisos = tipo_permisos;

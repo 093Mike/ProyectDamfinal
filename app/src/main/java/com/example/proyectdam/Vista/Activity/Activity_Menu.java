@@ -49,12 +49,8 @@ public class Activity_Menu extends AppCompatActivity {
         startActivity(new Intent(this, MenuUser_gestor.class));
     }
 
-
     private static Activity_Menu myContext;
     public Activity_Menu() { myContext = this; }
     public static Activity_Menu getInstance() { return myContext; }
-
-
-
 
 }
