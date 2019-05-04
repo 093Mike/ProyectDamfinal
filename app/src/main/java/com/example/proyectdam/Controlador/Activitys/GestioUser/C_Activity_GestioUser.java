@@ -1,4 +1,4 @@
-package com.example.proyectdam.Controlador.Activitys;
+package com.example.proyectdam.Controlador.Activitys.GestioUser;
 
 import android.app.Activity;
 import android.os.Build;
@@ -6,10 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
-import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_gestor;
+import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_add;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -46,22 +45,22 @@ public class C_Activity_GestioUser extends Activity {
     private void controlPermisos() {
         switch (Activity_Menu.getInstance().c_activity_menu.getUser().getPermisos()) {
             case "Admin":
-                Toast.makeText(MenuUser_gestor.getInstance(), "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuUser_add.getInstance(), "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             case "Encargado":
-                Toast.makeText(MenuUser_gestor.getInstance(), "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuUser_add.getInstance(), "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             case "Trabajador":
-                Toast.makeText(MenuUser_gestor.getInstance(), "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuUser_add.getInstance(), "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
         }
     }
     public void crearUsuario(final String nombre, String email, String pass, final String rol, final String encargo) {
         MainActivity.getInstance().c_activityMain.getmAuth().createUserWithEmailAndPassword(email,pass)
-                .addOnCompleteListener(MenuUser_gestor.getInstance(), new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(MenuUser_add.getInstance(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -79,12 +78,12 @@ public class C_Activity_GestioUser extends Activity {
                                 myRef.child("Permisos").setValue(rol);
                                 myRef.child("Encargo").setValue(encargo);
                             }
-                            Toast.makeText(MenuUser_gestor.getInstance(), "¡Cuenta creada!",
+                            Toast.makeText(MenuUser_add.getInstance(), "¡Cuenta creada!",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MenuUser_gestor.getInstance(), "La cuenta ya esta creada.",
+                            Toast.makeText(MenuUser_add.getInstance(), "La cuenta ya esta creada.",
                                     Toast.LENGTH_SHORT).show();
                         }
 

@@ -29,7 +29,6 @@ public class Fragment_Menu extends Fragment {
             options[i] = getView().findViewById(id_buttons[i]);
         }
         actualiza();
-
     }
 
     public void actualiza(){

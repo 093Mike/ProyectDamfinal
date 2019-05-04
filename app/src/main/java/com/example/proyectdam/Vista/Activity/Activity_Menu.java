@@ -9,7 +9,7 @@ import android.view.View;
 import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_gestor;
+import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_add;
 
 public class Activity_Menu extends AppCompatActivity {
     public C_Activity_Menu c_activity_menu;
@@ -46,7 +46,7 @@ public class Activity_Menu extends AppCompatActivity {
     public void gestioaddUsers(View view){
 //        String tag = (String) view.getTag();
         IntentsMenu intentsMenu = new IntentsMenu();
-        startActivity(new Intent(this, MenuUser_gestor.class));
+        startActivity(new Intent(this, MenuUser_add.class));
     }
 
     private static Activity_Menu myContext;

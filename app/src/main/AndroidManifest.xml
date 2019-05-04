@@ -25,7 +25,7 @@
             android:screenOrientation="portrait" />
 
         <!-- USERS -->
-        <activity android:name=".Vista.Fragment_Menu.GestioUsers.MenuUser_gestor" />
+        <activity android:name=".Vista.Fragment_Menu.GestioUsers.MenuUser_add" />
 
     </application>
 
