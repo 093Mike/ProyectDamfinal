@@ -1,4 +1,4 @@
-package com.example.proyectdam.Vista;
+package com.example.proyectdam.Vista.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

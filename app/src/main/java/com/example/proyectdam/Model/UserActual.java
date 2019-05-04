@@ -6,12 +6,19 @@ public class UserActual {
     private String tipo_permisos;
     private String uid;
 
+    public UserActual(String nombre, String permisos, String uid) {
+        this.nombre = nombre;
+        this.permisos = permisos;
+        this.uid = uid;
+    }
+
     public UserActual(String nombre, String permisos, String tipo_permisos, String uid) {
         this.nombre = nombre;
         this.permisos = permisos;
         this.tipo_permisos = tipo_permisos;
         this.uid = uid;
     }
+
 
     public String getNombre() {
         return nombre;

@@ -12,8 +12,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Fragment_Menu.Activity_Menu;
-import com.example.proyectdam.Vista.MainActivity;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
+import com.example.proyectdam.Vista.Activity.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -50,12 +50,7 @@ public class MenuUser_gestor extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot user : dataSnapshot.getChildren()){
-                    Activity_Menu.getInstance().permisos = user.child("Permisos").getValue(String.class);
-                    if(Activity_Menu.getInstance().permisos.equals("Encargado") || Activity_Menu.getInstance().permisos.equals("Trabajador")){
-                        Activity_Menu.getInstance().tipo_encargo = user.child("Encargo").getValue(String.class);
-                    }
                     controlPermisos();
-
                 }
             }
 
@@ -67,7 +62,7 @@ public class MenuUser_gestor extends AppCompatActivity {
     }
 
     private void controlPermisos() {
-        switch (Activity_Menu.getInstance().permisos){
+        switch (Activity_Menu.getInstance().c_activity_menu.getUserActual().getPermisos()){
             case "Admin":
                 Toast.makeText(this, "No tienes permisos para añadir usuarios", Toast.LENGTH_SHORT).show();
                 finish();

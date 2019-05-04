@@ -6,9 +6,9 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.proyectdam.Vista.Fragment_Menu.Activity_Menu;
-import com.example.proyectdam.Vista.MainActivity;
-import com.example.proyectdam.Vista.PerdidoContrasenya;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
+import com.example.proyectdam.Vista.Activity.MainActivity;
+import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class C_ActivityMain extends Activity{
     private FirebaseAuth mAuth;
     private FirebaseUser user;
+    private boolean control;
 
     public void initialize(){
         user = mAuth.getCurrentUser();
@@ -25,14 +26,15 @@ public class C_ActivityMain extends Activity{
 
 
     public void iniciarLogin(String email , String pass){
-        if(email.contains("@") && pass.length() >=6) {
-            mAuth = FirebaseAuth.getInstance();
-            controlLogin(email, pass);
+        if(!control) {
+            control=true;
+            if (email.contains("@") && pass.length() >= 6) {
+                mAuth = FirebaseAuth.getInstance();
+                controlLogin(email, pass);
+            } else {
+                Toast.makeText(MainActivity.getInstance(), "Campos incorrectos", Toast.LENGTH_SHORT).show();
+            }
         }
-        else{
-            Toast.makeText(MainActivity.getInstance(), "Campos incorrectos", Toast.LENGTH_SHORT).show();
-        }
-
     }
     private void controlLogin(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)

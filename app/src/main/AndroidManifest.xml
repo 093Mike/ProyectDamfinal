@@ -11,21 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Vista.MainActivity">
+        <activity android:name=".Vista.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vista.PerdidoContrasenya" />
+        <activity android:name=".Vista.Activity.PerdidoContrasenya" />
         <!-- MENU PRINCIPAL -->
         <!--<activity android:name=".Menu.MenuPrincipal"/>-->
-        <activity android:name=".Vista.Fragment_Menu.Activity_Menu"
-            android:screenOrientation="portrait"
-
-            />
-
+        <activity android:name=".Vista.Activity.Activity_Menu"
+            android:screenOrientation="portrait" />
 
         <!-- USERS -->
         <activity android:name=".Vista.Fragment_Menu.GestioUsers.MenuUser_gestor" />
