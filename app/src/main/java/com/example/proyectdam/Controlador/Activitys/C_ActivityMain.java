@@ -76,5 +76,10 @@ public class C_ActivityMain extends Activity{
     public void setUser(FirebaseUser user) {
         this.user = user;
     }
-
+    public boolean isControl() {
+        return control;
+    }
+    public void setControl(boolean control) {
+        this.control = control;
+    }
 }

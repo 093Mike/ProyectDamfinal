@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 
 import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.Model.UserActual;
-import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
 import com.google.firebase.database.DataSnapshot;
@@ -38,10 +37,10 @@ public class C_Activity_Menu extends Activity {
                     String permisos = user.child("Permisos").getValue(String.class);
                     if (permisos.equals("Encargado") || permisos.equals("Trabajador")) {
                         String tipo_encargo = user.child("Encargo").getValue(String.class);
-                        userActual = new UserActual(nombre,permisos,tipo_encargo, Activity_Menu.getInstance().c_activity_menu.getUserActual().getUid());
+                        userActual = new UserActual(nombre,permisos,tipo_encargo, MainActivity.getInstance().c_activityMain.getUser().getUid());
                     }
                     else{
-                        userActual = new UserActual(nombre,permisos,Activity_Menu.getInstance().c_activity_menu.getUserActual().getUid());
+                        userActual = new UserActual(nombre,permisos,MainActivity.getInstance().c_activityMain.getUser().getUid());
                     }
                     C_Permisos c_permisos = new C_Permisos();
                     Fragment_Menu fragment_menu = new Fragment_Menu();

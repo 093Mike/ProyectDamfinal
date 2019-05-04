@@ -25,6 +25,13 @@ public class Activity_Menu extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        MainActivity.getInstance().c_activityMain.setControl(false);
+    }
+
 
     public void gestioMenu(View view){
         tag_escogido = ((String) view.getTag()).toUpperCase();
