@@ -65,15 +65,12 @@ public class C_ActivityMain extends Activity{
     public FirebaseAuth getmAuth() {
         return mAuth;
     }
-
     public void setmAuth(FirebaseAuth mAuth) {
         this.mAuth = mAuth;
     }
-
     public FirebaseUser getUser() {
         return user;
     }
-
     public void setUser(FirebaseUser user) {
         this.user = user;
     }

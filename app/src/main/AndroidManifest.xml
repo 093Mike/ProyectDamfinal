@@ -21,7 +21,10 @@
         <activity android:name=".Vista.PerdidoContrasenya" />
         <!-- MENU PRINCIPAL -->
         <!--<activity android:name=".Menu.MenuPrincipal"/>-->
-        <activity android:name=".Vista.Fragment_Menu.Activity_Menu" />
+        <activity android:name=".Vista.Fragment_Menu.Activity_Menu"
+            android:screenOrientation="portrait"
+
+            />
 
 
         <!-- USERS -->

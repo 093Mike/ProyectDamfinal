@@ -27,13 +27,17 @@ public class Activity_Menu extends AppCompatActivity {
     public C_Activity_Menu c_activity_menu;
     public String permisos;
     public String tipo_encargo;
+    public String tag_escogido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        getSupportActionBar().hide();
+
         database = FirebaseDatabase.getInstance();
         leerUsuario();
+
     }
 
     public void leerUsuario() {
@@ -43,12 +47,11 @@ public class Activity_Menu extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot user : dataSnapshot.getChildren()) {
-//                    t_main.setText("Bienvenido "+user.child("Nombre").getValue(String.class));
+//                    t_main.setText(user.child("Nombre").getValue(String.class));
                     permisos = user.child("Permisos").getValue(String.class);
                     if (permisos.equals("Encargado") || permisos.equals("Trabajador")) {
                         tipo_encargo = user.child("Encargo").getValue(String.class);
                     }
-
                 }
                 C_Permisos c_permisos = new C_Permisos();
                 Fragment_Menu fragment_menu = new Fragment_Menu();
@@ -66,6 +69,8 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     public void gestioMenu(View view){
+        tag_escogido = (String) view.getTag();
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         IntentsMenu intentsMenu = new IntentsMenu();
 
@@ -79,9 +84,12 @@ public class Activity_Menu extends AppCompatActivity {
         startActivity(new Intent(this, MenuUser_gestor.class));
     }
 
+
     private static Activity_Menu myContext;
     public Activity_Menu() { myContext = this; }
     public static Activity_Menu getInstance() { return myContext; }
+
+
 
 
 }
