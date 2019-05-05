@@ -1,6 +1,8 @@
 package com.example.proyectdam.models.almacen;
 
-public class Categoria {
+import java.io.Serializable;
+
+public class Categoria implements Serializable {
     private String id;
     private String nombre;
 

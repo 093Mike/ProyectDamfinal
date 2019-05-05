@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Data {
     private FirebaseDatabase database;
-    private static ArrayList<Producto> productos;
+    public static ArrayList<Producto> productos;
     private static ArrayList<Almacen> almacenes;
     private static ArrayList<Categoria> categorias;
 
