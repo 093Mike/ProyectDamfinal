@@ -1,4 +1,4 @@
-package com.example.proyectdam.Controlador.Activitys.GestioUser;
+package com.example.proyectdam.Controlador.Fragments.Users;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -32,7 +32,11 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         TextView nombre = viewHolder.nombre;
+        TextView encargo = viewHolder.encargo;
+        TextView tipo = viewHolder.tipo;
         nombre.setText(itemList.get(i).getNombre());
+        encargo.setText(itemList.get(i).getPermisos());
+        tipo.setText(itemList.get(i).getTipo_permisos());
     }
 
     @Override
@@ -40,10 +44,13 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
 
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView nombre;
+        TextView nombre,encargo,tipo;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.t_categoria);
+            nombre = itemView.findViewById(R.id.t_user);
+            encargo = itemView.findViewById(R.id.t_userencargo);
+            tipo = itemView.findViewById(R.id.t_userencargotipo);
         }
 
         @Override

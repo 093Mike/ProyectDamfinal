@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class C_Activity_GestioUser extends Activity {
+public class C_Activity_GestioUserAdd extends Activity {
     FirebaseDatabase database;
     DatabaseReference mref;
 

@@ -13,10 +13,10 @@ import com.example.proyectdam.R;
 
 public class Fragment_Menu extends Fragment {
 
-    private static Button boton1,boton2;
-    public static Button[] options = new Button[] {boton1,boton2};
-    private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2};
-    static String[] nombre_botones = new String[]{"Almacen","Usuarios"};
+    private static Button boton1,boton2,boton3;
+    public static Button[] options = new Button[] {boton1,boton2,boton3};
+    private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2,R.id.boton_menu_principal3};
+    static String[] nombre_botones = new String[]{"Almacen","Pedidos","Usuarios"};
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

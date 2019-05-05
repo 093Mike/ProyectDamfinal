@@ -40,6 +40,13 @@
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
+                <Button
+                    android:id="@+id/boton_menu_principal3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="gestioMenu"
+                    android:text="Button" />
+
             </LinearLayout>
         </ScrollView>
 

@@ -42,7 +42,7 @@ public class C_Activity_Menu extends Activity {
                     C_Permisos c_permisos = new C_Permisos();
                     Fragment_Menu fragment_menu = new Fragment_Menu();
                     fragment_menu.actualiza();
-                    Fragment_Menu.asignarBotones(c_permisos.controlPermisos_menu());
+                    Fragment_Menu.asignarBotones(c_permisos.permisosMenu());
                 }
 
             }
@@ -54,6 +54,7 @@ public class C_Activity_Menu extends Activity {
         });
 
     }
+
 
 
     public DatabaseReference getMref() {

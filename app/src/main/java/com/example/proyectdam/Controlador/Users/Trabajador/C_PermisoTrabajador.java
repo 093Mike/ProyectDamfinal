@@ -21,7 +21,13 @@ public class C_PermisoTrabajador implements Permiso {
     }
 
     @Override
-    public void permisosMenuUsers() {
+    public int[] permisosMenuUsers() {
+        switch (tipo_Encargo){
+            case "Almacen":
+                C_PermisoTrabajador_Almacen pe_Almacen = new C_PermisoTrabajador_Almacen();
+                return pe_Almacen.permisosMenuUsers();
 
+        }
+        return null;
     }
 }
