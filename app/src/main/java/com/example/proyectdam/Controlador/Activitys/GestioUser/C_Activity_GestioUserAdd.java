@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
-import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_add;
+import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

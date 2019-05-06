@@ -6,8 +6,8 @@
     >
 
     <LinearLayout
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/common_google_signin_btn_text_light_focused"
         android:orientation="vertical">
 
@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             app:srcCompat="@mipmap/ic_launcher" />
 
-        <ScrollView
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/boton_menu_principal"
@@ -48,7 +48,7 @@
                     android:text="Button" />
 
             </LinearLayout>
-        </ScrollView>
+        </HorizontalScrollView>
 
     </LinearLayout>
 

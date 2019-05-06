@@ -11,7 +11,6 @@ import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.MenuUser_add;
 
 public class Activity_Menu extends AppCompatActivity {
     public C_Activity_Menu c_activity_menu;
