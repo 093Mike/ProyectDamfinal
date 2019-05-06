@@ -17,7 +17,7 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
 
     private int listItemLayout;
     private ArrayList<User> itemList;
-    static int position;
+    public static int position;
 
 
     public AdaptadorUsers(int listItemLayout, ArrayList<User> itemList) {
