@@ -43,12 +43,12 @@ public class EscogeAlmacen extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     almacenActual = almacenes.get(which);
-                                    startActivity(new Intent(EscogeAlmacen.this, MenuAlmacen.class));
+                                    startActivity(new Intent(EscogeAlmacen.this, ListaCategorias.class));
                                 }
                             });
                     builder.show();
                 } else {
-                    startActivity(new Intent(EscogeAlmacen.this, MenuAlmacen.class));
+                    startActivity(new Intent(EscogeAlmacen.this, ListaCategorias.class));
                 }
             }
         });

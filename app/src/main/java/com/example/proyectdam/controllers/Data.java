@@ -1,7 +1,6 @@
 package com.example.proyectdam.controllers;
 
 import android.util.Log;
-
 import com.example.proyectdam.models.almacen.Almacen;
 import com.example.proyectdam.models.almacen.Categoria;
 import com.example.proyectdam.models.almacen.Producto;
@@ -10,7 +9,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class Data {

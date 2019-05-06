@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
-public class MenuAlmacen extends AppCompatActivity {
+public class ListaCategorias extends AppCompatActivity {
     private ArrayList<Categoria> categoriasProductos;
     private RecyclerView recyclerView_categorias;
     private AdapterCategorias adapter;
