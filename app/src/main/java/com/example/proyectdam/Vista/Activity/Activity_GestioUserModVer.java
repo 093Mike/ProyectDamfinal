@@ -13,6 +13,7 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
 
     TextView nombre,permisos;
     EditText e_permisos;
+    TextView titulo;
     C_Activity_GestioUserModVer c_activity_gestioUserModVer;
 
     @Override
@@ -28,6 +29,9 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         nombre.setText(c_activity_gestioUserModVer.recibirNombre());
         permisos.setText(c_activity_gestioUserModVer.recibirPermisos());
 
+        titulo = findViewById(R.id.textView);
+        c_activity_gestioUserModVer.inicialite();
+        titulo.setText(c_activity_gestioUserModVer.recibirNombre());
 
     }
 

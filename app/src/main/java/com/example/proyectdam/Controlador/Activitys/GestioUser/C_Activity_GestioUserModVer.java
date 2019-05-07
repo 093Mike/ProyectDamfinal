@@ -7,6 +7,7 @@ import com.example.proyectdam.Model.User;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 import com.google.firebase.database.DatabaseReference;
+import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 
 import java.util.ArrayList;
 
@@ -35,3 +36,9 @@ public class C_Activity_GestioUserModVer extends Activity {
 
 
 
+    public String test(){
+        return users.get(pos).getNombre();
+    }
+
+
+}

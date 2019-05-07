@@ -32,6 +32,7 @@ public class C_ActivityMain extends Activity{
                 mAuth = FirebaseAuth.getInstance();
                 controlLogin(email, pass);
             } else {
+                control=false;
                 Toast.makeText(MainActivity.getInstance(), "Campos incorrectos", Toast.LENGTH_SHORT).show();
             }
         }
@@ -48,6 +49,7 @@ public class C_ActivityMain extends Activity{
                             Intent intent = new Intent(MainActivity.getInstance(), Activity_Menu.class);
                             MainActivity.getInstance().startActivity(intent);
                         } else {
+                            control=false;
                             // If sign in fails, display a message to the user.
                             Log.w("NO LOGIN", "signInWithEmail:failure", task.getException());
                             Toast.makeText(MainActivity.getInstance(), "La autentificación a sido incorrecta.",

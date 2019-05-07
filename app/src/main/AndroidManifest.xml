@@ -26,6 +26,7 @@
 
         <!-- USERS -->
         <activity android:name=".Vista.Activity.MenuUser_add" />
+        <activity android:name=".Vista.Activity.Activity_GestioUserModVer" />
 
     </application>
 

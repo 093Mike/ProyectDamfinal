@@ -3,6 +3,7 @@ package com.example.proyectdam.Controlador;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
+import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
@@ -28,6 +29,9 @@ public class IntentsMenu {
         switch (text_button){
             case "AÑADIR USUARIO":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
+                break;
+            case "MV_User":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;
         }
         return intent;
