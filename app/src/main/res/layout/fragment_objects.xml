@@ -47,6 +47,14 @@
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
+                <Button
+                    android:id="@+id/btActuImagen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="ActualizarImagenes"
+                    android:text="Actualizar Imagenes" />
+
             </LinearLayout>
         </HorizontalScrollView>
 
