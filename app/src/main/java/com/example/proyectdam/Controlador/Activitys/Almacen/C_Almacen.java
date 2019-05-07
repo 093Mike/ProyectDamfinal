@@ -19,17 +19,18 @@ public class C_Almacen {
     private ArrayList<Categoria> categoriasProductos;
 
     public C_Almacen(){
-        if ()
         almacenesFirebase = new ArrayList<>();
         cargarAlmacenes();
     }
 
     public void cargarAlmacenes(){
+
         FirebaseDatabase database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
         DatabaseReference reference = database.getReference("almacenes");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                almacenesFirebase.clear();
                 for (DataSnapshot almacen : dataSnapshot.getChildren()){
                     almacenesFirebase.add(new Almacen(almacen.child("direccion").getValue(String.class)));
                 }

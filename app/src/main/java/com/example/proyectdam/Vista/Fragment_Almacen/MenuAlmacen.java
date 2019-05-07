@@ -1,6 +1,5 @@
 package com.example.proyectdam.Vista.Fragment_Almacen;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +11,6 @@ import android.widget.Button;
 
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Activity.ListaCategorias;
 
 public class MenuAlmacen extends Fragment {
 
@@ -41,7 +39,7 @@ public class MenuAlmacen extends Fragment {
             @Override
             public void onClick(View v) {
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent_menuAlmacen(v.getTag().toString().toUpperCase()));
+                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase()));
             }
         });
 

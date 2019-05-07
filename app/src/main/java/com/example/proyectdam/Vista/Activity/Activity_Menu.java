@@ -31,10 +31,10 @@ public class Activity_Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         getSupportActionBar().hide();
-        c_almacen = new C_Almacen();
         c_activity_menu = new C_Activity_Menu();
         c_fragment_menu = new C_Fragment_Menu();
         c_activity_menu.initialite();
+//        c_almacen = new C_Almacen();
         almacenes = new C_Almacen().getAlmacenesFirebase();
 
     }

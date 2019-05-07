@@ -36,6 +36,7 @@ public class IntentsMenu {
             // ALMACEN
             case "INVENTARIO ALMACEN":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), ListaCategorias.class);
+                break;
             case "MV_User":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;

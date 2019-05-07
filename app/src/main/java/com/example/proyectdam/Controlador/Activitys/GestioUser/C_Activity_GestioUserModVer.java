@@ -7,7 +7,6 @@ import com.example.proyectdam.Model.User;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 import com.google.firebase.database.DatabaseReference;
-import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 
 import java.util.ArrayList;
 
@@ -32,7 +31,7 @@ public class C_Activity_GestioUserModVer extends Activity {
         DatabaseReference myRef = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("users/" + uid + "/user");
         myRef.child("Permisos").setValue(permisos);
         }
-    }
+
 
 
 
