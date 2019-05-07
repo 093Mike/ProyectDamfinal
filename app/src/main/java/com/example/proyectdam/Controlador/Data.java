@@ -1,9 +1,9 @@
-package com.example.proyectdam.controllers;
+package com.example.proyectdam.Controlador;
 
 import android.util.Log;
-import com.example.proyectdam.models.almacen.Almacen;
-import com.example.proyectdam.models.almacen.Categoria;
-import com.example.proyectdam.models.almacen.Producto;
+import com.example.proyectdam.Model.Almacen;
+import com.example.proyectdam.Model.Categoria;
+import com.example.proyectdam.Model.Producto;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -1,6 +1,20 @@
 <resources>
-    <string name="app_name">ProjectDAM</string>
+    <string name="app_name">ProyectDAM</string>
+    <!-- MAIN -->
+    <string name="version_app">V. 0.1.25 ContGest</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="contrasenya">Contraseña</string>
+    <string name="Login">Log In</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="rol">
+        <item>SuperAdmin</item>
+        <item>Administrador</item>
+        <item>Encargado</item>
+        <item>Trabajador</item>
+    </string-array>
+
+    <string-array name="puesto">
+        <item>Almacen</item>
+    </string-array>
+
 </resources>

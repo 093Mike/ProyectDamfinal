@@ -9,16 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.ListaProductos"></activity>
-        <activity android:name=".views.ListaCategorias" />
-        <activity android:name=".views.EscogeAlmacen">
+
+        <activity android:name=".Vista.Activity.ListaProductos"></activity>
+        <activity android:name=".Vista.Activity.ListaCategorias" />
+        <activity android:name=".views.EscogeAlmacen"></activity>
+        <activity android:name=".Vista.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Vista.Activity.PerdidoContrasenya" />
+        <!-- MENU PRINCIPAL -->
+        <!--<activity android:name=".Menu.MenuPrincipal"/>-->
+        <activity android:name=".Vista.Activity.Activity_Menu"
+            android:screenOrientation="portrait" />
+
+        <!-- USERS -->
+        <activity android:name=".Vista.Activity.MenuUser_add" />
     </application>
 
 </manifest>
