@@ -12,24 +12,37 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/button_inventario"
+                <TextView
+                    android:id="@+id/textView_almacenActual"
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:tag="inventario almacen"
-                    android:text="Inventario" />
+                    android:gravity="center"
+                    android:text="Almacen actual"
+                    android:textSize="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/button_movimientos"
@@ -41,7 +54,10 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:tag="movimientos_almacen"
-                    android:text="Movimientos almacén" />
+                    android:text="Movimientos almacén"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_inventario" />
 
                 <Button
                     android:id="@+id/button_incidencias"
@@ -53,7 +69,10 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:tag="incidencias_almacen"
-                    android:text="Incidencias" />
+                    android:text="Incidencias"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_movimientos" />
 
                 <Button
                     android:id="@+id/button_cambiarAlmacen"
@@ -64,10 +83,27 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:tag="cambiar_almacen"
-                    android:text="Cambiar almacén" />
+                    android:tag="Almacen"
+                    android:text="Cambiar almacén"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_incidencias" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/button_inventario"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:tag="inventario almacen"
+                    android:text="Inventario"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_almacenActual" />
+            </android.support.constraint.ConstraintLayout>
         </ScrollView>
 
     </android.support.constraint.ConstraintLayout>

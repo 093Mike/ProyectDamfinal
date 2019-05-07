@@ -2,9 +2,11 @@ package com.example.proyectdam.Model;
 
 // TODO: Implementar ubicación del producto --> almacén en el que se encuentra y en qué parte
 
+import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
+
 public class Producto {
-    private String id;
-    private static int nextId = 1000;
+    private int id;
+    public static int nextId;
     private String nombre;
     private String descripcion;
     private Categoria categoria;
@@ -16,8 +18,9 @@ public class Producto {
     private double precioPVP;
 
     public Producto(String nombre, String descripcion, Categoria categoria, double cantidad,  String proveedor,
-                    double precioProveedor, double precioPVP) {
-        id = String.valueOf(nextId);
+                     double precioProveedor, double precioPVP) {
+        new C_Almacen().siguienteId_producto();
+        id = nextId;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
@@ -25,15 +28,25 @@ public class Producto {
         this.categoria = categoria;
         this.precioProveedor = precioProveedor;
         this.precioPVP = precioPVP;
-
-        nextId++;
     }
 
-    public String getId() {
+    public Producto(int id, String nombre, String descripcion, Categoria categoria, double cantidad,  String proveedor,
+                    double precioProveedor, double precioPVP) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.cantidad = cantidad;
+        this.proveedor = proveedor;
+        this.categoria = categoria;
+        this.precioProveedor = precioProveedor;
+        this.precioPVP = precioPVP;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

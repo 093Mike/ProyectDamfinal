@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Categoria;
+import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
 
 import java.util.ArrayList;
@@ -57,7 +59,7 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Ca
         //public Button button_categoria;
         public ImageButton button_categoria;
 
-        public CategoriasViewHolder(@NonNull final View itemView) {
+        public CategoriasViewHolder(@NonNull View itemView) {
             super(itemView);
             button_categoria = itemView.findViewById(R.id.imageButton_categoria);
             //button_categoria = itemView.findViewById(R.id.button_categoria);
@@ -67,8 +69,11 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Ca
                     Log.d("proyecto", "adapterPosition: " + String.valueOf(getAdapterPosition()) + " // itemId: " +
                             getItemId() + " // itemViewType: " + getItemViewType() + " // layoutPosition: " + getLayoutPosition() +
                             " // oldPosition: " + getOldPosition());
+                    Log.d("aaa", v.getTag().toString());
+                    IntentsMenu intentsMenu = new IntentsMenu();
+                    Intent intent = intentsMenu.gestioIntent(button_categoria.getTag().toString().toUpperCase());
 
-                    itemView.getContext().startActivity(new Intent(itemView.getContext(), ListaProductos.class).
+                    ListaCategorias.getInstance().startActivity(intent.
                             putExtra("categoria", categoriasProductos.get(getAdapterPosition())));
                 }
             });

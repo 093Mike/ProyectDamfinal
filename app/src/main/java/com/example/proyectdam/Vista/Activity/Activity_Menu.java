@@ -23,8 +23,6 @@ public class Activity_Menu extends AppCompatActivity {
     public C_Fragment_Menu c_fragment_menu;
     public C_Almacen c_almacen;
     public String tag_escogido;
-    private ArrayList<Almacen> almacenes;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +32,9 @@ public class Activity_Menu extends AppCompatActivity {
         c_activity_menu = new C_Activity_Menu();
         c_fragment_menu = new C_Fragment_Menu();
         c_activity_menu.initialite();
-//        c_almacen = new C_Almacen();
-        almacenes = new C_Almacen().getAlmacenesFirebase();
 
+        c_almacen = new C_Almacen();
+        c_almacen.cargarAlmacenes();
     }
 
     @Override
@@ -55,24 +53,9 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     public void menuAlmacen(View v) {
-        String[] almacenesAlertDialog = new String[almacenes.size()];
-        for (int i = 0; i < almacenes.size(); i++) {
-            almacenesAlertDialog[i] = almacenes.get(i).getId()
-                    + " - " + almacenes.get(i).getDireccion();
+        if (c_almacen.getAlmacenActual() == null) {
+            c_almacen.alertDialog_escogeAlmacen(v);
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(Activity_Menu.this);
-        builder.setTitle("Escoge un almacén:")
-                .setItems(almacenesAlertDialog, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                        IntentsMenu intentsMenu = new IntentsMenu();
-                        ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu("ALMACEN"), "fragment_meters");
-                        ft.commit();
-                    }
-                });
-        builder.show();
-
     }
 
     public void gestioaddUsers(View view) {

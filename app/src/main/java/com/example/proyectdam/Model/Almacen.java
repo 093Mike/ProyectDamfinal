@@ -1,9 +1,11 @@
 package com.example.proyectdam.Model;
 
+import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
+
 import java.util.ArrayList;
 
 public class Almacen {
-    private static int numeroAlmacen = 100;
+    public static int numeroAlmacen;
     private String id;
     private String direccion;
     private ArrayList<String> secciones;
@@ -11,12 +13,20 @@ public class Almacen {
     private ArrayList<String> estanterias;
 
     public Almacen(String direccion){
+        new C_Almacen().siguienteId_almacen();
         id = "ALM" + String.valueOf(numeroAlmacen);
         this.direccion = direccion;
         secciones = new ArrayList<>();
         pasillos = new ArrayList<>();
         estanterias = new ArrayList<>();
-        numeroAlmacen++;
+    }
+
+    public Almacen(String id, String direccion){
+        this.id = id;
+        this.direccion = direccion;
+        secciones = new ArrayList<>();
+        pasillos = new ArrayList<>();
+        estanterias = new ArrayList<>();
     }
 
     public String getId() {

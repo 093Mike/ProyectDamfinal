@@ -1,11 +1,13 @@
 package com.example.proyectdam.Vista.Activity;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Controlador.Activitys.Almacen.AdapterProductos;
 import com.example.proyectdam.Model.Categoria;
@@ -19,54 +21,25 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ListaProductos extends AppCompatActivity {
-    private ArrayList<Producto> productosAlmacen;
+    private C_Almacen c_almacen;
     private RecyclerView recyclerView_listaProductos;
     private AdapterProductos adapter;
-    private Categoria categoriaSeleccionada;
+    private static Context myContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_productos);
         getSupportActionBar().hide();
-        categoriaSeleccionada = (Categoria) getIntent().getSerializableExtra("categoria");
 
-        productosAlmacen = new ArrayList<>();
-        cargarProductos();
+        myContext = this;
+        c_almacen = new C_Almacen();
         recyclerView_listaProductos = findViewById(R.id.recyclerView_productos);
-        adapter = new AdapterProductos(productosAlmacen);
+        adapter = new AdapterProductos(C_Almacen.productos);
         recyclerView_listaProductos.setAdapter(adapter);
         recyclerView_listaProductos.setLayoutManager(new LinearLayoutManager(this));
-
+        c_almacen.cargarProductos(adapter, (Categoria) getIntent().getSerializableExtra("categoria"));
     }
 
-    public void cargarProductos(){
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("productos");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productosAlmacen.clear();
-                for (DataSnapshot producto : dataSnapshot.getChildren()) {
-                    for (DataSnapshot categoria : producto.child("categoria").getChildren()){
-                        if (categoria.getValue(String.class).equals(categoriaSeleccionada.getId())){
-                            productosAlmacen.add(new Producto(producto.child("nombre").getValue(String.class),
-                                    producto.child("descripcion").getValue(String.class),
-                                    new Categoria(producto.child("categoria").child("nombre").getValue(String.class)),
-                                    producto.child("cantidad").getValue(Double.class),
-                                    producto.child("proveedor").getValue(String.class),
-                                    producto.child("precioProveedor").getValue(Double.class),
-                                    producto.child("precioPVP").getValue(Double.class)));
-                        }
-                    }
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+    public static Context getInstance() { return myContext; }
 }
