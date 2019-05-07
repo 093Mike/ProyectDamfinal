@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
+import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
@@ -35,6 +36,8 @@ public class IntentsMenu {
             // ALMACEN
             case "INVENTARIO ALMACEN":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), ListaCategorias.class);
+            case "MV_User":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;
         }
         return intent;

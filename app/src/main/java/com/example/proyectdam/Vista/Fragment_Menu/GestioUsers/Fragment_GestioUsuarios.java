@@ -20,7 +20,7 @@ import com.example.proyectdam.R;
 public class Fragment_GestioUsuarios extends Fragment {
 
     public RecyclerView recyclerView;
-    C_Fragment_GestioUsuarios c_fragment_gestioUsuarios;
+    public  C_Fragment_GestioUsuarios c_fragment_gestioUsuarios;
     C_Permisos c_permisos;
     public AdaptadorUsers adaptadorUsers;
 
