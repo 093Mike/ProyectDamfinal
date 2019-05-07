@@ -2,10 +2,13 @@ package com.example.proyectdam.Controlador.Activitys;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.view.View;
 
+import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.Model.Almacen;
 import com.example.proyectdam.Model.User;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
 import com.google.firebase.database.DataSnapshot;
@@ -56,6 +59,11 @@ public class C_Activity_Menu extends Activity {
             }
         });
 
+    }
+
+    public void selecionarUser(View view){
+        IntentsMenu intentsMenu = new IntentsMenu();
+        Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent_MenuUsers("MV_User"));
     }
 
 
