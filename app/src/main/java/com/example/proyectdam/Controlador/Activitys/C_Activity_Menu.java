@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
+import com.example.proyectdam.Model.Almacen;
 import com.example.proyectdam.Model.User;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
@@ -15,6 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class C_Activity_Menu extends Activity {
     DatabaseReference mref;

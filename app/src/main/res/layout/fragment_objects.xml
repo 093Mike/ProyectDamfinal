@@ -30,7 +30,7 @@
                     android:id="@+id/boton_menu_principal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="gestioMenu"
+                    android:onClick="menuAlmacen"
                     android:text="Button" />
 
                 <Button
