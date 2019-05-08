@@ -83,7 +83,7 @@ public class C_Almacen {
                 for (DataSnapshot producto : dataSnapshot.getChildren()) {
                     for (DataSnapshot categoria : producto.child("categoria").getChildren()) {
                         if (categoria.getValue(String.class).equals(categoriaSeleccionada.getId())) {
-                            productos.add(new Producto(producto.child("id").getValue(Integer.class),
+                            productos.add(new Producto(producto.child("id").getValue(String.class),
                                     producto.child("nombre").getValue(String.class),
                                     producto.child("descripcion").getValue(String.class),
                                     new Categoria(producto.child("categoria").child("nombre").getValue(String.class)),
@@ -153,7 +153,7 @@ public class C_Almacen {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Producto.nextId = Integer.parseInt(dataSnapshot.getKey());
+                Producto.nextId = dataSnapshot.getKey();
             }
 
             @Override

@@ -5,8 +5,8 @@ package com.example.proyectdam.Model;
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 
 public class Producto {
-    private int id;
-    public static int nextId;
+    private String id;
+    public static String nextId;
     private String nombre;
     private String descripcion;
     private Categoria categoria;
@@ -30,7 +30,7 @@ public class Producto {
         this.precioPVP = precioPVP;
     }
 
-    public Producto(int id, String nombre, String descripcion, Categoria categoria, double cantidad,  String proveedor,
+    public Producto(String id, String nombre, String descripcion, Categoria categoria, double cantidad,  String proveedor,
                     double precioProveedor, double precioPVP) {
         this.id = id;
         this.nombre = nombre;
@@ -42,11 +42,11 @@ public class Producto {
         this.precioPVP = precioPVP;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

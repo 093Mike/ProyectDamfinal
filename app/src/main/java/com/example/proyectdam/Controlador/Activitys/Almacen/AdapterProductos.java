@@ -1,14 +1,6 @@
 package com.example.proyectdam.Controlador.Activitys.Almacen;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +9,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Producto;
-import com.example.proyectdam.Vista.Activity.Activity_Menu;
-import com.example.proyectdam.Vista.Activity.ListaProductos;
-
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.ProductosViewHolder> implements Filterable {

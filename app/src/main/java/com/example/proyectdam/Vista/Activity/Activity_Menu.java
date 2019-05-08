@@ -41,6 +41,7 @@ public class Activity_Menu extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         MainActivity.getInstance().c_activityMain.setControl(false);
+        new C_Almacen().setAlmacenActual(null);
     }
 
 
