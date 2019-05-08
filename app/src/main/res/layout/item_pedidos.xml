@@ -13,7 +13,7 @@
 
 
         <TextView
-            android:id="@+id/pedidoid"
+            android:id="@+id/id_pedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -22,26 +22,28 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/preciototal"
+            android:id="@+id/total_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="11dp"
-            android:layout_toEndOf="@+id/pedidoid"
-            android:layout_toRightOf="@+id/pedidoid" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/num_pedidos"
+            android:id="@+id/num_productos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/preciototal"
+            android:layout_below="@+id/id_pedido"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="9dp"
             android:layout_marginLeft="9dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:paddingBottom="5dp"
             android:textSize="18sp" />
 

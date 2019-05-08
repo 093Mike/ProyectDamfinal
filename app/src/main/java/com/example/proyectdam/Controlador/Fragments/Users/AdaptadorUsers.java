@@ -51,9 +51,9 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.t_user);
-            encargo = itemView.findViewById(R.id.t_userencargo);
-            tipo = itemView.findViewById(R.id.t_userencargotipo);
+            nombre = itemView.findViewById(R.id.pedidoid);
+            encargo = itemView.findViewById(R.id.preciototal);
+            tipo = itemView.findViewById(R.id.num_pedidos);
             itemView.setOnClickListener(this);
 
         }

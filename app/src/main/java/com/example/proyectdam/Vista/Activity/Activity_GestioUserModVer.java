@@ -49,7 +49,6 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         rol = findViewById(R.id.spinner);
         encargo = findViewById(R.id.spinner2);
         nombre = findViewById(R.id.textView2);
-        permisos = findViewById(R.id.permisos);
         e_permisos = findViewById(R.id.editText7);
         nameuser = findViewById(R.id.textView3);
         gua_mod = findViewById(R.id.button5);

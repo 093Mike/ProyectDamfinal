@@ -9,6 +9,7 @@ import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
+import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 
 public class IntentsMenu {
 
@@ -22,6 +23,8 @@ public class IntentsMenu {
             case "USUARIOS":
                 intent = new Fragment_GestioUsuarios();
                 break;
+            case "PEDIDOS":
+                intent = new Fragment_MenuPedidos();
         }
         return intent;
     }
