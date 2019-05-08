@@ -49,7 +49,6 @@ public class IntentsMenu {
             case "AMPLIAR_IMAGEN_PRODUCTO":
                 intent = new Intent(ListaProductos.getInstance().getApplicationContext(), ImagenProducto.class);
                 break;
-
         }
         return intent;
     }
