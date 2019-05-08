@@ -1,19 +1,33 @@
 package com.example.proyectdam.Controlador.Activitys.Almacen;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Producto;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
+import com.example.proyectdam.Vista.Activity.ListaProductos;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.ProductosViewHolder> {
+public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.ProductosViewHolder> implements Filterable {
 
     private ArrayList<Producto> productos;
 
@@ -45,14 +59,19 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
         return productos.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
+
     public static class ProductosViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView_imagenProducto;
-        public TextView textView_nombreProducto;
-        public TextView textView_cantidadProducto;
-        public TextView textView_ubicacion;
-        public TextView textView_proveedor;
-        public TextView textView_precioProveedor;
-        public TextView textView_precioPVP;
+        public TextView textView_nombreProducto,
+                textView_cantidadProducto,
+                textView_ubicacion,
+                textView_proveedor,
+                textView_precioProveedor,
+                textView_precioPVP;
 
         public ProductosViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +82,26 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
             textView_proveedor = itemView.findViewById(R.id.textView_proveedor);
             textView_precioProveedor = itemView.findViewById(R.id.textView_precioProveedor);
             textView_precioPVP = itemView.findViewById(R.id.textView_precioPVP);
+
+            imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO: enviar imagen del viewHolder a ImagenProducto.class
+
+//                    Bitmap bm = ((StateListDrawable)imageView_imagenProducto.getDrawable())
+//
+//
+//                    ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+//                    bm.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+//                    byte[] imagen = bStream.toByteArray();
+//
+//                    IntentsMenu intentsMenu = new IntentsMenu();
+//                    Intent intent = intentsMenu.gestioIntent(imageView_imagenProducto.getTag().toString().toUpperCase());
+//                    ListaProductos.getInstance().startActivity(intent.putExtra("imagen", imagen));
+
+
+                }
+            });
         }
     }
 }

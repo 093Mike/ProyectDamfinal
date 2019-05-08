@@ -35,6 +35,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
+                android:tag="ampliar_imagen_producto"
                 app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
                 tools:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
