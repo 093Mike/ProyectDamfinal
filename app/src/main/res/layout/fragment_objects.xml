@@ -49,11 +49,19 @@
 
                 <Button
                     android:id="@+id/btActuImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="ActualizarImagenes"
+                    android:text="Actualizar Productos" />
+
+                <Button
+                    android:id="@+id/btNuevaCategoria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="ActualizarImagenes"
-                    android:text="Actualizar Imagenes" />
+                    android:tag="CREAR CATEGORIA"
+                    android:onClick="NuevaCategoria"
+                    android:text="Nueva categoria" />
 
             </LinearLayout>
         </HorizontalScrollView>

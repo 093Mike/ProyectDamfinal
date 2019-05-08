@@ -92,10 +92,10 @@ public class Activity_Menu extends AppCompatActivity {
                     //enviamos peticion
                     envia.writeUTF("ACTUALIZAR_IMAGENES");
                     //borramos la carpeta productos con todas las categorias dentro
-                    Log.d("asd",getApplicationContext().getFilesDir()
+                    Log.d("asd", getApplicationContext().getFilesDir()
                             .getPath());
-                     File rutaProductos = new File(getApplicationContext().getFilesDir()
-                           .getPath() + "/Productos");
+                    File rutaProductos = new File(getApplicationContext().getFilesDir()
+                            .getPath() + "/Productos");
 
                     recursiveDelete(rutaProductos);
 
@@ -113,8 +113,6 @@ public class Activity_Menu extends AppCompatActivity {
                         File rutaCategoria = new File(getApplicationContext().getFilesDir()
                                 .getPath() + "/Productos/" + categoria);
 
-                        Log.d("asd",getApplicationContext().getFilesDir()
-                                .getPath());
                         //creo las carpetas correspondientes;
                         rutaCategoria.mkdirs();
                         dirCategoria = (HashMap) recibir.readObject();
@@ -137,7 +135,7 @@ public class Activity_Menu extends AppCompatActivity {
                 }
             }
 
-           //funcion que borra_todo lo que haya dentro de un directorio.
+            //funcion que borra_todo lo que haya dentro de un directorio.
             private void recursiveDelete(File file) {
                 //to end the recursive loop
                 if (!file.exists())
@@ -152,7 +150,7 @@ public class Activity_Menu extends AppCompatActivity {
                 }
                 //call delete to delete files and empty directory
                 file.delete();
-                System.out.println("Deleted file/folder: "+file.getAbsolutePath());
+                System.out.println("Deleted file/folder: " + file.getAbsolutePath());
             }
         }).start();
 
@@ -170,4 +168,10 @@ public class Activity_Menu extends AppCompatActivity {
         return myContext;
     }
 
+    public void NuevaCategoria(View view) {
+
+        IntentsMenu intentsMenu = new IntentsMenu();
+
+        startActivity(intentsMenu.gestioIntent_MenuUsers(view.getTag().toString()));
+    }
 }
