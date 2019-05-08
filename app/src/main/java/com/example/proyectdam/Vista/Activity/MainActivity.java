@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         c_activityMain.initialize();
+        e_user.setText("");
+        password.setText("");
     }
 
     public void iniciarLogin(View view){ c_activityMain.iniciarLogin(e_user.getText().toString(),password.getText().toString()); }
