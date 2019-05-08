@@ -1,22 +1,19 @@
 package com.example.proyectdam.Vista.Activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
+import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
-import com.example.proyectdam.Model.Almacen;
 import com.example.proyectdam.R;
-
-import java.util.ArrayList;
 
 public class Activity_Menu extends AppCompatActivity {
     public C_Activity_Menu c_activity_menu;
@@ -37,10 +34,11 @@ public class Activity_Menu extends AppCompatActivity {
         c_almacen.cargarAlmacenes();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        MainActivity.getInstance().c_activityMain.setControl(false);
+        finishAffinity();
     }
 
 
@@ -66,6 +64,12 @@ public class Activity_Menu extends AppCompatActivity {
         } else {
             Toast.makeText(myContext, "No tienes permisos para entrar a ese sitio.", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void powerOff(View view) {
+        MainActivity.getInstance().c_activityMain.getmAuth().signOut();
+        MainActivity.getInstance().c_activityMain.control = false;
+//        MainActivity.getInstance().c_activityMain.setmAuth(null);
+        finish();
     }
 
     private static Activity_Menu myContext;

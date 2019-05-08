@@ -14,15 +14,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class C_ActivityMain extends Activity{
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    private boolean control;
+    public boolean control;
 
     public void initialize(){
         user = mAuth.getCurrentUser();
+        if (user != null) {
+                Intent intent = new Intent(MainActivity.getInstance(), Activity_Menu.class);
+                MainActivity.getInstance().startActivity(intent);
+
+        }
     }
 
 
