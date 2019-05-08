@@ -85,15 +85,23 @@ public class Activity_Menu extends AppCompatActivity {
 
                 try {
                     skCliente = new Socket(HOST, PUERTO);
+                    os = skCliente.getOutputStream();
+                    envia = new DataOutputStream(os);
+
+
+                    //enviamos peticion
+                    envia.writeUTF("ACTUALIZAR_IMAGENES");
+                    //borramos la carpeta productos con todas las categorias dentro
+                    Log.d("asd",getApplicationContext().getFilesDir()
+                            .getPath());
+                     File rutaProductos = new File(getApplicationContext().getFilesDir()
+                           .getPath() + "/Productos");
+
+                    recursiveDelete(rutaProductos);
+
                     is = skCliente.getInputStream();
                     recibir = new ObjectInputStream(is);
-                    os = skCliente.getOutputStream();
 
-                    //borramos la carpeta productos con todas las categorias dentro
-
-                    File rutaProductos = new File(getApplicationContext().getFilesDir()
-                            .getPath() + "\\Productos");
-                    rutaProductos.delete();
 
                     //recibimos el numero de categorias que recibiremos.
                     int numCategorias = recibir.readInt();
@@ -103,7 +111,10 @@ public class Activity_Menu extends AppCompatActivity {
 
                         //creamos el file con la ruta donde se pondran las categorias y los archivos.
                         File rutaCategoria = new File(getApplicationContext().getFilesDir()
-                                .getPath() + "\\Productos\\" + categoria);
+                                .getPath() + "/Productos/" + categoria);
+
+                        Log.d("asd",getApplicationContext().getFilesDir()
+                                .getPath());
                         //creo las carpetas correspondientes;
                         rutaCategoria.mkdirs();
                         dirCategoria = (HashMap) recibir.readObject();
@@ -113,7 +124,7 @@ public class Activity_Menu extends AppCompatActivity {
                         for (Map.Entry<String, byte[]> entrada : dirCategoria.entrySet()) {
 
                             //creamos   fileoutputstram con la ruta qu ele corresponde para guardar las imagenes
-                            FileOutputStream guardar = new FileOutputStream(rutaCategoria + "\\" + entrada.getKey());
+                            FileOutputStream guardar = new FileOutputStream(rutaCategoria + "/" + entrada.getKey());
                             guardar.write(entrada.getValue());
 
                         }
@@ -124,6 +135,24 @@ public class Activity_Menu extends AppCompatActivity {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+            }
+
+           //funcion que borra_todo lo que haya dentro de un directorio.
+            private void recursiveDelete(File file) {
+                //to end the recursive loop
+                if (!file.exists())
+                    return;
+
+                //if directory, go inside and call recursively
+                if (file.isDirectory()) {
+                    for (File f : file.listFiles()) {
+                        //call recursively
+                        recursiveDelete(f);
+                    }
+                }
+                //call delete to delete files and empty directory
+                file.delete();
+                System.out.println("Deleted file/folder: "+file.getAbsolutePath());
             }
         }).start();
 
