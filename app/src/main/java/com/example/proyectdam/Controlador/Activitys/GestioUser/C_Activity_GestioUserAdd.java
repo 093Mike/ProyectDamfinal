@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.Toast;
+
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
@@ -90,4 +91,6 @@ public class C_Activity_GestioUserAdd extends Activity {
                     }
                 });
         }
+
+
 }

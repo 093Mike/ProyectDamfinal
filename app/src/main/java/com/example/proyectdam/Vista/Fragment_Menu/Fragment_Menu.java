@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.proyectdam.R;
 
@@ -17,6 +18,7 @@ public class Fragment_Menu extends Fragment {
     public static Button[] options = new Button[] {boton1,boton2,boton3};
     private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2,R.id.boton_menu_principal3};
     static String[] nombre_botones = new String[]{"Almacen","Pedidos","Usuarios"};
+    ImageView powerOff;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class Fragment_Menu extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        powerOff = view.findViewById(R.id.b_poweroff);
         for (int i=0;i<id_buttons.length;i++){
             options[i] = getView().findViewById(id_buttons[i]);
         }
