@@ -10,14 +10,16 @@ public class Pedido {
     private ArrayList<Integer> productos;
     private ArrayList<Integer> cantidades;
     private Double precioTotal;
+    private int estado;
 
-    public Pedido(int id, String nombrecomprador, String fecharealizado, ArrayList<Integer> productos, ArrayList<Integer> cantidades, Double precioTotal) {
+    public Pedido(int id, String nombrecomprador, String fecharealizado, ArrayList<Integer> productos, ArrayList<Integer> cantidades, Double precioTotal,int estado) {
         this.id = proximoid;
         this.nombrecomprador = nombrecomprador;
         this.fecharealizado = fecharealizado;
         this.productos = productos;
         this.cantidades = cantidades;
         this.precioTotal = precioTotal;
+        this.estado = estado;
         proximoid++;
     }
 
@@ -67,5 +69,13 @@ public class Pedido {
 
     public void setPrecioTotal(Double precioTotal) {
         this.precioTotal = precioTotal;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 }

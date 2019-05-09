@@ -1,10 +1,12 @@
-package com.example.proyectdam.Controlador.Activitys.Pedidos;
+package com.example.proyectdam.Controlador.Fragments.Pedidos;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.proyectdam.Model.Pedido;
@@ -34,9 +36,29 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
         TextView id_pedido = viewHolder.id_pedido;
         TextView total = viewHolder.total;
         TextView num_productos = viewHolder.num_productos;
-        id_pedido.setText("PEDIDO #"+itemList.get(i).getId());
+        id_pedido.setText("PEDIDO #"+itemList.get(i).getId() + "\n" + itemList.get(i).getFecharealizado());
         total.setText(itemList.get(i).getPrecioTotal() + "€");
         num_productos.setText(itemList.get(i).getProductos().size()+" Productos");
+        int estado = itemList.get(i).getEstado();
+        RelativeLayout layout = viewHolder.layout;
+        switch (estado){
+            case 0:
+                layout.setBackgroundColor(Color.parseColor("#A9F5A9"));
+                break;
+            case 1:
+                layout.setBackgroundColor(Color.parseColor("#58FA58"));
+                break;
+            case 2:
+                layout.setBackgroundColor(Color.parseColor("#58ACFA"));
+                break;
+            case 3:
+                layout.setBackgroundColor(Color.parseColor("#F5A9F2"));
+                break;
+            case 4:
+                layout.setBackgroundColor(Color.parseColor("#FA5858"));
+
+                break;
+        }
     }
 
     @Override
@@ -44,6 +66,7 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        RelativeLayout layout;
         TextView id_pedido,total,num_productos;
 
         public ViewHolder(@NonNull View itemView) {
@@ -51,6 +74,7 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
             id_pedido =itemView.findViewById(R.id.id_pedido);
             total = itemView.findViewById(R.id.total_precio);
             num_productos = itemView.findViewById(R.id.num_productos);
+            layout =  itemView.findViewById(R.id.c_relative);
 
         }
 
