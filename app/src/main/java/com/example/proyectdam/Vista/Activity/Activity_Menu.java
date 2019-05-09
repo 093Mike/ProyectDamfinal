@@ -41,6 +41,7 @@ public class Activity_Menu extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finishAffinity();
+
     }
 
 

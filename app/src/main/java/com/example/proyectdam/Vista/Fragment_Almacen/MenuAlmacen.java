@@ -72,10 +72,4 @@ public class MenuAlmacen extends Fragment {
             }
         });
     }
-
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        new C_Almacen().setAlmacenActual(null);
-//    }
 }

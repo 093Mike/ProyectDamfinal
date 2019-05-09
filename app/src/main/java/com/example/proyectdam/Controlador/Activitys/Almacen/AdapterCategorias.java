@@ -30,19 +30,39 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Ca
     public CategoriasViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.categoria_adapter, viewGroup, false);
         return new CategoriasViewHolder(view);
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoriasViewHolder categoriasViewHolder, int i) {
-        switch (categoriasProductos.get(i).getNombre()){
-            case "Hardware":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_hardware);
+        switch (categoriasProductos.get(i).getId()){
+            case "AUD":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_audiofotovideo);
                 break;
-            case "Drones":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_drones);
+            case "COM":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_componentesinformaticos);
                 break;
-            case "Televisores":
+            case "CON":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_consolasvideojuegos);
+                break;
+            case "OTR":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_otros);
+                break;
+            case "HOG":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_hogar);
+                break;
+            case "ORD":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_ordenadores);
+                break;
+            case "PER":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_perifericos);
+                break;
+            case "RAD":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_radiocontrol);
+                break;
+            case "SMA":
+                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_smartphones);
+                break;
+            case "TEL":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_televisores);
                 break;
         }

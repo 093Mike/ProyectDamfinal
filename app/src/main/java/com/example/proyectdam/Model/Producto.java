@@ -1,12 +1,10 @@
 package com.example.proyectdam.Model;
 
-// TODO: Implementar ubicación del producto --> almacén en el que se encuentra y en qué parte
-
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 
 public class Producto {
-    private int id;
-    public static int nextId;
+    private String id;
+    public static String nextId;
     private String nombre;
     private String descripcion;
     private Categoria categoria;
@@ -17,36 +15,40 @@ public class Producto {
     private double precioProveedor;
     private double precioPVP;
 
-    public Producto(String nombre, String descripcion, Categoria categoria, double cantidad,  String proveedor,
-                     double precioProveedor, double precioPVP) {
+    public Producto(String nombre, String descripcion, Categoria categoria, Almacen almacen, String ubicacion,
+                    double cantidad, String proveedor, double precioProveedor, double precioPVP) {
         new C_Almacen().siguienteId_producto();
         id = nextId;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
+        this.almacen = almacen;
+        this.ubicacion = ubicacion;
         this.proveedor = proveedor;
         this.categoria = categoria;
         this.precioProveedor = precioProveedor;
         this.precioPVP = precioPVP;
     }
 
-    public Producto(int id, String nombre, String descripcion, Categoria categoria, double cantidad,  String proveedor,
-                    double precioProveedor, double precioPVP) {
+    public Producto(String id, String nombre, String descripcion, Categoria categoria, Almacen almacen,
+                    String ubicacion, double cantidad,  String proveedor, double precioProveedor, double precioPVP) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
+        this.almacen = almacen;
+        this.ubicacion = ubicacion;
         this.proveedor = proveedor;
         this.categoria = categoria;
         this.precioProveedor = precioProveedor;
         this.precioPVP = precioPVP;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,20 +60,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public double getCantidad() {
-        return cantidad;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public String getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(String proveedor) {
-        this.proveedor = proveedor;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Categoria getCategoria() {
@@ -82,13 +76,43 @@ public class Producto {
         this.categoria = categoria;
     }
 
+    public double getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Almacen getAlmacen() {
+        return almacen;
+    }
+
+    public void setAlmacen(Almacen almacen) {
+        this.almacen = almacen;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
+    }
+
     public double getPrecioProveedor() {
         return precioProveedor;
     }
 
-    public void setPrecioProveedor(double precioProveedor) {
-        this.precioProveedor = precioProveedor;
-    }
+    public void setPrecioProveedor(double precioProveedor) { this.precioProveedor = precioProveedor; }
 
     public double getPrecioPVP() {
         return precioPVP;
@@ -96,21 +120,5 @@ public class Producto {
 
     public void setPrecioPVP(double precioPVP) {
         this.precioPVP = precioPVP;
-    }
-
-//    public String getModelo() {
-//        return modelo;
-//    }
-//
-//    public void setModelo(String modelo) {
-//        this.modelo = modelo;
-//    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }
