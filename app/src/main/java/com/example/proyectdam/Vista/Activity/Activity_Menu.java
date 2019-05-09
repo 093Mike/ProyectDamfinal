@@ -14,6 +14,8 @@ import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
+import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 
 public class Activity_Menu extends AppCompatActivity {
     public C_Activity_Menu c_activity_menu;
@@ -42,15 +44,30 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void gestioMenu(View view) {
         tag_escogido = ((String) view.getTag()).toUpperCase();
+        for (int i=0 ; i < Fragment_Menu.options.length ; i++){
+            Fragment_Menu.options[i].setClickable(true);
+            Fragment_Menu.options[i].setBackgroundTintList(getResources().getColorStateList(R.color.color_normal));
+        }
+        view.setClickable(false);
+        view.setBackgroundTintList(getResources().getColorStateList(R.color.color_normal_noclick));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         IntentsMenu intentsMenu = new IntentsMenu();
         ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu(tag_escogido), "fragment_meters");
         ft.commit();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void menuAlmacen(View v) {
+
+        for (int i=0 ; i < Fragment_Menu.options.length ; i++){
+            Fragment_Menu.options[i].setClickable(true);
+            Fragment_Menu.options[i].setBackgroundTintList(getResources().getColorStateList(R.color.color_normal));
+        }
+        v.setClickable(false);
+        v.setBackgroundTintList(getResources().getColorStateList(R.color.color_normal_noclick));
         if (c_almacen.getAlmacenActual() == null) {
             c_almacen.alertDialog_escogeAlmacen(v);
         }
@@ -70,6 +87,10 @@ public class Activity_Menu extends AppCompatActivity {
         MainActivity.getInstance().c_activityMain.control = false;
 //        MainActivity.getInstance().c_activityMain.setmAuth(null);
         finish();
+    }
+
+    public void gestioFiltro(View view) {
+        Fragment_MenuPedidos.getInstance().gestioFiltro(view);
     }
 
     private static Activity_Menu myContext;
