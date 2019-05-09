@@ -18,7 +18,7 @@ public class Fragment_MenuPedidos  extends Fragment {
 
     C_Fragment_MenuPedidos c_fragment_menuPedidos;
     RecyclerView recyclerView;
-    AdaptadorPedidos adaptadorPedidos;
+    public AdaptadorPedidos adaptadorPedidos;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,12 +28,18 @@ public class Fragment_MenuPedidos  extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         c_fragment_menuPedidos = new C_Fragment_MenuPedidos();
         recyclerView = view.findViewById(R.id.reciclerpedidos);
-        adaptadorPedidos = new AdaptadorPedidos(R.layout.item_pedidos , c_fragment_menuPedidos.getPedidos());
         c_fragment_menuPedidos.initialite();
+        adaptadorPedidos = new AdaptadorPedidos(R.layout.item_pedidos , c_fragment_menuPedidos.getPedidos());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adaptadorPedidos);
 
 
+
     }
+
+    private static Fragment_MenuPedidos myContext;
+    public Fragment_MenuPedidos() { myContext = this; }
+    public static Fragment_MenuPedidos getInstance() { return myContext; }
+
 }
 

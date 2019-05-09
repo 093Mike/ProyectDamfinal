@@ -1,22 +1,24 @@
 package com.example.proyectdam.Model;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Pedido {
     private int id;
-    private static int proximoid = 1000;
+    public static int proximoid = 1000;
     private String nombrecomprador;
-    private Calendar fecharealizado;
-    private ArrayList<Producto> productos;
+    private String fecharealizado;
+    private ArrayList<Integer> productos;
     private ArrayList<Integer> cantidades;
     private Double precioTotal;
 
-    public Pedido(int id, String nombrecomprador, Calendar fecharealizado, Double precioTotal) {
-        this.id = id;
+    public Pedido(int id, String nombrecomprador, String fecharealizado, ArrayList<Integer> productos, ArrayList<Integer> cantidades, Double precioTotal) {
+        this.id = proximoid;
         this.nombrecomprador = nombrecomprador;
         this.fecharealizado = fecharealizado;
+        this.productos = productos;
+        this.cantidades = cantidades;
         this.precioTotal = precioTotal;
+        proximoid++;
     }
 
     public int getId() {
@@ -35,19 +37,19 @@ public class Pedido {
         this.nombrecomprador = nombrecomprador;
     }
 
-    public Calendar getFecharealizado() {
+    public String getFecharealizado() {
         return fecharealizado;
     }
 
-    public void setFecharealizado(Calendar fecharealizado) {
+    public void setFecharealizado(String fecharealizado) {
         this.fecharealizado = fecharealizado;
     }
 
-    public ArrayList<Producto> getProductos() {
+    public ArrayList<Integer> getProductos() {
         return productos;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
+    public void setProductos(ArrayList<Integer> productos) {
         this.productos = productos;
     }
 

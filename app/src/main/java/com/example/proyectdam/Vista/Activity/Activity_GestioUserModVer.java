@@ -13,9 +13,8 @@ import com.example.proyectdam.R;
 
 public class Activity_GestioUserModVer extends AppCompatActivity {
 
-    TextView nombre,permisos;
+    TextView nombre, info;
     EditText e_permisos;
-    TextView nameuser;
     Button gua_mod;
     Spinner rol,encargo;
 
@@ -29,15 +28,20 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         getSupportActionBar().hide();
         initialite();
         c_activity_gestioUserModVer.inicialite();
-        nameuser.setText(c_activity_gestioUserModVer.recibirNombre());
 
-        if(!c_activity_gestioUserModVer.isSuper()){
+        info.setVisibility(View.INVISIBLE);
+
+        if(!Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Super")){
             gua_mod.setVisibility(View.INVISIBLE);
             e_permisos.setVisibility(View.INVISIBLE);
+            rol.setVisibility(View.INVISIBLE);
+            encargo.setVisibility(View.INVISIBLE);
+            info.setVisibility(View.VISIBLE);
+            info.setText("Nombre:"+c_activity_gestioUserModVer.recibirNombre()+"\nPermiso:"+c_activity_gestioUserModVer.recibirPermisos());
         }
         if(c_activity_gestioUserModVer.isAlTra()){
-
             nombre.setText(c_activity_gestioUserModVer.recibirNombre()+"\n"+c_activity_gestioUserModVer.recibirPermisos()+" - "+c_activity_gestioUserModVer.recibirEncargo());
+            info.setText(info.getText().toString() + "\nEncargo : "+c_activity_gestioUserModVer.recibirEncargo());
         }
         else{
             nombre.setText(c_activity_gestioUserModVer.recibirNombre()+"\n"+c_activity_gestioUserModVer.recibirPermisos());
@@ -50,12 +54,13 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         encargo = findViewById(R.id.spinner2);
         nombre = findViewById(R.id.textView2);
         e_permisos = findViewById(R.id.editText7);
-        nameuser = findViewById(R.id.textView3);
         gua_mod = findViewById(R.id.button5);
+        info = findViewById(R.id.textView3);
     }
 
 
     public void modUser(View view) {
         c_activity_gestioUserModVer.modificar(e_permisos.getText().toString(),(String) rol.getSelectedItem(),(String) encargo.getSelectedItem());
     }
+
 }

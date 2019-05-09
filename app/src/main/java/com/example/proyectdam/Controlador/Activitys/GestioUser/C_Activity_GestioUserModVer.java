@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class C_Activity_GestioUserModVer extends Activity {
 
     int pos;
-    boolean userActual;
+    public boolean userActual;
     ArrayList<User> users;
 
     public void inicialite(){
@@ -48,12 +48,6 @@ public class C_Activity_GestioUserModVer extends Activity {
         }
     }
 
-
-
-
-    public String test(){
-        return users.get(pos).getNombre();
-    }
 
 
 }

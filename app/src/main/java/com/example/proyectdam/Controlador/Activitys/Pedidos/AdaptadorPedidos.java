@@ -36,7 +36,7 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
         TextView num_productos = viewHolder.num_productos;
         id_pedido.setText("PEDIDO #"+itemList.get(i).getId());
         total.setText(itemList.get(i).getPrecioTotal() + "€");
-        num_productos.setText("Productos");
+        num_productos.setText(itemList.get(i).getProductos().size()+" Productos");
     }
 
     @Override
