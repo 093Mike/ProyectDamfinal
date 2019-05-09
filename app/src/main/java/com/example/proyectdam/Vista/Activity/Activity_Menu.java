@@ -72,6 +72,14 @@ public class Activity_Menu extends AppCompatActivity {
         if (c_almacen.getAlmacenActual() == null) {
             c_almacen.alertDialog_escogeAlmacen(v);
         }
+        else{
+            tag_escogido = ((String) v.getTag()).toUpperCase();
+            FragmentTransaction ft = Activity_Menu.getInstance().getSupportFragmentManager().beginTransaction();
+            IntentsMenu intentsMenu = new IntentsMenu();
+            ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu(tag_escogido), "fragment_meters");
+            ft.commit();
+        }
+
     }
 
     public void gestioaddUsers(View view) {
