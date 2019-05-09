@@ -21,50 +21,50 @@ public class Data {
         productos = new ArrayList<>();
         almacenes = new ArrayList<>();
         categorias = new ArrayList<>();
-        cargarDatos();
+        //cargarDatos();
     }
 
-    public void cargarDatos(){
-        database = FirebaseDatabase.getInstance("https://proyectdamfinal.firebaseio.com/");
-        DatabaseReference ref = database.getReference("/");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    switch (data.getKey()){
-                        case "almacenes":
-                            for (DataSnapshot almacen : data.getChildren() ) {
-                                almacenes.add(new Almacen(almacen.child("direccion").getValue(String.class)));
-                            }
-                            break;
-                        case "productos":
-                            for (DataSnapshot producto : data.getChildren()) {
-                                productos.add(new Producto(producto.child("nombre").getValue(String.class),
-                                        producto.child("descripcion").getValue(String.class),
-                                        new Categoria(producto.child("categoria").child("nombre").getValue(String.class)),
-                                        producto.child("cantidad").getValue(Double.class),
-                                        producto.child("proveedor").getValue(String.class),
-                                        producto.child("precioProveedor").getValue(Double.class),
-                                        producto.child("precioPVP").getValue(Double.class)
-                                ));
-                            }
-                            break;
-                        case "categorias":
-                            for ( DataSnapshot categoria : data.getChildren() ) {
-                                categorias.add(new Categoria(categoria.child("nombre").getValue(String.class)));
-                            }
-                            break;
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.d("proyecto", "Failed to read value.", error.toException());
-            }
-        });
-    }
+//    public void cargarDatos(){
+//        database = FirebaseDatabase.getInstance("https://proyectdamfinal.firebaseio.com/");
+//        DatabaseReference ref = database.getReference("/");
+//        ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot data : dataSnapshot.getChildren()) {
+//                    switch (data.getKey()){
+//                        case "almacenes":
+//                            for (DataSnapshot almacen : data.getChildren() ) {
+//                                almacenes.add(new Almacen(almacen.child("direccion").getValue(String.class)));
+//                            }
+//                            break;
+//                        case "productos":
+//                            for (DataSnapshot producto : data.getChildren()) {
+//                                productos.add(new Producto(producto.child("nombre").getValue(String.class),
+//                                        producto.child("descripcion").getValue(String.class),
+//                                        new Categoria(producto.child("categoria").child("nombre").getValue(String.class)),
+//                                        producto.child("cantidad").getValue(Double.class),
+//                                        producto.child("proveedor").getValue(String.class),
+//                                        producto.child("precioProveedor").getValue(Double.class),
+//                                        producto.child("precioPVP").getValue(Double.class)
+//                                ));
+//                            }
+//                            break;
+//                        case "categorias":
+//                            for ( DataSnapshot categoria : data.getChildren() ) {
+//                                categorias.add(new Categoria(categoria.child("nombre").getValue(String.class)));
+//                            }
+//                            break;
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                // Failed to read value
+//                Log.d("proyecto", "Failed to read value.", error.toException());
+//            }
+//        });
+//    }
 
     public static ArrayList<Producto> getProductos() {
         return productos;

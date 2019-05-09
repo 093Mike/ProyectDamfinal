@@ -8,7 +8,6 @@ public class Almacen {
     public static int numeroAlmacen;
     private String id;
     private String direccion;
-    private ArrayList<String> secciones;
     private ArrayList<String> pasillos;
     private ArrayList<String> estanterias;
 
@@ -16,7 +15,6 @@ public class Almacen {
         new C_Almacen().siguienteId_almacen();
         id = "ALM" + String.valueOf(numeroAlmacen);
         this.direccion = direccion;
-        secciones = new ArrayList<>();
         pasillos = new ArrayList<>();
         estanterias = new ArrayList<>();
     }
@@ -24,7 +22,6 @@ public class Almacen {
     public Almacen(String id, String direccion){
         this.id = id;
         this.direccion = direccion;
-        secciones = new ArrayList<>();
         pasillos = new ArrayList<>();
         estanterias = new ArrayList<>();
     }
@@ -45,27 +42,15 @@ public class Almacen {
         this.direccion = direccion;
     }
 
-    public ArrayList<String> getSecciones() {
-        return secciones;
-    }
-
-    public void setSecciones(ArrayList<String> secciones) {
-        this.secciones = secciones;
-    }
-
     public ArrayList<String> getPasillos() {
         return pasillos;
     }
 
-    public void setPasillos(ArrayList<String> pasillos) {
-        this.pasillos = pasillos;
-    }
+    public void setPasillos(String pasillo) { pasillos.add(pasillo); }
 
     public ArrayList<String> getEstanterias() {
         return estanterias;
     }
 
-    public void setEstanterias(ArrayList<String> estanterias) {
-        this.estanterias = estanterias;
-    }
+    public void setEstanterias(String estanteria) { estanterias.add(estanteria); }
 }
