@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Vista.Activity.ImagenProducto"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">
-        </activity>
+        <activity android:name=".Vista.Activity.AddProducto"></activity>
+        <activity
+            android:name=".Vista.Activity.ImagenProducto"
+            android:label=""
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
         <activity android:name=".Vista.Activity.ListaProductos" />
         <activity android:name=".Vista.Activity.ListaCategorias" />
         <activity android:name=".Vista.Activity.MainActivity">

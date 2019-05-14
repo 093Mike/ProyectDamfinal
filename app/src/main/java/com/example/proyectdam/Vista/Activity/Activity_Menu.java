@@ -33,7 +33,8 @@ public class Activity_Menu extends AppCompatActivity {
         c_activity_menu.initialite();
 
         c_almacen = new C_Almacen();
-        c_almacen.cargarAlmacenes();
+        c_almacen.cargarAlmacenesApp();
+        c_almacen.cargarProveedoresApp();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -41,7 +42,6 @@ public class Activity_Menu extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finishAffinity();
-
     }
 
 
@@ -111,5 +111,4 @@ public class Activity_Menu extends AppCompatActivity {
     public static Activity_Menu getInstance() {
         return myContext;
     }
-
 }

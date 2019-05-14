@@ -1,7 +1,5 @@
 package com.example.proyectdam.Model;
 
-import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
-
 public class Producto {
     private String id;
     public static String nextId;
@@ -17,7 +15,6 @@ public class Producto {
 
     public Producto(String nombre, String descripcion, Categoria categoria, Almacen almacen, String ubicacion,
                     double cantidad, String proveedor, double precioProveedor, double precioPVP) {
-        new C_Almacen().siguienteId_producto();
         id = nextId;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -31,7 +28,7 @@ public class Producto {
     }
 
     public Producto(String id, String nombre, String descripcion, Categoria categoria, Almacen almacen,
-                    String ubicacion, double cantidad,  String proveedor, double precioProveedor, double precioPVP) {
+                    String ubicacion, double cantidad, String proveedor, double precioProveedor, double precioPVP) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
