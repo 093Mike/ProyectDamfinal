@@ -8,12 +8,14 @@ import android.graphics.Matrix;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -29,7 +31,7 @@ import java.util.HashMap;
 
 public class Nueva_Categoria extends AppCompatActivity {
 
-    EditText crear;
+    EditText eTNuevaCategoria;
     Button btCrear;
     Button btSeleccionarImagen;
     static final String HOST = "192.168.43.95";
@@ -38,8 +40,10 @@ public class Nueva_Categoria extends AppCompatActivity {
     String nombreImagen;
     InputStream is;
     OutputStream os;
-    ObjectOutputStream envia;
+    DataOutputStream envias;
+    ObjectOutputStream enviaObject;
     DataInputStream recibir;
+    FileOutputStream guardar;
     private static final int SELECT_FILE = 1;
 
     @Override
@@ -47,7 +51,7 @@ public class Nueva_Categoria extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nueva__categoria);
 
-        crear = findViewById(R.id.tvCrearC);
+        eTNuevaCategoria = findViewById(R.id.tvCrearC);
         btCrear = findViewById(R.id.btCrearCat);
         btSeleccionarImagen = findViewById(R.id.btSeleccionarImg);
         btCrear.setOnClickListener(new View.OnClickListener() {
@@ -57,51 +61,57 @@ public class Nueva_Categoria extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
-
                         Socket skCliente = null;
-
-
                         try {
                             skCliente = new Socket(HOST, PUERTO);
                             os = skCliente.getOutputStream();
-                            envia = new ObjectOutputStream(os);
                             is = skCliente.getInputStream();
                             recibir = new DataInputStream(is);
-
+                            envias = new DataOutputStream(os);
 
                             //enviamos peticion
-                            envia.writeUTF("CREAR_CATEGORIA");
+                            envias.writeUTF("CREAR_CATEGORIA");
+
                             // enviamos el nombre de la categoria nueva
-                            envia.writeUTF(btCrear.getText().toString());
+
+                            envias.writeUTF(eTNuevaCategoria.getText().toString());
 
                             //creamos el file con la ruta donde se pondran las categorias y los archivos.
                             File rutaNuevaCategoria = new File(getApplicationContext().getFilesDir()
-                                    .getPath() + "/Productos/" + btCrear.getText().toString());
+                                    .getPath() + "/Productos/" + eTNuevaCategoria.getText().toString());
                             //creo las carpetas correspondientes;
                             rutaNuevaCategoria.mkdirs();
 
+                            File dirImagenesCat = new File(getApplicationContext().getFilesDir()
+                                    .getPath() + "/Productos/Imagenes Categoria");
+                                dirImagenesCat.mkdirs();
+
 
                             //guardamos  la imagen en la aplicacion del movil
-                            FileOutputStream guardar = new FileOutputStream(getApplicationContext().getFilesDir()
-                                    .getPath() + "/Productos/Imagenes Categoria" + btCrear.getText().toString());
+                            guardar = new FileOutputStream(getApplicationContext().getFilesDir()
+                                    .getPath() + "/Productos/Imagenes Categoria/" +eTNuevaCategoria.getText().toString() + ".JPEG");
                             guardar.write(imagenBytes);
 
-                            String extension = nombreImagen.substring(nombreImagen.lastIndexOf("."));
+                            // String extension = nombreImagen.substring(nombreImagen.lastIndexOf("."));
                             //nombre de la imagen de la categoria con su extension (cada imagen se llamara como su categoria)
-                            String img = btCrear.getText().toString() + extension;
-                            
+                            //  String img = btCrear.getText().toString() + extension;
+                            String img = eTNuevaCategoria.getText().toString()+".JPEG";
+
                             //envio en nombre de la imagen y el array de bytes
-                            envia.writeUTF(img);
-                            envia.write(imagenBytes);
-                            
+
+                            envias.writeUTF(img);
+
+                            //enviamos la longitud array de bites
+                            envias.writeInt(imagenBytes.length);
+
+                            envias.write(imagenBytes);
+
+
+
 
                             //FALTA PONER REGISTRO EN LA BASE DE DATOS CON LA NUEVA CATEGORIA.
 
 
-                            int realizado = recibir.readInt();
-
-                            if (realizado == 1) {
 
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -109,10 +119,19 @@ public class Nueva_Categoria extends AppCompatActivity {
                                         Toast.makeText(Nueva_Categoria.this, "Categoria creada correctamente", Toast.LENGTH_LONG).show();
                                     }
                                 });
-                            }
+                                finish();
+
 
                         } catch (IOException e) {
-                            e.printStackTrace();
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(Nueva_Categoria.this, "Error al crear la categoria", Toast.LENGTH_LONG).show();
+
+                                }
+                            });
+                            finish();
                         }
 
 
@@ -167,9 +186,14 @@ public class Nueva_Categoria extends AppCompatActivity {
                             // Transformamos la URI de la imagen a inputStream y este a un Bitmap
                             Bitmap bmp = BitmapFactory.decodeStream(imageStream);
                             Bitmap imagenBitMP = redimensionarImagenMaximo(bmp, 640, 240);
-
-                            //ATENCION!!! ESTO ES DE PRUEBA NO ES SEGURO QUE EST BIEN
-                            imagenBytes = imagenBitMP.getNinePatchChunk();
+                            //creamos flujo de datos
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            //le cambiamos el formato a la imagen
+                            imagenBitMP.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                            btSeleccionarImagen.setText(nombreImagen);
+                            //creamos el array de bytes de la imagen
+                          //  imagenBytes= new byte[stream.toByteArray().length];
+                            imagenBytes = stream.toByteArray();
 
                             // Ponemos nuestro bitmap en un ImageView que tengamos en la vista
                             //    ImageView mImg = (ImageView) findViewById(R.id.ivImagen);
@@ -196,5 +220,21 @@ public class Nueva_Categoria extends AppCompatActivity {
         matrix.postScale(scaleWidth, scaleHeight);
         // recreate the new Bitmap
         return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
+    }
+
+
+    public byte[] recibirArraB(DataInputStream recibe) throws IOException {
+         int longitud = recibe.readInt();
+
+            byte[] imagen = new byte[longitud];
+            int leido=0;
+
+            while(leido<longitud){
+
+               int nl= recibe.read(imagen,leido,longitud-leido) ;
+
+            }
+            return imagen;
+
     }
 }

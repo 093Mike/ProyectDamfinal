@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
+import com.example.proyectdam.Nueva_Categoria;
 import com.example.proyectdam.R;
 
 import java.io.DataInputStream;
@@ -127,6 +129,12 @@ public class Activity_Menu extends AppCompatActivity {
 
                         }
                     }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Activity_Menu.this, "Imagenes actualizadas", Toast.LENGTH_LONG).show();
+                        }
+                    });
 
                 } catch (IOException e) {
                     e.printStackTrace();
