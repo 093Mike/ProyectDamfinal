@@ -33,4 +33,6 @@ public class Categoria implements Serializable {
     public ArrayList<String> getIdAlmacenes() { return idAlmacenes; }
 
     public void setIdAlmacenes(String idAlmacen) { idAlmacenes.add(idAlmacen); }
+
 }
+

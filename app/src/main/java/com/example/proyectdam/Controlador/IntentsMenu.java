@@ -3,11 +3,15 @@ package com.example.proyectdam.Controlador;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
+
+import com.example.proyectdam.Nueva_Categoria;
+
 import com.example.proyectdam.Vista.Activity.ImagenProducto;
 import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
 import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
+
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
@@ -38,6 +42,9 @@ public class IntentsMenu {
             case "AÑADIR USUARIO":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
                 break;
+            case "CREAR CATEGORIA":
+
+                intent= new Intent(Activity_Menu.getInstance().getApplicationContext(), Nueva_Categoria.class);
             case "MV_User":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;

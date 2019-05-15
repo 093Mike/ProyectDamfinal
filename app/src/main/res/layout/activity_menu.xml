@@ -29,4 +29,5 @@
         app:layout_constraintTop_toBottomOf="@+id/fragment"
         app:layout_constraintVertical_bias="0.0"
         tools:layout="@layout/fragment_vaciomain" />
+
 </android.support.constraint.ConstraintLayout>
