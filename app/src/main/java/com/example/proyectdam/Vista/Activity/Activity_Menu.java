@@ -98,7 +98,7 @@ public class Activity_Menu extends AppCompatActivity {
                             .getPath());
                     File rutaProductos = new File(getApplicationContext().getFilesDir()
                             .getPath() + "/Productos");
-
+                     rutaProductos.mkdirs();
                     recursiveDelete(rutaProductos);
 
                     is = skCliente.getInputStream();
@@ -128,7 +128,13 @@ public class Activity_Menu extends AppCompatActivity {
                             guardar.write(entrada.getValue());
 
                         }
+                     String[] a=   rutaCategoria.list();
+
+                        for (int j = 0; j < a.length; j++) {
+                            Log.d("aaa",categoria+": "+a[j]);
+                        }
                     }
+
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

@@ -1,6 +1,7 @@
 package com.example.proyectdam;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -95,21 +96,16 @@ public class Nueva_Categoria extends AppCompatActivity {
                             // String extension = nombreImagen.substring(nombreImagen.lastIndexOf("."));
                             //nombre de la imagen de la categoria con su extension (cada imagen se llamara como su categoria)
                             //  String img = btCrear.getText().toString() + extension;
-                            String img = eTNuevaCategoria.getText().toString()+".JPEG";
+                            //enviamos el nombre de la imagen que equivale a las 3 primeras letras de la categoria en mayusculas
+                            String img = (eTNuevaCategoria.getText().toString().substring(0,3)).toUpperCase()+".JPEG";
 
-                            //envio en nombre de la imagen y el array de bytes
-
+                            //envio en nombre de la imagen
                             envias.writeUTF(img);
-
-                            //enviamos la longitud array de bites
+                            //enviamos la longitud array de bites y el array de bytes.
                             envias.writeInt(imagenBytes.length);
-
                             envias.write(imagenBytes);
 
-
-
-
-                            //FALTA PONER REGISTRO EN LA BASE DE DATOS CON LA NUEVA CATEGORIA.
+                         //FALTA PONER REGISTRO EN LA BASE DE DATOS CON LA NUEVA CATEGORIA.
 
 
 
