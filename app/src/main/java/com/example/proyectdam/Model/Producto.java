@@ -1,6 +1,8 @@
 package com.example.proyectdam.Model;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     private String id;
     public static String nextId;
     private String nombre;

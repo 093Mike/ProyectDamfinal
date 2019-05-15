@@ -1,9 +1,12 @@
 package com.example.proyectdam.Controlador.Activitys.Almacen;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,7 @@ import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Model.Categoria;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Producto;
+import com.example.proyectdam.Vista.Activity.AddProducto;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
 
 import java.util.ArrayList;
@@ -87,7 +91,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
         }
     };
 
-    public static class ProductosViewHolder extends RecyclerView.ViewHolder {
+    public class ProductosViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView_imagenProducto;
         public TextView textView_nombreProducto,
                 textView_cantidadProducto,
@@ -95,6 +99,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
                 textView_proveedor,
                 textView_precioProveedor,
                 textView_precioPVP;
+        public CardView cardView;
 
         public ProductosViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,6 +110,16 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
             textView_proveedor = itemView.findViewById(R.id.textView_proveedor);
             textView_precioProveedor = itemView.findViewById(R.id.textView_precioProveedor);
             textView_precioPVP = itemView.findViewById(R.id.textView_precioPVP);
+            cardView = itemView.findViewById(R.id.cadView_producto);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO: Implementar metodos IntentsMenu.class para abrir intents
+                    Log.d("aaa", "Click en el cardView");
+                    ((Activity)v.getContext()).startActivity(new Intent(v.getContext(), AddProducto.class).putExtra("productoModificar", exampleList.get(getLayoutPosition())));
+                }
+            });
 
             imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
                 @Override

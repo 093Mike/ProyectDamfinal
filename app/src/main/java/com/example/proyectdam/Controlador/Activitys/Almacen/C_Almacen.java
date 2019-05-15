@@ -188,12 +188,15 @@ public class C_Almacen {
                 .setItems(new String[]{"Abrir cámara...", "Abrir galería..."}, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO: IMPLEMENTAR CLASE INTENTSMENU PARA ABRIR INTENTS DESDE ESTE METODO
+                        // TODO: IMPLEMENTAR CLASE INTENTSMENU PARA ABRIR INTENTS DESDE ESTE METODO + PERMISOS CAMARA Y ALMACENAMIENTO INTERNO (?)
                         if (which == 0){
                             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             ((Activity)AddProducto.getInstance()).startActivityForResult(i,0);
                         } else if (which == 1) {
-
+                            Intent intent = new Intent();
+                            intent.setType("image/*");
+                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            ((Activity)AddProducto.getInstance()).startActivityForResult(Intent.createChooser(intent, "Seleccione una imagen"),1);
                         }
                     }
                 });
@@ -205,7 +208,6 @@ public class C_Almacen {
         for (int i = 0; i < proveedores.size(); i++) {
             proveedoresAlertDialog[i] = proveedores.get(i).getNombre();
         }
-
         AlertDialog.Builder builder = new AlertDialog.Builder(AddProducto.getInstance());
         builder.setTitle("Escoge un proveedor:")
                 .setSingleChoiceItems(proveedoresAlertDialog, -1, new DialogInterface.OnClickListener() {
@@ -273,6 +275,24 @@ public class C_Almacen {
         for (Almacen almacen : almacenes) {
             if (almacen.getId().equals(id)) {
                 return almacen;
+            }
+        }
+        return null;
+    }
+
+    public Categoria buscaCategoria(String id){
+        for (Categoria categoria : categoriasProductos) {
+            if (categoria.getId().equals(id)) {
+                return categoria;
+            }
+        }
+        return null;
+    }
+
+    public Proveedor buscaProveedor(String nombre){
+        for (Proveedor proveedor : proveedores) {
+            if (proveedor.getNombre().equals(nombre)) {
+                return proveedor;
             }
         }
         return null;

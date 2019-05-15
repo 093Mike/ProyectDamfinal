@@ -1,8 +1,9 @@
 package com.example.proyectdam.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Almacen {
+public class Almacen implements Serializable {
     public static int numeroAlmacen;
     private String id;
     private String direccion;
