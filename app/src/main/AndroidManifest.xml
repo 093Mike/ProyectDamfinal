@@ -8,6 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Nueva_Categoria"></activity>
+
         android:theme="@style/AppTheme">
         <activity android:name=".Vista.Activity.ImagenProducto"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">
@@ -27,6 +31,7 @@
             android:name=".Vista.Activity.Activity_Menu"
             android:screenOrientation="portrait" /> <!-- USERS -->
         <activity android:name=".Vista.Activity.MenuUser_add" />
+
         <activity android:name=".Vista.Activity.Activity_GestioUserModVer" />
     </application>
 

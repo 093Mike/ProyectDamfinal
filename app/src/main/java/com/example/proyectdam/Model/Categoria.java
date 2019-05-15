@@ -10,7 +10,7 @@ public class Categoria implements Serializable {
 
     public Categoria(String nombre){
         this.nombre = nombre;
-        id = nombre.substring(0,3).toUpperCase();
+        id = nombre.substring(0,4).toUpperCase();
         idAlmacenes = new ArrayList<>();
     }
 
@@ -33,4 +33,6 @@ public class Categoria implements Serializable {
     public ArrayList<String> getIdAlmacenes() { return idAlmacenes; }
 
     public void setIdAlmacenes(String idAlmacen) { idAlmacenes.add(idAlmacen); }
+
 }
+
