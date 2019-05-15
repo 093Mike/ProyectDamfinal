@@ -16,6 +16,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.proyectdam.Model.Categoria;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -59,55 +63,66 @@ public class Nueva_Categoria extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Socket skCliente = null;
-                        try {
-                            skCliente = new Socket(HOST, PUERTO);
-                            os = skCliente.getOutputStream();
-                            is = skCliente.getInputStream();
-                            recibir = new DataInputStream(is);
-                            envias = new DataOutputStream(os);
+                if (eTNuevaCategoria.getText().toString().length() < 4) {
 
-                            //enviamos peticion
-                            envias.writeUTF("CREAR_CATEGORIA");
+                    Toast.makeText(Nueva_Categoria.this, "Error, el nombre de la categoria debe tener minimo 3 caracteres", Toast.LENGTH_LONG).show();
+                } else{
 
-                            // enviamos el nombre de la categoria nueva
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Socket skCliente = null;
+                            try {
+                                skCliente = new Socket(HOST, PUERTO);
+                                os = skCliente.getOutputStream();
+                                is = skCliente.getInputStream();
+                                recibir = new DataInputStream(is);
+                                envias = new DataOutputStream(os);
 
-                            envias.writeUTF(eTNuevaCategoria.getText().toString());
+                                //enviamos peticion
+                                envias.writeUTF("CREAR_CATEGORIA");
 
-                            //creamos el file con la ruta donde se pondran las categorias y los archivos.
-                            File rutaNuevaCategoria = new File(getApplicationContext().getFilesDir()
-                                    .getPath() + "/Productos/" + eTNuevaCategoria.getText().toString());
-                            //creo las carpetas correspondientes;
-                            rutaNuevaCategoria.mkdirs();
+                                // enviamos el nombre de la categoria nueva
 
-                            File dirImagenesCat = new File(getApplicationContext().getFilesDir()
-                                    .getPath() + "/Productos/Imagenes Categoria");
+                                envias.writeUTF(eTNuevaCategoria.getText().toString());
+
+                                //creamos el file con la ruta donde se pondran las categorias y los archivos.
+                                File rutaNuevaCategoria = new File(getApplicationContext().getFilesDir()
+                                        .getPath() + "/Productos/" + eTNuevaCategoria.getText().toString());
+                                //creo las carpetas correspondientes;
+                                rutaNuevaCategoria.mkdirs();
+
+                                File dirImagenesCat = new File(getApplicationContext().getFilesDir()
+                                        .getPath() + "/Productos/Imagenes Categoria");
                                 dirImagenesCat.mkdirs();
 
 
-                            //guardamos  la imagen en la aplicacion del movil
-                            guardar = new FileOutputStream(getApplicationContext().getFilesDir()
-                                    .getPath() + "/Productos/Imagenes Categoria/" +eTNuevaCategoria.getText().toString() + ".JPEG");
-                            guardar.write(imagenBytes);
+                                //guardamos  la imagen en la aplicacion del movil
+                                guardar = new FileOutputStream(getApplicationContext().getFilesDir()
+                                        .getPath() + "/Productos/Imagenes Categoria/" + eTNuevaCategoria.getText().toString() + ".JPEG");
+                                guardar.write(imagenBytes);
 
-                            // String extension = nombreImagen.substring(nombreImagen.lastIndexOf("."));
-                            //nombre de la imagen de la categoria con su extension (cada imagen se llamara como su categoria)
-                            //  String img = btCrear.getText().toString() + extension;
-                            //enviamos el nombre de la imagen que equivale a las 3 primeras letras de la categoria en mayusculas
-                            String img = (eTNuevaCategoria.getText().toString().substring(0,3)).toUpperCase()+".JPEG";
+                                // String extension = nombreImagen.substring(nombreImagen.lastIndexOf("."));
+                                //nombre de la imagen de la categoria con su extension (cada imagen se llamara como su categoria)
+                                //  String img = btCrear.getText().toString() + extension;
+                                //enviamos el nombre de la imagen que equivale a las 3 primeras letras de la categoria en mayusculas
+                                String img = (eTNuevaCategoria.getText().toString().substring(0, 3)).toUpperCase() + ".JPEG";
 
-                            //envio en nombre de la imagen
-                            envias.writeUTF(img);
-                            //enviamos la longitud array de bites y el array de bytes.
-                            envias.writeInt(imagenBytes.length);
-                            envias.write(imagenBytes);
+                                //envio en nombre de la imagen
+                                envias.writeUTF(img);
+                                //enviamos la longitud array de bites y el array de bytes.
+                                envias.writeInt(imagenBytes.length);
+                                envias.write(imagenBytes);
 
-                         //FALTA PONER REGISTRO EN LA BASE DE DATOS CON LA NUEVA CATEGORIA.
+                                Categoria c = new Categoria(eTNuevaCategoria.getText().toString());
+                                //accedemos a la base de datos
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                //accedemos al nodo de categorias.
+                                DatabaseReference reference = database.getReference("categorias/" + c.getId());
 
+                                reference.setValue(c);
 
+                                //Todo: falta asignarle almacen a la categoria.
 
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -118,21 +133,22 @@ public class Nueva_Categoria extends AppCompatActivity {
                                 finish();
 
 
-                        } catch (IOException e) {
+                            } catch (IOException e) {
 
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(Nueva_Categoria.this, "Error al crear la categoria", Toast.LENGTH_LONG).show();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(Nueva_Categoria.this, "Error al crear la categoria", Toast.LENGTH_LONG).show();
 
-                                }
-                            });
-                            finish();
+                                    }
+                                });
+                                finish();
+                            }
+
+
                         }
-
-
-                    }
-                }).start();
+                    }).start();
+            }
             }
         });
         btSeleccionarImagen.setOnClickListener(new View.OnClickListener() {
