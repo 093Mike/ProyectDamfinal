@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+
 import com.example.proyectdam.Controlador.Activitys.C_ActivityMain;
 import com.example.proyectdam.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         c_activityMain.initialize();
+        e_user.setText("");
+        password.setText("");
     }
 
     public void iniciarLogin(View view){ c_activityMain.iniciarLogin(e_user.getText().toString(),password.getText().toString()); }

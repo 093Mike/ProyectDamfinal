@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Model.User;
 import com.example.proyectdam.R;
 
@@ -16,6 +17,8 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
 
     private int listItemLayout;
     private ArrayList<User> itemList;
+    public static int position;
+
 
     public AdaptadorUsers(int listItemLayout, ArrayList<User> itemList) {
         this.listItemLayout = listItemLayout;
@@ -48,14 +51,18 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.t_user);
-            encargo = itemView.findViewById(R.id.t_userencargo);
-            tipo = itemView.findViewById(R.id.t_userencargotipo);
+            nombre = itemView.findViewById(R.id.pedidoid);
+            encargo = itemView.findViewById(R.id.preciototal);
+            tipo = itemView.findViewById(R.id.num_pedidos);
+            itemView.setOnClickListener(this);
+
         }
 
         @Override
         public void onClick(View view) {
-
+            position = getAdapterPosition();
+            C_Activity_Menu  c_activity_menu = new C_Activity_Menu();
+            c_activity_menu.selecionarUser(view);
         }
     }
 }
