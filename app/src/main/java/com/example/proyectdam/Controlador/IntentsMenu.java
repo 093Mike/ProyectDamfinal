@@ -43,8 +43,8 @@ public class IntentsMenu {
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
                 break;
             case "CREAR CATEGORIA":
-
                 intent= new Intent(Activity_Menu.getInstance().getApplicationContext(), Nueva_Categoria.class);
+                break;
             case "MV_User":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;

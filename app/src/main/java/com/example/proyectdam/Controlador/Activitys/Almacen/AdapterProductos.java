@@ -2,6 +2,9 @@ package com.example.proyectdam.Controlador.Activitys.Almacen;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -22,6 +25,7 @@ import com.example.proyectdam.Model.Producto;
 import com.example.proyectdam.Vista.Activity.AddProducto;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,13 +49,44 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
 
     @Override
     public void onBindViewHolder(@NonNull ProductosViewHolder productosViewHolder, int i) {
-        //productosViewHolder.imageView_imagenProducto.setImageBitmap();
+        String path = ListaProductos.getInstance().getApplicationContext().getFilesDir().getPath() +
+                "/Productos/" + exampleList.get(i).getCategoria().getNombre() + "/";
+        String[] listFiles = new File(path).list();
+        for (String file : listFiles) {
+            Log.d("aaa", file.substring(0,file.lastIndexOf(".")));
+            if (file.substring(0,file.lastIndexOf(".")).equals(exampleList.get(i).getId())){
+                path += file;
+                break;
+            }
+        }
+        try {
+            Bitmap bmp = BitmapFactory.decodeFile(path);
+            productosViewHolder.imageView_imagenProducto.setImageBitmap(redimensionarImagenMaximo(bmp, 100, 100));
+        } catch (Exception e){
+
+        }
+
+
         productosViewHolder.textView_nombreProducto.setText(exampleList.get(i).getNombre() + " (" + exampleList.get(i).getId() + ")");
         productosViewHolder.textView_cantidadProducto.setText("STOCK: " + String.valueOf(exampleList.get(i).getCantidad()));
         productosViewHolder.textView_ubicacion.setText("UBICACIÓN: " + exampleList.get(i).getUbicacion());
         productosViewHolder.textView_proveedor.setText("PROVEEDOR: " + exampleList.get(i).getProveedor());
         productosViewHolder.textView_precioProveedor.setText("PRECIO PROVEEDOR: " + String.valueOf(exampleList.get(i).getPrecioProveedor()) + " €");
         productosViewHolder.textView_precioPVP.setText("PVP: " + String.valueOf(exampleList.get(i).getPrecioPVP()) + " €");
+    }
+
+    public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
+        //Redimensionamos
+        int width = mBitmap.getWidth();
+        int height = mBitmap.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeigth) / height;
+        // create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+        // resize the bit map
+        matrix.postScale(scaleWidth, scaleHeight);
+        // recreate the new Bitmap
+        return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
     }
 
     @Override

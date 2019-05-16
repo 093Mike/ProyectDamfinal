@@ -39,7 +39,7 @@ public class Nueva_Categoria extends AppCompatActivity {
     EditText eTNuevaCategoria;
     Button btCrear;
     Button btSeleccionarImagen;
-    static final String HOST = "192.168.43.95";
+    static final String HOST = "192.168.1.44";
     static final int PUERTO = 5000;
     byte[] imagenBytes;
     String nombreImagen;
