@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Model.Pedido;
 import com.example.proyectdam.R;
 
@@ -18,6 +19,7 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
     private int listItemLayout;
     private ArrayList<Pedido> itemList;
     public static int position;
+
 
     public AdaptadorPedidos(int listItemLayout, ArrayList<Pedido> itemList) {
         this.listItemLayout = listItemLayout;
@@ -75,12 +77,15 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
             total = itemView.findViewById(R.id.total_precio);
             num_productos = itemView.findViewById(R.id.num_productos);
             layout =  itemView.findViewById(R.id.c_relative);
+            itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View view) {
-
+            position = getAdapterPosition();
+            C_Activity_Menu c_activity_menu = new C_Activity_Menu();
+            c_activity_menu.selecionarPedido(view);
         }
     }
 }

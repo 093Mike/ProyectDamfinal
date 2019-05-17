@@ -52,7 +52,7 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
     public void initialite(){
         rol = findViewById(R.id.spinner);
         encargo = findViewById(R.id.spinner2);
-        nombre = findViewById(R.id.textView2);
+        nombre = findViewById(R.id.textView16);
         e_permisos = findViewById(R.id.editText7);
         gua_mod = findViewById(R.id.button5);
         info = findViewById(R.id.textView3);

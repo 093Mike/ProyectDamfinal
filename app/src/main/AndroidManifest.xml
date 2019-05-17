@@ -28,6 +28,9 @@
             android:screenOrientation="portrait" /> <!-- USERS -->
         <activity android:name=".Vista.Activity.MenuUser_add" />
         <activity android:name=".Vista.Activity.Activity_GestioUserModVer" />
+        <activity android:name=".Vista.Activity.Activity_VerPedido" />
+        <activity android:name=".Vista.Activity.Activity_ModPedido" />
+        <activity android:name=".Vista.Activity.Activity_all_Products" />
     </application>
 
 </manifest>
