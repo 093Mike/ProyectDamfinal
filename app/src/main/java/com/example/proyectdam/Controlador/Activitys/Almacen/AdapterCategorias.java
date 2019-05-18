@@ -35,34 +35,34 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Ca
     @Override
     public void onBindViewHolder(@NonNull CategoriasViewHolder categoriasViewHolder, int i) {
         switch (categoriasProductos.get(i).getId()){
-            case "AUD":
+            case "AUDI":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_audiofotovideo);
                 break;
-            case "COM":
+            case "COMP":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_componentesinformaticos);
                 break;
-            case "CON":
+            case "CONS":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_consolasvideojuegos);
                 break;
-            case "OTR":
+            case "OTRO":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_otros);
                 break;
-            case "HOG":
+            case "HOGA":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_hogar);
                 break;
-            case "ORD":
+            case "ORDE":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_ordenadores);
                 break;
-            case "PER":
+            case "PERI":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_perifericos);
                 break;
-            case "RAD":
+            case "RADI":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_radiocontrol);
                 break;
-            case "SMA":
+            case "SMAR":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_smartphones);
                 break;
-            case "TEL":
+            case "TELE":
                 categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_televisores);
                 break;
         }

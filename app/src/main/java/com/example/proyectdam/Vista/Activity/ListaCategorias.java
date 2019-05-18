@@ -36,7 +36,7 @@ public class ListaCategorias extends AppCompatActivity {
         adapter = new AdapterCategorias(C_Almacen.categoriasProductos);
         recyclerView_categorias.setAdapter(adapter);
         recyclerView_categorias.setLayoutManager(new LinearLayoutManager(this));
-        c_almacen.cargarCategorias(adapter);
+        //c_almacen.cargarCategorias(adapter);
     }
 
     public static Context getInstance() { return myContext; }

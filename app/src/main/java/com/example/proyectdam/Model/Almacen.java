@@ -1,10 +1,9 @@
 package com.example.proyectdam.Model;
 
-import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Almacen {
+public class Almacen implements Serializable {
     public static int numeroAlmacen;
     private String id;
     private String direccion;
@@ -12,7 +11,6 @@ public class Almacen {
     private ArrayList<String> estanterias;
 
     public Almacen(String direccion){
-        new C_Almacen().siguienteId_almacen();
         id = "ALM" + String.valueOf(numeroAlmacen);
         this.direccion = direccion;
         pasillos = new ArrayList<>();
