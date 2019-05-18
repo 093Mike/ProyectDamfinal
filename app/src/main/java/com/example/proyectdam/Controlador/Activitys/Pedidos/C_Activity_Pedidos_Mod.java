@@ -9,6 +9,7 @@ import com.example.proyectdam.Model.Prodcuto_en_Pedido;
 import com.example.proyectdam.Model.Producto_para_Pedidos;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
+import com.example.proyectdam.Vista.Activity.Activity_all_Clientes;
 import com.example.proyectdam.Vista.Activity.Activity_all_Products;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.google.firebase.database.DataSnapshot;
@@ -126,7 +127,7 @@ public class C_Activity_Pedidos_Mod extends Activity {
 
 
     public void guardarDatos(){
-        String productos="", cantidades="",nombre=pedidoActual.getNombrecomprador();
+        String productos="", cantidades="";
         int estado=Activity_ModPedido.getInstance().estado.getSelectedItemPosition();
         for (int i = 0 ;i< pedidoActual.getProductos().size();i++){
             productos+=pedidoActual.getProductos().get(i).getId_producto()+",";
@@ -137,14 +138,29 @@ public class C_Activity_Pedidos_Mod extends Activity {
                 myRef.child("cantidad").setValue(all_cantidades);
             }
         }
-        Double precio = Double.parseDouble(Activity_ModPedido.getInstance().total.getText().toString().replaceAll("€",""));
-
+        double precio=0.0;
+        if(productos.length()!=0 && cantidades.length()!=0) {
+            productos = productos.substring(0, productos.length() - 1);
+            cantidades = cantidades.substring(0, cantidades.length() - 1);
+            precio = Double.parseDouble(Activity_ModPedido.getInstance().total.getText().toString().replaceAll("€", ""));
+        }
         DatabaseReference myRef = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("pedidos/" + pedidoActual.getId());
         myRef.child("estado").setValue(estado);
         myRef.child("cantidades").setValue(cantidades);
         myRef.child("productos").setValue(productos);
         myRef.child("preciototal").setValue(precio);
 
+    }
+
+    public void setCliente(int pos){
+        for (int i = 0 ; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(i==pos){
+                DatabaseReference myRef = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("pedidos/" + pedidoActual.getId());
+                myRef.child("id_cliente").setValue(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId());
+                Activity_all_Clientes.getInstance().finish();
+                Activity_ModPedido.getInstance().cliente.setText(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getNombre());
+            }
+        }
     }
 
     public String getTitulo(){
@@ -160,7 +176,12 @@ public class C_Activity_Pedidos_Mod extends Activity {
         return pedidoActual.getEstado();
     }
     public String getCliente(){
-        return pedidoActual.getNombrecomprador();
+        for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getNombre();
+            }
+        }
+        return null;
     }
 
     public Pedido getPedidoActual() {

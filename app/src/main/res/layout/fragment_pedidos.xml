@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="0"
+                android:onClick="gestionAddPedido"
                 app:srcCompat="@android:drawable/ic_input_add" />
 
         </LinearLayout>
@@ -74,12 +75,22 @@
                         android:onClick="gestioFiltro"
                         android:text="Button" />
 
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
                     <CheckBox
                         android:id="@+id/check2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="gestioFiltro"
                         android:text="Button" />
+
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
                     <CheckBox
                         android:id="@+id/check3"
@@ -88,12 +99,22 @@
                         android:onClick="gestioFiltro"
                         android:text="Button" />
 
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
                     <CheckBox
                         android:id="@+id/check4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="gestioFiltro"
                         android:text="Button" />
+
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
                     <CheckBox
                         android:id="@+id/check5"

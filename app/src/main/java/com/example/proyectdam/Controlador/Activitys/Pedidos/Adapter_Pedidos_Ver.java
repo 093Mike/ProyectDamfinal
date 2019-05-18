@@ -55,8 +55,8 @@ public class Adapter_Pedidos_Ver extends RecyclerView.Adapter<Adapter_Pedidos_Ve
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titulo = itemView.findViewById(R.id.textView10);
-            precio = itemView.findViewById(R.id.textView11);
+            titulo = itemView.findViewById(R.id.textView23);
+            precio = itemView.findViewById(R.id.textView25);
 
         }
 

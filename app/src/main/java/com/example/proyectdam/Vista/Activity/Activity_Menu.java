@@ -26,7 +26,15 @@ public class Activity_Menu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        try {
+            setContentView(R.layout.activity_menu);
+        }
+        catch (Exception e){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            IntentsMenu intentsMenu = new IntentsMenu();
+            ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu("VACIO"), "fragment_meters");
+            ft.commit();
+        }
         getSupportActionBar().hide();
         c_activity_menu = new C_Activity_Menu();
         c_fragment_menu = new C_Fragment_Menu();
@@ -102,6 +110,10 @@ public class Activity_Menu extends AppCompatActivity {
         Fragment_MenuPedidos.getInstance().gestioFiltro(view);
     }
 
+    public void gestionAddPedido(View view) {
+        Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.anadirPedido();
+    }
+
     private static Activity_Menu myContext;
 
     public Activity_Menu() {
@@ -111,5 +123,6 @@ public class Activity_Menu extends AppCompatActivity {
     public static Activity_Menu getInstance() {
         return myContext;
     }
+
 
 }

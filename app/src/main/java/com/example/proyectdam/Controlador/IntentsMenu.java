@@ -12,6 +12,7 @@ import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
+import com.example.proyectdam.Vista.Fragment_Menu.Fragment_MenuMain;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 
@@ -21,6 +22,9 @@ public class IntentsMenu {
 
         Fragment intent = null;
         switch (text_button){
+            case "VACIO":
+                intent = new Fragment_MenuMain();
+                break;
             case "ALMACEN":
                 intent = new MenuAlmacen();
                 break;

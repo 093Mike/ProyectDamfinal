@@ -46,7 +46,7 @@ public class C_Activity_Pedidos_Ver extends Activity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot producto : dataSnapshot.getChildren()) {
                     for(int i = 0 ; i < pedidoActual.getProductos().size();i++){
-                        if(producto.getKey().equals(String.valueOf(pedidoActual.getProductos().get(i)))){
+                        if(producto.getKey().equals(String.valueOf(pedidoActual.getProductos().get(i).getId_producto()))){
                                 productos.add(producto.child("nombre").getValue(String.class));
                                 precios.add(producto.child("precioPVP").getValue(Double.class));
                         }
@@ -76,7 +76,45 @@ public class C_Activity_Pedidos_Ver extends Activity {
         return "Estado: " + estado[pedidoActual.getEstado()];
     }
     public String getCliente(){
-        return pedidoActual.getNombrecomprador();
+        for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getNombre();
+            }
+        }
+        return null;
+    }
+    public int getId_cliente(){
+        for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId();
+            }
+        }
+        return Integer.parseInt(null);
+    }
+    public String getDireccionCliente(){
+        for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getDireccion();
+            }
+        }
+        return null;
+    }
+    public String getCiudadCliente(){
+        for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getCiudad();
+            }
+        }
+        return null;
+    }
+
+    public int getTelefonoCliente(){
+        for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getNum_telefono();
+            }
+        }
+        return Integer.parseInt(null);
     }
 
 

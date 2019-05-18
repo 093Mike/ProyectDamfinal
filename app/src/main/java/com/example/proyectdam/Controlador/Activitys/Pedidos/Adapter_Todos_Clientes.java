@@ -7,19 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.proyectdam.Model.Producto_para_Pedidos;
+import com.example.proyectdam.Model.Cliente;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
 
 import java.util.ArrayList;
 
-public class Adapter_Todos_Productos extends RecyclerView.Adapter<Adapter_Todos_Productos.ViewHolder> {
+public class Adapter_Todos_Clientes extends RecyclerView.Adapter<Adapter_Todos_Clientes.ViewHolder> {
 
     private int listItemLayout;
-    private ArrayList<Producto_para_Pedidos> itemList;
+    private ArrayList<Cliente> itemList;
     public static int position;
 
-    public Adapter_Todos_Productos(int listItemLayout, ArrayList<Producto_para_Pedidos> itemList) {
+    public Adapter_Todos_Clientes(int listItemLayout, ArrayList<Cliente> itemList) {
         this.listItemLayout = listItemLayout;
         this.itemList = itemList;
 
@@ -36,8 +36,8 @@ public class Adapter_Todos_Productos extends RecyclerView.Adapter<Adapter_Todos_
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         TextView titulo = viewHolder.titulo;
         TextView precio = viewHolder.precio;
-        titulo.setText(itemList.get(i).getNombre()+"\n"+(itemList.get(i).getCantidad())+" unidades");
-        precio.setText(itemList.get(i).getPrecioPVP()+"€");
+        titulo.setText(itemList.get(i).getNombre());
+        precio.setText(itemList.get(i).getCiudad());
     }
 
     @Override
@@ -49,15 +49,16 @@ public class Adapter_Todos_Productos extends RecyclerView.Adapter<Adapter_Todos_
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titulo = itemView.findViewById(R.id.textView40);
-            precio = itemView.findViewById(R.id.textView41);
+            titulo = itemView.findViewById(R.id.id_pedido);
+            precio = itemView.findViewById(R.id.num_productos);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             position = getAdapterPosition();
-            Activity_ModPedido.getInstance().c_activity_pedidos_mod.anadirProducto();
+            Activity_ModPedido.getInstance().c_activity_pedidos_mod.setCliente(position);
+
         }
     }
 }

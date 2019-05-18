@@ -78,7 +78,7 @@ public class C_Activity_Menu extends Activity {
         if(!filtro){
             pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidos().get(AdaptadorPedidos.position);
         }
-        if(pedidoActual.getEstado()==3 || Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Admin")){
+        if(pedidoActual.getEstado()==3 || pedidoActual.getEstado()==4 || Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Admin")){
             Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_Pedido"));
         }
         else{

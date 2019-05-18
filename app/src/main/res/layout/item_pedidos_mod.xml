@@ -13,7 +13,7 @@
 
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textView40"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -22,7 +22,7 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textView41"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

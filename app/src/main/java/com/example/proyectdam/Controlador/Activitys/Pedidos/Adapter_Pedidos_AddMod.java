@@ -12,7 +12,7 @@ import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
 
 import java.util.ArrayList;
 
-public class Adapter_Pedidos_Mod extends RecyclerView.Adapter<Adapter_Pedidos_Mod.ViewHolder>{
+public class Adapter_Pedidos_AddMod extends RecyclerView.Adapter<Adapter_Pedidos_AddMod.ViewHolder>{
 
     private int listItemLayout;
     private ArrayList<String> itemList;
@@ -20,7 +20,7 @@ public class Adapter_Pedidos_Mod extends RecyclerView.Adapter<Adapter_Pedidos_Mo
     public static int position;
 
 
-    public Adapter_Pedidos_Mod(int listItemLayout, ArrayList<String> itemList) {
+    public Adapter_Pedidos_AddMod(int listItemLayout, ArrayList<String> itemList) {
         this.listItemLayout = listItemLayout;
         this.itemList = itemList;
     }
@@ -54,9 +54,17 @@ public class Adapter_Pedidos_Mod extends RecyclerView.Adapter<Adapter_Pedidos_Mo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titulo = itemView.findViewById(R.id.textView10);
-            precio = itemView.findViewById(R.id.textView11);
+            titulo = itemView.findViewById(R.id.textView40);
+            precio = itemView.findViewById(R.id.textView41);
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    position = getAdapterPosition();
+                    Activity_ModPedido.getInstance().onCreateDialogRemove();
+                    return false;
+                }
+            });
 
         }
 

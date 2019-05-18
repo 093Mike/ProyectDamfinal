@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card"
     android:layout_width="match_parent"
@@ -13,7 +13,7 @@
 
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/id_pedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -22,19 +22,17 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/num_productos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:text="TextView"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
+            android:layout_below="@+id/id_pedido"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="5dp"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 

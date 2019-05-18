@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Model.Pedido;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 
 import java.util.ArrayList;
 
@@ -38,9 +39,22 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
         TextView id_pedido = viewHolder.id_pedido;
         TextView total = viewHolder.total;
         TextView num_productos = viewHolder.num_productos;
-        id_pedido.setText("PEDIDO #"+itemList.get(i).getId() + "\n" + itemList.get(i).getFecharealizado());
+        String nombre = "";
+        for (int j = 0; j < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size(); j++){
+            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(j).getId() == itemList.get(i).getId_cliente()){
+                nombre = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(j).getNombre();
+            }
+            else{nombre = "Sin cliente";}
+        }
+        id_pedido.setText("PEDIDO #"+itemList.get(i).getId() + "\n" + itemList.get(i).getFecharealizado()+
+                "\n"+ "Para: "+nombre);
         total.setText(itemList.get(i).getPrecioTotal() + "€");
-        num_productos.setText(itemList.get(i).getProductos().size()+" Productos");
+        if(itemList.get(i).getProductos().size()!=0) {
+            num_productos.setText(itemList.get(i).getProductos().size() + " Productos");
+        }
+        else{
+            num_productos.setText("Pedido vacio");
+        }
         int estado = itemList.get(i).getEstado();
         RelativeLayout layout = viewHolder.layout;
         switch (estado){
