@@ -3,6 +3,14 @@ package com.example.proyectdam.Controlador;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
+import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
+import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
+import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
+import com.example.proyectdam.Vista.Activity.ImagenProducto;
+import com.example.proyectdam.Vista.Activity.ListaCategorias;
+import com.example.proyectdam.Vista.Activity.ListaProductos;
+
 
 import com.example.proyectdam.Nueva_Categoria;
 
@@ -14,6 +22,8 @@ import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
+import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
+import com.example.proyectdam.Vista.Fragment_Menu.Fragment_MenuMain;
 import com.example.proyectdam.Vista.Fragment_Menu.GestioUsers.Fragment_GestioUsuarios;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 
@@ -23,6 +33,9 @@ public class IntentsMenu {
 
         Fragment intent = null;
         switch (text_button){
+            case "VACIO":
+                intent = new Fragment_MenuMain();
+                break;
             case "ALMACEN":
                 intent = new MenuAlmacen();
                 break;
@@ -48,7 +61,12 @@ public class IntentsMenu {
             case "MV_User":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;
-
+            case "MV_Pedido":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerPedido.class);
+                break;
+            case "MV_Mod_Pedido":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_ModPedido.class);
+                break;
             // ALMACEN
             case "INVENTARIO ALMACEN":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), ListaCategorias.class);

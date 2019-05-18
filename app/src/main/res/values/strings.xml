@@ -15,6 +15,15 @@
 
     <string-array name="puesto">
         <item>Almacen</item>
+        <item>Pedidos</item>
+    </string-array>
+
+    <string-array name="estados">
+        <item>Recibido</item>
+        <item>En proceso</item>
+        <item>Enviado</item>
+        <item>Completado</item>
+        <item>Cancelado</item>
     </string-array>
 
 </resources>

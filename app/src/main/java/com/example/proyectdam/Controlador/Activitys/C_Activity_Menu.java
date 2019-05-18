@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+import com.example.proyectdam.Controlador.Fragments.Pedidos.AdaptadorPedidos;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
+import com.example.proyectdam.Model.Pedido;
 import com.example.proyectdam.Model.User;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MainActivity;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
+import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,6 +65,28 @@ public class C_Activity_Menu extends Activity {
         IntentsMenu intentsMenu = new IntentsMenu();
         Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_User"));
     }
+    public void selecionarPedido(View view){
+        IntentsMenu intentsMenu = new IntentsMenu();
+        Pedido pedidoActual = null;
+        boolean filtro=false;
+        for (int i = 0 ; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getCheck().length ; i++){
+            if(!Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getCheck()[i]){
+                filtro = true;
+                pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidosfiltrados().get(AdaptadorPedidos.position);
+            }
+        }
+        if(!filtro){
+            pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidos().get(AdaptadorPedidos.position);
+        }
+        if(pedidoActual.getEstado()==3 || pedidoActual.getEstado()==4 || Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Admin")){
+            Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_Pedido"));
+        }
+        else{
+            Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_Mod_Pedido"));
+
+        }
+    }
+
 
 
 

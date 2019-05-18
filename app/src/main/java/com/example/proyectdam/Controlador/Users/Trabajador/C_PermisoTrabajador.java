@@ -15,6 +15,9 @@ public class C_PermisoTrabajador implements Permiso {
                 case "Almacen":
                     C_PermisoTrabajador_Almacen pe_Almacen = new C_PermisoTrabajador_Almacen();
                     return pe_Almacen.permisosMenu();
+                case "Pedidos":
+                    C_PermisoTrabajador_Pedidos pe_pedidos = new C_PermisoTrabajador_Pedidos();
+                    return pe_pedidos.permisosMenu();
 
             }
             return null;
@@ -26,6 +29,9 @@ public class C_PermisoTrabajador implements Permiso {
             case "Almacen":
                 C_PermisoTrabajador_Almacen pe_Almacen = new C_PermisoTrabajador_Almacen();
                 return pe_Almacen.permisosMenuUsers();
+            case "Pedidos":
+                C_PermisoTrabajador_Pedidos pe_pedidos = new C_PermisoTrabajador_Pedidos();
+                return pe_pedidos.permisosMenuUsers();
 
         }
         return null;
