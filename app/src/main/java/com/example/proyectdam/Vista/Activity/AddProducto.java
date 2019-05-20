@@ -80,6 +80,7 @@ public class AddProducto extends AppCompatActivity {
         spinner_estanteria.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.getAlmacenActual().getEstanterias()));
 
         if (productoModificar != null){
+            imageView_imagenProducto.setImageBitmap( BitmapFactory.decodeFile(getIntent().getStringExtra("rutaImagen")));
             editText_nombreProducto.setText(productoModificar.getNombre());
             editText_descripcion.setText(productoModificar.getDescripcion());
             editText_proveedor.setText(productoModificar.getProveedor());

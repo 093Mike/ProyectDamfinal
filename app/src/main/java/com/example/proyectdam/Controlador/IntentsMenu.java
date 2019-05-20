@@ -11,6 +11,16 @@ import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
 import com.example.proyectdam.Vista.Activity.ImagenProducto;
 import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
+import com.example.proyectdam.Nueva_Categoria;
+
+import com.example.proyectdam.Vista.Activity.AddProducto;
+import com.example.proyectdam.Vista.Activity.ImagenProducto;
+import com.example.proyectdam.Vista.Activity.ListaCategorias;
+import com.example.proyectdam.Vista.Activity.ListaProductos;
+import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
+import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
+
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_About.Fragment_AboutUs;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
@@ -79,6 +89,9 @@ public class IntentsMenu {
                 break;
             case "AMPLIAR_IMAGEN_PRODUCTO":
                 intent = new Intent(ListaProductos.getInstance().getApplicationContext(), ImagenProducto.class);
+                break;
+            case "MODIFICAR_PRODUCTO":
+                intent = new Intent(ListaProductos.getInstance().getApplicationContext(), AddProducto.class);
                 break;
         }
         return intent;

@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Activity_AddIncidencia;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
+import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
 import com.example.proyectdam.Vista.Activity.AddProducto;
 
 public class MenuAlmacen extends Fragment {
@@ -23,7 +25,8 @@ public class MenuAlmacen extends Fragment {
             button_movimientos,
             button_incidencias,
             button_cambiarAlmacen,
-            button_anadirProducto;
+            button_anadirProducto,
+            button_verIncidencias;
     private TextView textView_almacenActual;
     private C_Almacen c_almacen;
 
@@ -47,6 +50,7 @@ public class MenuAlmacen extends Fragment {
         button_incidencias = view.findViewById(R.id.button_incidencias);
         button_cambiarAlmacen = view.findViewById(R.id.button_cambiarAlmacen);
         button_anadirProducto = view.findViewById(R.id.button_añadirProducto);
+        button_verIncidencias = view.findViewById(R.id.button_ver_incidencias);
 
         button_verInventario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +70,8 @@ public class MenuAlmacen extends Fragment {
         button_incidencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO: Usar IntentsMenu.class
+                startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddIncidencia.class));
             }
         });
 
@@ -82,6 +87,13 @@ public class MenuAlmacen extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), AddProducto.class));
+            }
+        });
+
+        button_verIncidencias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerIncidencias.class));
             }
         });
     }
