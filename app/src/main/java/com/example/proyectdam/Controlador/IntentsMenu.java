@@ -14,6 +14,7 @@ import com.example.proyectdam.Vista.Activity.ListaProductos;
 
 import com.example.proyectdam.Nueva_Categoria;
 
+import com.example.proyectdam.Vista.Activity.AddProducto;
 import com.example.proyectdam.Vista.Activity.ImagenProducto;
 import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
@@ -56,8 +57,8 @@ public class IntentsMenu {
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
                 break;
             case "CREAR CATEGORIA":
-
                 intent= new Intent(Activity_Menu.getInstance().getApplicationContext(), Nueva_Categoria.class);
+                break;
             case "MV_User":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;
@@ -76,6 +77,9 @@ public class IntentsMenu {
                 break;
             case "AMPLIAR_IMAGEN_PRODUCTO":
                 intent = new Intent(ListaProductos.getInstance().getApplicationContext(), ImagenProducto.class);
+                break;
+            case "MODIFICAR_PRODUCTO":
+                intent = new Intent(ListaProductos.getInstance().getApplicationContext(), AddProducto.class);
                 break;
         }
         return intent;

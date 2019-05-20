@@ -39,7 +39,7 @@ public class Activity_Menu extends AppCompatActivity {
     public C_Almacen c_almacen;
     public String tag_escogido;
 
-    static final String HOST = "192.168.43.95";
+    static final String HOST = "192.168.1.44";
     static final int PUERTO = 5000;
     InputStream is;
     OutputStream os;
@@ -248,9 +248,8 @@ public class Activity_Menu extends AppCompatActivity {
     }
   
     public void NuevaCategoria(View view) {
-
         IntentsMenu intentsMenu = new IntentsMenu();
-        startActivity(intentsMenu.gestioIntent_MenuUsers(view.getTag().toString()));
+        startActivity(intentsMenu.gestioIntent(view.getTag().toString()));
     }
 
 }
