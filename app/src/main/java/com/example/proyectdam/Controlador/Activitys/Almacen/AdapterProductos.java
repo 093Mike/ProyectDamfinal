@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -23,6 +25,7 @@ import com.example.proyectdam.Model.Categoria;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Producto;
 import com.example.proyectdam.Vista.Activity.AddProducto;
+import com.example.proyectdam.Vista.Activity.ImagenProducto;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
 
 import java.io.File;
@@ -61,32 +64,17 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
         }
         try {
             Bitmap bmp = BitmapFactory.decodeFile(path);
-            productosViewHolder.imageView_imagenProducto.setImageBitmap(redimensionarImagenMaximo(bmp, 100, 100));
+            productosViewHolder.imageView_imagenProducto.setImageBitmap(bmp);
+            productosViewHolder.imageView_imagenProducto.setTag(path);
         } catch (Exception e){
 
         }
-
-
         productosViewHolder.textView_nombreProducto.setText(exampleList.get(i).getNombre() + " (" + exampleList.get(i).getId() + ")");
         productosViewHolder.textView_cantidadProducto.setText("STOCK: " + String.valueOf(exampleList.get(i).getCantidad()));
         productosViewHolder.textView_ubicacion.setText("UBICACIÓN: " + exampleList.get(i).getUbicacion());
         productosViewHolder.textView_proveedor.setText("PROVEEDOR: " + exampleList.get(i).getProveedor());
         productosViewHolder.textView_precioProveedor.setText("PRECIO PROVEEDOR: " + String.valueOf(exampleList.get(i).getPrecioProveedor()) + " €");
         productosViewHolder.textView_precioPVP.setText("PVP: " + String.valueOf(exampleList.get(i).getPrecioPVP()) + " €");
-    }
-
-    public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
-        //Redimensionamos
-        int width = mBitmap.getWidth();
-        int height = mBitmap.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeigth) / height;
-        // create a matrix for the manipulation
-        Matrix matrix = new Matrix();
-        // resize the bit map
-        matrix.postScale(scaleWidth, scaleHeight);
-        // recreate the new Bitmap
-        return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
     }
 
     @Override
@@ -152,28 +140,20 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
                 public void onClick(View v) {
                     // TODO: Implementar metodos IntentsMenu.class para abrir intents
                     Log.d("aaa", "Click en el cardView");
-                    ((Activity)v.getContext()).startActivity(new Intent(v.getContext(), AddProducto.class).putExtra("productoModificar", exampleList.get(getLayoutPosition())));
+                    Intent intent = new IntentsMenu().gestioIntent("MODIFICAR_PRODUCTO");
+                    intent.putExtra("productoModificar", exampleList.get(getLayoutPosition()));
+                    intent.putExtra("rutaImagen", imageView_imagenProducto.getTag().toString());
+                    v.getContext().startActivity(intent);
                 }
             });
 
             imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // TODO: enviar imagen del viewHolder a ImagenProducto.class
-
-//                    Bitmap bm = ((StateListDrawable)imageView_imagenProducto.getDrawable())
-//
-//
-//                    ByteArrayOutputStream bStream = new ByteArrayOutputStream();
-//                    bm.compress(Bitmap.CompressFormat.PNG, 100, bStream);
-//                    byte[] imagen = bStream.toByteArray();
-//
-                    IntentsMenu intentsMenu = new IntentsMenu();
-                    Intent intent = intentsMenu.gestioIntent(imageView_imagenProducto.getTag().toString().toUpperCase());
-                    ListaProductos.getInstance().startActivity(intent.putExtra("productoString",
-                            textView_nombreProducto.getText().toString()));
-
-
+                    Intent intent = new IntentsMenu().gestioIntent("AMPLIAR_IMAGEN_PRODUCTO");
+                    intent.putExtra("productoString", textView_nombreProducto.getText().toString());
+                    intent.putExtra("rutaImagen", imageView_imagenProducto.getTag().toString());
+                    ListaProductos.getInstance().startActivity(intent);
                 }
             });
         }

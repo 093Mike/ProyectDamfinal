@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Model.Almacen;
 import com.example.proyectdam.Model.Categoria;
+import com.example.proyectdam.Model.Incidencia;
 import com.example.proyectdam.Model.Producto;
 import com.example.proyectdam.Model.Proveedor;
 import com.example.proyectdam.R;
@@ -31,6 +32,7 @@ public class C_Almacen {
     public static ArrayList<Categoria> categoriasProductos = new ArrayList<>();
     public static ArrayList<Producto> productos = new ArrayList<>();
     public static ArrayList<Proveedor> proveedores = new ArrayList<>();
+    public static ArrayList<Incidencia> incidencias = new ArrayList<>();
     private static Almacen almacenActual = null;
 
     public void cargarAlmacenesApp() {
@@ -94,6 +96,7 @@ public class C_Almacen {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Producto.nextId = "-1";
                 productos.clear();
                 for (DataSnapshot producto : dataSnapshot.getChildren()) {
                     for (DataSnapshot categoria : producto.child("categoria").getChildren()) {
@@ -110,11 +113,11 @@ public class C_Almacen {
                                     producto.child("precioPVP").getValue(Double.class)));
                             break;
                         }
-
+                        if (Integer.parseInt(producto.child("id").getValue(String.class)) > Integer.parseInt(Producto.nextId)){
+                            Producto.nextId = String.valueOf(Integer.parseInt(producto.child("id").getValue(String.class)) + 1);
+                        }
                     }
                 }
-                String nextId = productos.get(productos.size() - 1).getId();
-                Producto.nextId = String.valueOf(Integer.parseInt(nextId) + 1);
             }
 
             @Override
@@ -136,6 +139,37 @@ public class C_Almacen {
                             proveedor.child("nombre").getValue(String.class),
                             proveedor.child("telefonoContacto").getValue(String.class),
                             proveedor.child("correoContacto").getValue(String.class)));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void cargarIncidenciasApp(){
+        FirebaseDatabase database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
+        DatabaseReference reference = database.getReference("incidencias");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("proyecto", "onDataChange: Thread=" + Thread.currentThread().getName());
+                incidencias.clear();
+                Incidencia.nextId = "-1";
+                for (DataSnapshot incidencia : dataSnapshot.getChildren()) {
+                    if (incidencia.child("idAlmacen").getValue(String.class).equals(almacenActual.getId())){
+                        incidencias.add(new Incidencia(incidencia.child("idIncidencia").getValue(String.class),
+                                incidencia.child("idAlmacen").getValue(String.class),
+                                incidencia.child("idProducto").getValue(String.class),
+                                incidencia.child("cantidad").getValue(String.class),
+                                incidencia.child("motivo").getValue(String.class),
+                                incidencia.child("detalles").getValue(String.class)));
+                    }
+                    if (Integer.parseInt(incidencia.child("idIncidencia").getValue(String.class)) >= Integer.parseInt(Incidencia.nextId)){
+                        Incidencia.nextId = String.valueOf(Integer.parseInt(incidencia.child("idIncidencia").getValue(String.class)) + 1);
+                    }
                 }
             }
 
@@ -176,6 +210,7 @@ public class C_Almacen {
                         ft.commit();
                         cargarCategoriasApp();
                         cargarProductosApp();
+                        cargarIncidenciasApp();
                     }
                 });
         builder.setCancelable(false);
@@ -293,6 +328,15 @@ public class C_Almacen {
         for (Proveedor proveedor : proveedores) {
             if (proveedor.getNombre().equals(nombre)) {
                 return proveedor;
+            }
+        }
+        return null;
+    }
+
+    public Producto buscaProducto(String id){
+        for (Producto producto : productos) {
+            if (producto.getId().equals(id)) {
+                return producto;
             }
         }
         return null;

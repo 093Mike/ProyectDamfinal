@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 
 import com.example.proyectdam.Nueva_Categoria;
 
+import com.example.proyectdam.Vista.Activity.AddProducto;
 import com.example.proyectdam.Vista.Activity.ImagenProducto;
 import com.example.proyectdam.Vista.Activity.ListaCategorias;
 import com.example.proyectdam.Vista.Activity.ListaProductos;
@@ -58,6 +59,9 @@ public class IntentsMenu {
                 break;
             case "AMPLIAR_IMAGEN_PRODUCTO":
                 intent = new Intent(ListaProductos.getInstance().getApplicationContext(), ImagenProducto.class);
+                break;
+            case "MODIFICAR_PRODUCTO":
+                intent = new Intent(ListaProductos.getInstance().getApplicationContext(), AddProducto.class);
                 break;
         }
         return intent;

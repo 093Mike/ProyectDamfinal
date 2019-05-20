@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Nueva_Categoria"></activity>
-
-        android:theme="@style/AppTheme">
-        <activity android:name=".Vista.Activity.AddProducto"></activity>
+        <activity android:name=".Vista.Activity.Activity_VerIncidencias"></activity>
+        <activity
+            android:name=".Vista.Activity.Activity_AddIncidencia"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
+        <activity android:name=".Nueva_Categoria" />
+        <activity android:name=".Vista.Activity.AddProducto" />
         <activity
             android:name=".Vista.Activity.ImagenProducto"
             android:label=""
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Vista.Activity.ListaProductos" />
         <activity android:name=".Vista.Activity.ListaCategorias" />
         <activity android:name=".Vista.Activity.MainActivity">
@@ -32,7 +34,6 @@
             android:name=".Vista.Activity.Activity_Menu"
             android:screenOrientation="portrait" /> <!-- USERS -->
         <activity android:name=".Vista.Activity.MenuUser_add" />
-
         <activity android:name=".Vista.Activity.Activity_GestioUserModVer" />
     </application>
 
