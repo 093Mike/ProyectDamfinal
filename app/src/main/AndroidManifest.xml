@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.proyectdam">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,6 +37,10 @@
             android:screenOrientation="portrait" /> <!-- USERS -->
         <activity android:name=".Vista.Activity.MenuUser_add" />
         <activity android:name=".Vista.Activity.Activity_GestioUserModVer" />
+        <activity android:name=".Vista.Activity.Activity_VerPedido" />
+        <activity android:name=".Vista.Activity.Activity_ModPedido" />
+        <activity android:name=".Vista.Activity.Activity_all_Products" />
+        <activity android:name=".Vista.Activity.Activity_all_Clientes" />
     </application>
 
 </manifest>
