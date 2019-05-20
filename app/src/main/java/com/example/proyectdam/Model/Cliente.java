@@ -3,13 +3,15 @@ package com.example.proyectdam.Model;
 public class Cliente {
     private int id,num_telefono;
     private String nombre, direccion, ciudad;
+    public static int id_proximo = 1000;
 
     public Cliente(int id, String nombre, int num_telefono, String direccion, String ciudad) {
-        this.id = id;
+        this.id = id_proximo;
         this.num_telefono = num_telefono;
         this.nombre = nombre;
         this.direccion = direccion;
         this.ciudad = ciudad;
+        id_proximo = 1000;
     }
 
     public int getId() {

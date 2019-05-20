@@ -37,17 +37,17 @@ public class C_Fragment_MenuPedidos  {
         all_prodcutos = new ArrayList<>();
         pedidosfiltrados = new ArrayList<>();
         clientes = new ArrayList<>();
-
         control =true;
-        check = new boolean[]{true,true, true,true,true};
-        mref = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("pedidos");
+        check = new boolean[]{true, true, true, true, true};
+        mref  = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("pedidos");
         mref2 = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("productos");
-        mref3= Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("clientes");
+        mref3 = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("clientes");
 
         mref3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 clientes.clear();
+                Cliente.id_proximo = 1000;
                 for (DataSnapshot clientes_all : dataSnapshot.getChildren()) {
                     clientes.add(new Cliente(
                             Integer.parseInt(clientes_all.getKey()),
@@ -202,6 +202,7 @@ public class C_Fragment_MenuPedidos  {
     }
 
     public void anadirPedido() {
+
         control = false;
         DatabaseReference myRef = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("pedidos/" + Pedido.proximoid);
         myRef.child("estado").setValue(0);

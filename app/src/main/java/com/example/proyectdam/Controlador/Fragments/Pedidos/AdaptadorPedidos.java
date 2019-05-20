@@ -39,15 +39,20 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
         TextView id_pedido = viewHolder.id_pedido;
         TextView total = viewHolder.total;
         TextView num_productos = viewHolder.num_productos;
-        String nombre = "";
+        boolean fin=false;
         for (int j = 0; j < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size(); j++){
-            if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(j).getId() == itemList.get(i).getId_cliente()){
-                nombre = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(j).getNombre();
+            if(!fin) {
+                if (Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(j).getId() == itemList.get(i).getId_cliente()) {
+                    id_pedido.setText("PEDIDO #" + itemList.get(i).getId() + "\n" + itemList.get(i).getFecharealizado() +
+                            "\n" + "Para: " + Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(j).getNombre());
+                    fin=true;
+                }
             }
-            else{nombre = "Sin cliente";}
         }
-        id_pedido.setText("PEDIDO #"+itemList.get(i).getId() + "\n" + itemList.get(i).getFecharealizado()+
-                "\n"+ "Para: "+nombre);
+        if(!fin){
+            id_pedido.setText("PEDIDO #" + itemList.get(i).getId() + "\n" + itemList.get(i).getFecharealizado() +
+                    "\n" + "Sin cliente escogido");
+        }
         total.setText(itemList.get(i).getPrecioTotal() + "€");
         if(itemList.get(i).getProductos().size()!=0) {
             num_productos.setText(itemList.get(i).getProductos().size() + " Productos");

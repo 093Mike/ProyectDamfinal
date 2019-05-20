@@ -4,13 +4,9 @@ import com.example.proyectdam.Controlador.Users.Permiso;
 
 public class C_PermisoTrabajador_Pedidos implements Permiso {
 
-    private int[] permisos_Menu = new int[]{1,2};
-    private int[] permisos_MenuUsers = new int[]{0};
-
+    @Override
+    public int[] permisosMenu() { return new int[]{0,1,2,3,4,5}; }
 
     @Override
-    public int[] permisosMenu() { return permisos_Menu; }
-
-    @Override
-    public int[] permisosMenuUsers() { return permisos_MenuUsers; }
+    public int[] permisosMenuUsers() { return new int[]{0}; }
 }

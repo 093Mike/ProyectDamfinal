@@ -1,4 +1,4 @@
-package com.example.proyectdam.Vista.Fragment_Menu.GestioUsers;
+package com.example.proyectdam.Vista.Fragment_GestioUsers;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -60,10 +60,10 @@ public class Fragment_GestioUsuarios extends Fragment {
                 options[i].setTag(nombre_botones[i]);
                 options[i].setText(nombre_botones[i]);
                 if (botones[i] == 1) {
-                    options[i].setBackgroundTintList(getResources().getColorStateList(R.color.color_normal));
+                    options[i].setTextColor(getResources().getColorStateList(R.color.color_normal));
                 }
                 else{
-                    options[i].setBackgroundTintList(getResources().getColorStateList(R.color.color_denegado));
+                    options[i].setTextColor(getResources().getColorStateList(R.color.color_denegado));
                 }
             }
 

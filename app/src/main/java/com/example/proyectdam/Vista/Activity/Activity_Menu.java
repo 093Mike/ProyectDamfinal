@@ -1,6 +1,5 @@
 package com.example.proyectdam.Vista.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,12 +14,11 @@ import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
-import com.example.proyectdam.Nueva_Categoria;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
+import com.example.proyectdam.Vista.MainActivity;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -77,7 +74,6 @@ public class Activity_Menu extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-
     public void gestioMenu(View view) {
         tag_escogido = ((String) view.getTag()).toUpperCase();
         for (int i=0 ; i < Fragment_Menu.options.length ; i++){
@@ -250,7 +246,7 @@ public class Activity_Menu extends AppCompatActivity {
     public void NuevaCategoria(View view) {
 
         IntentsMenu intentsMenu = new IntentsMenu();
-        startActivity(intentsMenu.gestioIntent_MenuUsers(view.getTag().toString()));
+        startActivity(intentsMenu.gestioIntent(view.getTag().toString()));
     }
 
 }

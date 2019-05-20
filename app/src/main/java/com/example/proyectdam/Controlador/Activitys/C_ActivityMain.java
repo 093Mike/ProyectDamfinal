@@ -6,9 +6,8 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
-import com.example.proyectdam.Vista.Activity.MainActivity;
+import com.example.proyectdam.Vista.MainActivity;
 import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,16 +21,18 @@ public class C_ActivityMain extends Activity{
     public boolean control;
 
     public void initialize(){
+
         user = mAuth.getCurrentUser();
         if (user != null) {
-                Intent intent = new Intent(MainActivity.getInstance(), Activity_Menu.class);
-                MainActivity.getInstance().startActivity(intent);
+            Intent intent = new Intent(MainActivity.getInstance(), Activity_Menu.class);
+            MainActivity.getInstance().startActivity(intent);
 
         }
     }
 
 
     public void iniciarLogin(String email , String pass){
+
         if(!control) {
             control=true;
             if (email.contains("@") && pass.length() >= 6) {
