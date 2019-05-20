@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/common_google_signin_btn_text_light_focused"
+        android:background="@android:color/holo_blue_dark"
         android:orientation="vertical">
 
         <LinearLayout
@@ -22,6 +22,10 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@mipmap/ic_launcher" />
 
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -34,10 +38,14 @@
 
             <ImageView
                 android:id="@+id/b_poweroff"
-                android:layout_width="43dp"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_lock_power_off"
-                android:onClick="powerOff"/>
+                android:onClick="powerOff"
+                app:srcCompat="@drawable/poweroff" />
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <HorizontalScrollView
@@ -51,21 +59,43 @@
 
                 <Button
                     android:id="@+id/boton_menu_principal"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="menuAlmacen"
                     android:text="Button" />
 
                 <Button
                     android:id="@+id/boton_menu_principal2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
                 <Button
                     android:id="@+id/boton_menu_principal3"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="gestioMenu"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/boton_menu_principal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="gestioMenu"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/boton_menu_principal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="gestioMenu"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/boton_menu_principal6"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="gestioMenu"
                     android:text="Button" />
@@ -82,8 +112,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:tag="CREAR CATEGORIA"
                     android:onClick="NuevaCategoria"
+                    android:tag="CREAR CATEGORIA"
                     android:text="Nueva categoria" />
 
             </LinearLayout>

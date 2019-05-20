@@ -1,6 +1,6 @@
 package com.example.proyectdam.Controlador.Activitys;
 
-import com.example.proyectdam.Vista.Activity.MainActivity;
+import com.example.proyectdam.Vista.MainActivity;
 
 public class C_Activity_Olvidar {
 

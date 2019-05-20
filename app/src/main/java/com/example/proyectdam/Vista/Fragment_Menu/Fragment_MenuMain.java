@@ -10,8 +10,6 @@ import com.example.proyectdam.R;
 
 public class Fragment_MenuMain extends Fragment {
 
-    LayoutInflater seccion;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_vaciomain, container, false);

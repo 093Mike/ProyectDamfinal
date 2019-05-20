@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.proyectdam">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -10,6 +11,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:overrideLibrary="com.google.firebase.messaging"
+        tools:ignore="GoogleAppIndexingWarning">
+      
+        <service
+            android:name=".FirebaseMessaje"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Nueva_Categoria"></activity>
+        <activity android:name=".Vista.Activity.AddProducto"></activity>
         android:theme="@style/AppTheme">
         <activity android:name=".Vista.Activity.Activity_VerIncidencias"></activity>
         <activity
@@ -23,10 +38,9 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Vista.Activity.ListaProductos" />
         <activity android:name=".Vista.Activity.ListaCategorias" />
-        <activity android:name=".Vista.Activity.MainActivity">
+        <activity android:name="com.example.proyectdam.Vista.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,5 +56,6 @@
         <activity android:name=".Vista.Activity.Activity_all_Products" />
         <activity android:name=".Vista.Activity.Activity_all_Clientes" />
     </application>
+
 
 </manifest>

@@ -14,10 +14,11 @@ import com.example.proyectdam.R;
 
 public class Fragment_Menu extends Fragment {
 
-    private static Button boton1,boton2,boton3;
-    public static Button[] options = new Button[] {boton1,boton2,boton3};
-    private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2,R.id.boton_menu_principal3};
-    static String[] nombre_botones = new String[]{"Almacen","Pedidos","Usuarios"};
+    private static Button boton1,boton2,boton3,boton4,boton5,boton6;
+    public static Button[] options = new Button[] {boton1,boton2,boton3,boton4,boton5,boton6};
+    private int[] id_buttons = new int[]{R.id.boton_menu_principal,R.id.boton_menu_principal2,R.id.boton_menu_principal3,R.id.boton_menu_principal4,
+            R.id.boton_menu_principal5,R.id.boton_menu_principal6};
+    static String[] nombre_botones = new String[]{"Almacen","Pedidos","Clientes","Proveedores","Usuarios","ABOUT US"};
     ImageView powerOff;
 
     @Override
