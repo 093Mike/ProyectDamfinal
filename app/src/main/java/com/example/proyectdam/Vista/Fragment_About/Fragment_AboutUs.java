@@ -32,8 +32,15 @@ public class Fragment_AboutUs extends Fragment {
         c_fragment_about =  new C_Fragment_About();
         nom_empresa = view.findViewById(R.id.textView11);
         incidencia = view.findViewById(R.id.button6);
-        c_fragment_about.initialite();
-        nom_empresa.setText(c_fragment_about.getNombreEmpresa());
+
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                nom_empresa.setText(c_fragment_about.getNombreEmpresa() + " - " + c_fragment_about.getPlanEmpresa());
+            }
+        };
+
+        c_fragment_about.initialite(r);
         incidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

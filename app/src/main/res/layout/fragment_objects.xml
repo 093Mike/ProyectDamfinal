@@ -41,7 +41,7 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:onClick="powerOff"
-                app:srcCompat="@drawable/poweroff" />
+                 />
 
             <Space
                 android:layout_width="15dp"

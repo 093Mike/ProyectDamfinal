@@ -15,6 +15,7 @@ public class Activity_VerIncidencias extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_incidencias);
+        getSupportActionBar().hide();
 
         RecyclerView recyclerView_incidencias = findViewById(R.id.recyclerView_incidencias);
         AdapterIncidencias adapter = new AdapterIncidencias(C_Almacen.incidencias);
