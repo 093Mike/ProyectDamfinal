@@ -10,9 +10,9 @@ import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.Model.Pedido;
 import com.example.proyectdam.Model.User;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
-import com.example.proyectdam.Vista.MainActivity;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
+import com.example.proyectdam.Vista.MainActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -83,7 +83,6 @@ public class C_Activity_Menu extends Activity {
         }
         else{
             Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_Mod_Pedido"));
-
         }
     }
 

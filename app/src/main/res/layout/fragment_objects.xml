@@ -50,7 +50,7 @@
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,22 +99,6 @@
                     android:layout_height="wrap_content"
                     android:onClick="gestioMenu"
                     android:text="Button" />
-
-                <Button
-                    android:id="@+id/btActuImagen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="ActualizarImagenes"
-                    android:text="Actualizar Productos" />
-
-                <Button
-                    android:id="@+id/btNuevaCategoria"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="NuevaCategoria"
-                    android:tag="CREAR CATEGORIA"
-                    android:text="Nueva categoria" />
 
             </LinearLayout>
         </HorizontalScrollView>

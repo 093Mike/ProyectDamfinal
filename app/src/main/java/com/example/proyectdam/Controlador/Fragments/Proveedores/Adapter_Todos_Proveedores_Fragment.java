@@ -1,4 +1,4 @@
-package com.example.proyectdam.Controlador.Fragments.Clientes;
+package com.example.proyectdam.Controlador.Fragments.Proveedores;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,19 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.proyectdam.Model.Cliente;
+import com.example.proyectdam.Model.Proveedor;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Fragment_Clientes.Fragment_Clientes;
+import com.example.proyectdam.Vista.Fragment_Proveedores.Fragment_Proveedores;
 
 import java.util.ArrayList;
 
-public class Adapter_Todos_Clientes_Fragment extends RecyclerView.Adapter<Adapter_Todos_Clientes_Fragment.ViewHolder> {
+public class Adapter_Todos_Proveedores_Fragment extends RecyclerView.Adapter<Adapter_Todos_Proveedores_Fragment.ViewHolder> {
 
     private int listItemLayout;
-    private ArrayList<Cliente> itemList;
+    private ArrayList<Proveedor> itemList;
     public static int position;
 
-    public Adapter_Todos_Clientes_Fragment(int listItemLayout, ArrayList<Cliente> itemList) {
+    public Adapter_Todos_Proveedores_Fragment(int listItemLayout, ArrayList<Proveedor> itemList) {
         this.listItemLayout = listItemLayout;
         this.itemList = itemList;
 
@@ -37,7 +37,7 @@ public class Adapter_Todos_Clientes_Fragment extends RecyclerView.Adapter<Adapte
         TextView titulo = viewHolder.titulo;
         TextView precio = viewHolder.precio;
         titulo.setText(itemList.get(i).getNombre());
-        precio.setText(itemList.get(i).getCiudad());
+        precio.setText(itemList.get(i).getCorreoContacto());
     }
 
     @Override
@@ -56,8 +56,9 @@ public class Adapter_Todos_Clientes_Fragment extends RecyclerView.Adapter<Adapte
 
         @Override
         public void onClick(View view) {
+
             position = getAdapterPosition();
-            Fragment_Clientes.getInstance().alertClient();
+            Fragment_Proveedores.getInstance().alertClient();
         }
     }
 }

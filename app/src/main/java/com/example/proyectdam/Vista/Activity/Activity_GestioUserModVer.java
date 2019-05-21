@@ -25,8 +25,8 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menugestiomod_veruser);
         c_activity_gestioUserModVer = new C_Activity_GestioUserModVer();
-        getSupportActionBar().hide();
         initialite();
+        setTitle("");
         c_activity_gestioUserModVer.inicialite();
 
         info.setVisibility(View.INVISIBLE);

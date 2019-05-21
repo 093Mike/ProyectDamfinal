@@ -248,4 +248,12 @@ public class Activity_Menu extends AppCompatActivity {
         startActivity(intentsMenu.gestioIntent(view.getTag().toString()));
     }
 
+    public void gestioAddCliente(View view) {
+        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddCliente.class));
+    }
+
+    public void gestioAddProv(View view) {
+        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProveedor.class));
+
+    }
 }

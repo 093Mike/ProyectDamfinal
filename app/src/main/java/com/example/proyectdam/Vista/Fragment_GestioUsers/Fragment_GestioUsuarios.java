@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +16,7 @@ import com.example.proyectdam.Controlador.Fragments.Users.AdaptadorUsers;
 import com.example.proyectdam.Controlador.Fragments.Users.C_Fragment_GestioUsuarios;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 
 public class Fragment_GestioUsuarios extends Fragment {
 
@@ -45,7 +46,8 @@ public class Fragment_GestioUsuarios extends Fragment {
         c_fragment_gestioUsuarios.creaListaUsuarios();
         adaptadorUsers = new AdaptadorUsers(R.layout.item_users, c_fragment_gestioUsuarios.getUsers());
         recyclerView = getView().findViewById(R.id.listausers);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(Activity_Menu.getInstance(), 2);
+        recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adaptadorUsers);
         c_permisos = new C_Permisos();
         asignarBotones(c_permisos.permisosMenuUsers());
