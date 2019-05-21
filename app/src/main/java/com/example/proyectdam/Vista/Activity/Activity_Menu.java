@@ -47,6 +47,9 @@ public class Activity_Menu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        c_activity_menu = new C_Activity_Menu();
+        c_fragment_menu = new C_Fragment_Menu();
+        c_activity_menu.initialite();
         try {
             setContentView(R.layout.activity_menu);
         }
@@ -57,9 +60,7 @@ public class Activity_Menu extends AppCompatActivity {
             ft.commit();
         }
         getSupportActionBar().hide();
-        c_activity_menu = new C_Activity_Menu();
-        c_fragment_menu = new C_Fragment_Menu();
-        c_activity_menu.initialite();
+
         c_almacen = new C_Almacen();
         c_almacen.cargarAlmacenesApp();
         c_almacen.cargarProveedoresApp();

@@ -6,9 +6,9 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.MainActivity;
-import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,7 +37,7 @@ public class C_ActivityMain extends Activity{
             if(email.length() > 0 && email.contains("@")) {
                 con_email = true;
             }
-            if (pass.length()>6){
+            if (pass.length()>=6){
                 con_pass = true;
             }
             if(con_email && con_pass){
@@ -78,9 +78,9 @@ public class C_ActivityMain extends Activity{
                 });
     }
 
-    public void olvidaIntent() {
-        Intent intent = new Intent(MainActivity.getInstance(), PerdidoContrasenya.class);
-        MainActivity.getInstance().startActivity(intent);
+    public Intent olvidaIntent() {
+        IntentsMenu intentsMenu = new IntentsMenu();
+        return intentsMenu.gestioIntent("PERDIDO");
     }
 
     public FirebaseAuth getmAuth() {

@@ -42,7 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vista.Activity.PerdidoContrasenya" /> <!-- MENU PRINCIPAL -->
+        <!-- MENU PRINCIPAL -->
+        <activity android:name=".Vista.Activity.PerdidoContrasenya"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
         <activity
             android:name=".Vista.Activity.Activity_Menu"
             android:screenOrientation="portrait" /> <!-- USERS -->
