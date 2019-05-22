@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/deg_color"
     android:layout_height="match_parent">
 
     <fragment
@@ -11,6 +12,7 @@
         android:name="com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         app:layout_constraintBottom_toTopOf="@+id/fragment_global"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
