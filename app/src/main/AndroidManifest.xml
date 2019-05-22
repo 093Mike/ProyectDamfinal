@@ -47,8 +47,10 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
         <activity
             android:name=".Vista.Activity.Activity_Menu"
-            android:screenOrientation="portrait" /> <!-- USERS -->
-        <activity android:name=".Vista.Activity.MenuUser_add" />
+            android:screenOrientation="portrait" />
+        <!-- USERS -->
+        <activity android:name=".Vista.Activity.MenuUser_add"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
         <activity android:name=".Vista.Activity.Activity_GestioUserModVer"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
         <activity android:name=".Vista.Activity.Activity_VerPedido" />

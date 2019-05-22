@@ -18,9 +18,9 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher" />
+                android:layout_width="53dp"
+                android:layout_height="59dp"
+                app:srcCompat="@drawable/logosintexto" />
 
             <Space
                 android:layout_width="10dp"

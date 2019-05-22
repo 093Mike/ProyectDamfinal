@@ -1,7 +1,9 @@
 package com.example.proyectdam.Controlador.Activitys;
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 
 import com.example.proyectdam.Controlador.Fragments.Pedidos.AdaptadorPedidos;
@@ -23,8 +25,10 @@ public class C_Activity_Menu extends Activity {
     DatabaseReference mref;
     FirebaseDatabase database;
     public User user;
+    IntentsMenu intentsMenu;
 
     public void initialite(){
+        intentsMenu = new IntentsMenu();
         database = FirebaseDatabase.getInstance();
         leerUsuario();
     }
@@ -32,6 +36,7 @@ public class C_Activity_Menu extends Activity {
     public void leerUsuario() {
         mref = database.getReference("users/" + MainActivity.getInstance().c_activityMain.getUser().getUid());
         mref.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -62,11 +67,9 @@ public class C_Activity_Menu extends Activity {
     }
 
     public void selecionarUser(View view){
-        IntentsMenu intentsMenu = new IntentsMenu();
         Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_User"));
     }
     public void selecionarPedido(View view){
-        IntentsMenu intentsMenu = new IntentsMenu();
         Pedido pedidoActual = null;
         boolean filtro=false;
         for (int i = 0 ; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getCheck().length ; i++){
