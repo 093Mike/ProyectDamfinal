@@ -7,6 +7,7 @@ import com.example.proyectdam.Nueva_Categoria;
 import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
+import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
 import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
 import com.example.proyectdam.Vista.Activity.AddProducto;
 import com.example.proyectdam.Vista.Activity.ImagenProducto;
@@ -89,6 +90,9 @@ public class IntentsMenu {
                 break;
             case "MODIFICAR_PRODUCTO":
                 intent = new Intent(ListaProductos.getInstance().getApplicationContext(), AddProducto.class);
+                break;
+            case "MOVIMIENTOS_ALMACEN":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerMovimientos.class);
                 break;
         }
         return intent;

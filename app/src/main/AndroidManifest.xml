@@ -61,6 +61,7 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
         <activity android:name=".Vista.Activity.Activity_AddProveedor"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Vista.Activity.Activity_VerMovimientos" />
     </application>
 
 
