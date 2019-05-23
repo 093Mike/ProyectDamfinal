@@ -32,9 +32,7 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         c_activity_gestioUserModVer.inicialite();
         initialite();
         setTitle("");
-
         info.setVisibility(View.INVISIBLE);
-
         if(!Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Super")){
             gua_mod.setVisibility(View.INVISIBLE);
             e_permisos.setVisibility(View.INVISIBLE);
@@ -62,12 +60,8 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String permiso = (String) rol.getSelectedItem();
-                if(permiso.equals("Encargado") || permiso.equals("Trabajador")){
-                    encargo.setEnabled(true);
-                }
-                else{
-                    encargo.setEnabled(false);
-                }
+                if(permiso.equals("Encargado") || permiso.equals("Trabajador")){ encargo.setEnabled(true); }
+                else{ encargo.setEnabled(false); }
             }
 
             @Override

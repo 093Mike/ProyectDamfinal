@@ -1,6 +1,7 @@
 package com.example.proyectdam.Controlador.Activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -69,7 +70,7 @@ public class C_Activity_Menu extends Activity {
     public void selecionarUser(View view){
         Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_User"));
     }
-    public void selecionarPedido(View view){
+    public Intent selecionarPedido(){
         Pedido pedidoActual = null;
         boolean filtro=false;
         for (int i = 0 ; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getCheck().length ; i++){
@@ -82,10 +83,10 @@ public class C_Activity_Menu extends Activity {
             pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidos().get(AdaptadorPedidos.position);
         }
         if(pedidoActual.getEstado()==3 || pedidoActual.getEstado()==4 || Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Admin")){
-            Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_Pedido"));
+           return intentsMenu.gestioIntent("MV_Pedido");
         }
         else{
-            Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_Mod_Pedido"));
+            return intentsMenu.gestioIntent("MV_Mod_Pedido");
         }
     }
 

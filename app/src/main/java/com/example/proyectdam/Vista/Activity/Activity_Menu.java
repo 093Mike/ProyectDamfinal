@@ -114,6 +114,9 @@ public class Activity_Menu extends AppCompatActivity {
 
     }
 
+    public void selecionarPedido(View view){
+        startActivity(c_activity_menu.selecionarPedido());
+    }
 
     public void gestioaddUsers(View view) {
         if (c_fragment_menu.entrarAddUsers()) {
@@ -123,13 +126,10 @@ public class Activity_Menu extends AppCompatActivity {
             Toast.makeText(myContext, "No tienes permisos para entrar a ese sitio.", Toast.LENGTH_SHORT).show();
         }
     }
-    public void selecionarUser(View view){
-        Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_User"));
-    }
+
     public void powerOff(View view) {
         MainActivity.getInstance().c_activityMain.getmAuth().signOut();
         MainActivity.getInstance().c_activityMain.control = false;
-//        MainActivity.getInstance().c_activityMain.setmAuth(null);
         finish();
     }
 
@@ -236,19 +236,6 @@ public class Activity_Menu extends AppCompatActivity {
 
     }
 
-
-
-    private static Activity_Menu myContext;
-
-
-    public Activity_Menu() {
-        myContext = this;
-    }
-
-    public static Activity_Menu getInstance() {
-        return myContext;
-    }
-  
     public void NuevaCategoria(View view) {
         IntentsMenu intentsMenu = new IntentsMenu();
         startActivity(intentsMenu.gestioIntent(view.getTag().toString()));
@@ -262,4 +249,13 @@ public class Activity_Menu extends AppCompatActivity {
         startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProveedor.class));
 
     }
+
+    private static Activity_Menu myContext;
+    public Activity_Menu() {
+        myContext = this;
+    }
+    public static Activity_Menu getInstance() {
+        return myContext;
+    }
+
 }
