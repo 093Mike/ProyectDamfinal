@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -25,12 +24,9 @@ import com.example.proyectdam.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
-public class AddProducto extends AppCompatActivity {
+public class Activity_AddProducto extends AppCompatActivity {
     private C_Almacen c_almacen;
     private ImageView imageView_imagenProducto;
     private EditText editText_nombreProducto,
@@ -57,6 +53,8 @@ public class AddProducto extends AppCompatActivity {
         setContentView(R.layout.activity_add_producto);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         myContext = this;
         c_almacen = new C_Almacen();
@@ -165,7 +163,7 @@ public class AddProducto extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO: Modificar imagen
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                if (productoModificar == null){
+                if (productoModificar == null){ // ES UN PRODUCTO NUEVO
                     Producto p = new Producto(editText_nombreProducto.getText().toString().trim(),
                             editText_descripcion.getText().toString().trim(),
                             new Categoria(c_almacen.buscaCategoria(categoriaSeleccionada).getNombre()),
@@ -176,9 +174,10 @@ public class AddProducto extends AppCompatActivity {
                             Double.parseDouble(editText_precioProveedor.getText().toString().trim()),
                             Double.parseDouble(editText_pvp.getText().toString().trim()));
 
+                    c_almacen.addProducto_guardarImagenCamara(Activity_AddProducto.this, bitmap_imagenProducto, p);
                     DatabaseReference reference = database.getReference("productos/" + p.getId());
                     reference.setValue(p);
-                } else {
+                } else { // ESTAMOS MODIFICANDO UN PRODUCTO QUE YA EXISTE
                     DatabaseReference reference = database.getReference("productos/" + productoModificar.getId());
                     productoModificar.setNombre(editText_nombreProducto.getText().toString());
                     productoModificar.setDescripcion(editText_descripcion.getText().toString());
@@ -203,14 +202,14 @@ public class AddProducto extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0 && resultCode == RESULT_OK){
+        if (requestCode == 0 && resultCode == RESULT_OK){ // IMAGEN DE LA CAMARA
             bitmap_imagenProducto = data.getParcelableExtra("data");
             imageView_imagenProducto.setImageBitmap(bitmap_imagenProducto);
-        } else if (requestCode == 1 && resultCode == RESULT_OK){
+        } else if (requestCode == 1 && resultCode == RESULT_OK){ // IMAGEN DE LA GALERIA
             Uri selectedImage = data.getData();
-            String pathImagen = selectedImage.getPath();
-            Log.d("aaa", selectedImage.toString());
+            //String pathImagen = selectedImage.getPath();
             try {
+                bitmap_imagenProducto = data.getParcelableExtra("data");
                 imageView_imagenProducto.setImageBitmap(BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage)));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

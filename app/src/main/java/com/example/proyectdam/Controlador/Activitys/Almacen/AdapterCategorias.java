@@ -1,6 +1,8 @@
 package com.example.proyectdam.Controlador.Activitys.Almacen;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,9 +14,9 @@ import android.widget.ImageButton;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Categoria;
-import com.example.proyectdam.Vista.Activity.ListaCategorias;
-import com.example.proyectdam.Vista.Activity.ListaProductos;
+import com.example.proyectdam.Vista.Activity.Activity_ListaCategorias;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.CategoriasViewHolder> {
@@ -34,39 +36,21 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Ca
 
     @Override
     public void onBindViewHolder(@NonNull CategoriasViewHolder categoriasViewHolder, int i) {
-        switch (categoriasProductos.get(i).getId()){
-            case "AUDI":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_audiofotovideo);
-                break;
-            case "COMP":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_componentesinformaticos);
-                break;
-            case "CONS":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_consolasvideojuegos);
-                break;
-            case "OTRO":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_otros);
-                break;
-            case "HOGA":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_hogar);
-                break;
-            case "ORDE":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_ordenadores);
-                break;
-            case "PERI":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_perifericos);
-                break;
-            case "RADI":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_radiocontrol);
-                break;
-            case "SMAR":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_smartphones);
-                break;
-            case "TELE":
-                categoriasViewHolder.button_categoria.setBackgroundResource(R.drawable.final_televisores);
-                break;
+        try {
+            String path = Activity_ListaCategorias.getInstance().getFilesDir().getPath() +
+                    "/Productos/imagenes categoria/";
+            String[] listFiles = new File(path).list();
+            for (String file : listFiles) {
+                if (file.substring(0,file.lastIndexOf(".")).equals(categoriasProductos.get(i).getId())){
+                    path += file;
+                    break;
+                }
+            }
+            Bitmap bmp = BitmapFactory.decodeFile(path);
+            categoriasViewHolder.button_categoria.setImageBitmap(bmp);
+        } catch (Exception e){
+            Log.d("AdapterCategorias", e.getMessage());
         }
-
     }
 
     @Override
@@ -76,24 +60,17 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Ca
 
     public class CategoriasViewHolder extends RecyclerView.ViewHolder {
 
-        //public Button button_categoria;
         public ImageButton button_categoria;
 
         public CategoriasViewHolder(@NonNull View itemView) {
             super(itemView);
             button_categoria = itemView.findViewById(R.id.imageButton_categoria);
-            //button_categoria = itemView.findViewById(R.id.button_categoria);
             button_categoria.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("proyecto", "adapterPosition: " + String.valueOf(getAdapterPosition()) + " // itemId: " +
-                            getItemId() + " // itemViewType: " + getItemViewType() + " // layoutPosition: " + getLayoutPosition() +
-                            " // oldPosition: " + getOldPosition());
-                    Log.d("aaa", v.getTag().toString());
                     IntentsMenu intentsMenu = new IntentsMenu();
                     Intent intent = intentsMenu.gestioIntent(button_categoria.getTag().toString().toUpperCase());
-
-                    ListaCategorias.getInstance().startActivity(intent.
+                    Activity_ListaCategorias.getInstance().startActivity(intent.
                             putExtra("categoria", categoriasProductos.get(getAdapterPosition())));
                 }
             });

@@ -36,7 +36,7 @@ public class Fragment_AboutUs extends Fragment {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                nom_empresa.setText(c_fragment_about.getNombreEmpresa() + " - " + c_fragment_about.getPlanEmpresa());
+                nom_empresa.setText(c_fragment_about.getNombreEmpresa() + "\nPLAN: " + c_fragment_about.getPlanEmpresa());
             }
         };
 

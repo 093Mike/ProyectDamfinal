@@ -8,11 +8,11 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textView_almacenActual"
+                    android:id="@+id/textView_menuAlmacen_almacenActual"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -45,7 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/button_movimientos"
+                    android:id="@+id/button_menuAlmacen_movimientos"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginStart="8dp"
@@ -53,14 +53,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:tag="movimientos_almacen"
+                    android:tag="menuAlmacen_movimientos"
                     android:text="Movimientos almacén"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_inventario" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_inventario" />
 
                 <Button
-                    android:id="@+id/button_incidencias"
+                    android:id="@+id/button_menuAlmacen_crearIncidencia"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginStart="8dp"
@@ -68,14 +68,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:tag="incidencias_almacen"
-                    android:text="CREAR Incidencia"
+                    android:tag="menuAlmacen_crearIncidencia"
+                    android:text="Crear incidencia"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_movimientos" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_movimientos" />
 
                 <Button
-                    android:id="@+id/button_cambiarAlmacen"
+                    android:id="@+id/button_menuAlmacen_cambiarAlmacen"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginStart="8dp"
@@ -87,10 +87,10 @@
                     android:text="Cambiar almacén"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_incidencias" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_crearIncidencia" />
 
                 <Button
-                    android:id="@+id/button_añadirProducto"
+                    android:id="@+id/button_menuAlmacen_crearProducto"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_marginStart="8dp"
@@ -98,13 +98,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:text="Añadir producto"
+                    android:text="Crear producto"
+                    android:tag="menuAlmacen_crearProducto"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_cambiarAlmacen" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_cambiarAlmacen" />
 
                 <Button
-                    android:id="@+id/button_inventario"
+                    android:id="@+id/button_menuAlmacen_inventario"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginStart="8dp"
@@ -112,14 +113,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:tag="inventario almacen"
+                    android:tag="menuAlmacen_inventario"
                     android:text="Inventario"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_almacenActual" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView_menuAlmacen_almacenActual" />
 
                 <Button
-                    android:id="@+id/button_ver_incidencias"
+                    android:id="@+id/button_menuAlmacen_verIncidencias"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_marginStart="8dp"
@@ -127,10 +128,42 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:text="VER INCIDENCIAS"
+                    android:text="Ver incidencias"
+                    android:tag="menuAlmacen_verIncidencias"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_añadirProducto" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_crearProducto" />
+
+                <Button
+                    android:id="@+id/button_menuAlmacen_actualizarImagenes"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="Actualizar imágenes"
+                    android:tag="menuAlmacen_actualizarImagenes"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_verIncidencias" />
+
+                <Button
+                    android:id="@+id/button_menuAlmacen_crearCategoria"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:tag="menuAlmacen_crearCategoria"
+                    android:text="Crear categoria"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_actualizarImagenes" />
+
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
 

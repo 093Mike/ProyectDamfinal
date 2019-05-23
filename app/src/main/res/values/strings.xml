@@ -5,6 +5,7 @@
     <string name="correo_electronico">Correo Electronico</string>
     <string name="contrasenya">Contraseña</string>
     <string name="Login">Log In</string>
+    <string name="nombre"><u>NOMBRE</u></string>
 
     <string-array name="rol">
         <item>SuperAdmin</item>

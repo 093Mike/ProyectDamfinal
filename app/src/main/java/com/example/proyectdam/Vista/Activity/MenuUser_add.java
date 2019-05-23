@@ -3,6 +3,7 @@ package com.example.proyectdam.Vista.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Spinner;
 import com.example.proyectdam.Controlador.Activitys.GestioUser.C_Activity_GestioUserAdd;
@@ -18,6 +19,9 @@ public class MenuUser_add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_gestioadduser);
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         nombre = findViewById(R.id.editText3);
         correo = findViewById(R.id.editText4);
         contrasenya = findViewById(R.id.editText5);

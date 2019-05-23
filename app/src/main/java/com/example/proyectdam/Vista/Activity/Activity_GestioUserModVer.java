@@ -3,6 +3,7 @@ package com.example.proyectdam.Vista.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,6 +27,9 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         setContentView(R.layout.menugestiomod_veruser);
         c_activity_gestioUserModVer = new C_Activity_GestioUserModVer();
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         initialite();
         c_activity_gestioUserModVer.inicialite();
 

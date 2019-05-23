@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.proyectdam.Controlador.Activitys.Pedidos.Adapter_Pedidos_Ver;
@@ -27,6 +28,9 @@ public class Activity_VerPedido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verpedido);
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         fecha = findViewById(R.id.textView5);
         cliente = findViewById(R.id.textView9);
         estado = findViewById(R.id.textView8);

@@ -37,4 +37,31 @@ public class C_PermisoEncargado implements Permiso {
         }
         return null;
     }
+
+    @Override
+    public int[] permisosAlmacen() {
+        switch (tipo_Encargo){
+            case "Almacen":
+                C_PermisoEncargado_Almacen pe_Almacen = new C_PermisoEncargado_Almacen();
+                return pe_Almacen.permisosAlmacen();
+            case "Pedidos":
+                C_PermisoEncargado_Pedidos pe_Pedidos = new C_PermisoEncargado_Pedidos();
+                return pe_Pedidos.permisosAlmacen();
+
+        }
+        return null;
+    }
+
+    @Override
+    public boolean permisosAlmacen_modificarProducto() {
+        switch (tipo_Encargo){
+            case "Almacen":
+                C_PermisoEncargado_Almacen pe_Almacen = new C_PermisoEncargado_Almacen();
+                return pe_Almacen.permisosAlmacen_modificarProducto();
+            case "Pedidos":
+                C_PermisoEncargado_Pedidos pe_Pedidos = new C_PermisoEncargado_Pedidos();
+                return pe_Pedidos.permisosAlmacen_modificarProducto();
+        }
+        return false;
+    }
 }

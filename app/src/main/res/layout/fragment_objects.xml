@@ -41,7 +41,7 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:onClick="powerOff"
-                 />
+                app:srcCompat="@drawable/poweroff" />
 
             <Space
                 android:layout_width="15dp"
@@ -99,22 +99,6 @@
                     android:layout_height="wrap_content"
                     android:onClick="gestioMenu"
                     android:text="Button" />
-
-                <Button
-                    android:id="@+id/btActuImagen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="ActualizarImagenes"
-                    android:text="Actualizar Productos" />
-
-                <Button
-                    android:id="@+id/btNuevaCategoria"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="NuevaCategoria"
-                    android:tag="CREAR CATEGORIA"
-                    android:text="Nueva categoria" />
 
             </LinearLayout>
         </HorizontalScrollView>

@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageView154"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
@@ -71,7 +71,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView154" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -105,6 +105,6 @@
         android:text="info"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView154" />
 
 </android.support.constraint.ConstraintLayout>
