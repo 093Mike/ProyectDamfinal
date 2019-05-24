@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.proyectdam.Model.Cliente;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Fragment_Clientes.Fragment_Clientes;
 
 import java.util.ArrayList;
 
@@ -56,7 +57,7 @@ public class Adapter_Todos_Clientes_Fragment extends RecyclerView.Adapter<Adapte
         @Override
         public void onClick(View view) {
             position = getAdapterPosition();
-
+            Fragment_Clientes.getInstance().alertClient();
         }
     }
 }

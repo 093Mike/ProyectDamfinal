@@ -45,7 +45,7 @@ public class Activity_AddIncidencia extends AppCompatActivity {
         button_aceptar = findViewById(R.id.button_incidencias_ok);
 
         spinner_incidencias_productos.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, dataSpinnerProductos()));
-        spinner_incidencias_motivo.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, new String[]{"Rotura", "Devolución"}));
+        spinner_incidencias_motivo.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, new String[]{"Rotura", "Devolución"}));
 
         spinner_incidencias_productos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

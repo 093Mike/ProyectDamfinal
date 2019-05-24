@@ -133,6 +133,7 @@ public class C_Almacen {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Proveedor.id_proximo = 1;
                 proveedores.clear();
                 for (DataSnapshot proveedor : dataSnapshot.getChildren()) {
                     proveedores.add(new Proveedor(proveedor.getKey(),

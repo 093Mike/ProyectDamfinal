@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+
 import com.example.proyectdam.Controlador.Activitys.GestioUser.C_Activity_GestioUserAdd;
 import com.example.proyectdam.R;
 
@@ -17,7 +18,7 @@ public class MenuUser_add extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_gestioadduser);
-        getSupportActionBar().hide();
+        setTitle("Añadir Usuario");
         nombre = findViewById(R.id.editText3);
         correo = findViewById(R.id.editText4);
         contrasenya = findViewById(R.id.editText5);

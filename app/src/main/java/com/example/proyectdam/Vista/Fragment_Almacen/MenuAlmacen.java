@@ -17,6 +17,7 @@ import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Activity.Activity_AddIncidencia;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
+import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
 import com.example.proyectdam.Vista.Activity.AddProducto;
 
 public class MenuAlmacen extends Fragment {
@@ -28,10 +29,9 @@ public class MenuAlmacen extends Fragment {
             button_anadirProducto,
             button_verIncidencias;
     private TextView textView_almacenActual;
-    private C_Almacen c_almacen;
+    public C_Almacen c_almacen;
 
 
-    public MenuAlmacen() { }
 
     @Nullable
     @Override
@@ -63,7 +63,9 @@ public class MenuAlmacen extends Fragment {
         button_movimientos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Activity_VerMovimientos activity_verMovimientos = new Activity_VerMovimientos(c_almacen.getAlmacenActual());
+                IntentsMenu intentsMenu = new IntentsMenu();
+                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase()));
             }
         });
 
@@ -97,4 +99,7 @@ public class MenuAlmacen extends Fragment {
             }
         });
     }
+    private static MenuAlmacen myContext;
+    public MenuAlmacen() { myContext = this; }
+    public static MenuAlmacen getInstance() { return myContext; }
 }

@@ -111,7 +111,7 @@ public class C_Activity_Pedidos_Ver extends Activity {
     public int getTelefonoCliente(){
         for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
             if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
-                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getNum_telefono();
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getTelefono();
             }
         }
         return Integer.parseInt(null);

@@ -43,10 +43,16 @@ public class Activity_Menu extends AppCompatActivity {
     DataOutputStream envia;
     ObjectInputStream recibir;
     private HashMap<String, byte[]> dirCategoria = new HashMap();
+    IntentsMenu intentsMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        c_activity_menu = new C_Activity_Menu();
+        c_fragment_menu = new C_Fragment_Menu();
+        c_activity_menu.initialite();
+        intentsMenu = new IntentsMenu();
         try {
             setContentView(R.layout.activity_menu);
         }
@@ -57,9 +63,7 @@ public class Activity_Menu extends AppCompatActivity {
             ft.commit();
         }
         getSupportActionBar().hide();
-        c_activity_menu = new C_Activity_Menu();
-        c_fragment_menu = new C_Fragment_Menu();
-        c_activity_menu.initialite();
+
         c_almacen = new C_Almacen();
         c_almacen.cargarAlmacenesApp();
         c_almacen.cargarProveedoresApp();
@@ -91,7 +95,6 @@ public class Activity_Menu extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void menuAlmacen(View v) {
-
         for (int i=0 ; i < Fragment_Menu.options.length ; i++){
             Fragment_Menu.options[i].setClickable(true);
             Fragment_Menu.options[i].setBackgroundTintList(getResources().getColorStateList(R.color.color_normal));
@@ -111,19 +114,22 @@ public class Activity_Menu extends AppCompatActivity {
 
     }
 
+    public void selecionarPedido(View view){
+        startActivity(c_activity_menu.selecionarPedido());
+    }
+
     public void gestioaddUsers(View view) {
         if (c_fragment_menu.entrarAddUsers()) {
             String tag = (String) view.getTag();
-            IntentsMenu intentsMenu = new IntentsMenu();
             startActivity(new Intent(this, MenuUser_add.class));
         } else {
             Toast.makeText(myContext, "No tienes permisos para entrar a ese sitio.", Toast.LENGTH_SHORT).show();
         }
     }
+
     public void powerOff(View view) {
         MainActivity.getInstance().c_activityMain.getmAuth().signOut();
         MainActivity.getInstance().c_activityMain.control = false;
-//        MainActivity.getInstance().c_activityMain.setmAuth(null);
         finish();
     }
 
@@ -230,22 +236,26 @@ public class Activity_Menu extends AppCompatActivity {
 
     }
 
-
-
-    private static Activity_Menu myContext;
-
-
-    public Activity_Menu() {
-        myContext = this;
-    }
-
-    public static Activity_Menu getInstance() {
-        return myContext;
-    }
-  
     public void NuevaCategoria(View view) {
         IntentsMenu intentsMenu = new IntentsMenu();
         startActivity(intentsMenu.gestioIntent(view.getTag().toString()));
+    }
+
+    public void gestioAddCliente(View view) {
+        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddCliente.class));
+    }
+
+    public void gestioAddProv(View view) {
+        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProveedor.class));
+
+    }
+
+    private static Activity_Menu myContext;
+    public Activity_Menu() {
+        myContext = this;
+    }
+    public static Activity_Menu getInstance() {
+        return myContext;
     }
 
 }

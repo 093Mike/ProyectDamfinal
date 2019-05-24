@@ -38,18 +38,16 @@
 
     <ImageView
         android:id="@+id/i_main"
-        android:layout_width="108dp"
-        android:layout_height="113dp"
+        android:layout_width="141dp"
+        android:layout_height="132dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:foreground="@mipmap/ic_launcher"
+        android:foreground="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText2"

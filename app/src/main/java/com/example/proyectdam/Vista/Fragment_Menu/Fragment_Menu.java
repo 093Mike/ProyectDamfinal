@@ -1,8 +1,11 @@
 package com.example.proyectdam.Vista.Fragment_Menu;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +29,7 @@ public class Fragment_Menu extends Fragment {
         return inflater.inflate(R.layout.fragment_objects, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         powerOff = view.findViewById(R.id.b_poweroff);
@@ -35,23 +39,28 @@ public class Fragment_Menu extends Fragment {
         actualiza();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void actualiza(){
         for (int i=0;i<id_buttons.length;i++){
             options[i].setVisibility(View.INVISIBLE);
+            options[i].setTextColor(Color.parseColor("#D81B1B"));
+            options[i].setEnabled(false);
         }
     }
 
-    public static void asignarBotones (int[] botones){
+    public static void asignarBotones(int[] botones){
         int pos = 0;
         for (int i = 0 ; i < nombre_botones.length;i++){
+            options[pos].setVisibility(View.VISIBLE);
             for (int j = 0 ;j < botones.length;j++){
                 if(i == botones[j]){
-                    options[pos].setVisibility(View.VISIBLE);
-                    options[pos].setTag(nombre_botones[i]);
-                    options[pos].setText(nombre_botones[i]);
-                    pos++;
+                    options[pos].setTextColor(Color.parseColor("#000000"));
+                    options[pos].setEnabled(true);
                 }
             }
+            options[pos].setTag(nombre_botones[i]);
+            options[pos].setText(nombre_botones[i]);
+            pos++;
         }
     }
 

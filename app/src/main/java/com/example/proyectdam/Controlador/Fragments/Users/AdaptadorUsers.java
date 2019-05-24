@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Model.User;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 
 import java.util.ArrayList;
 
@@ -61,8 +61,7 @@ public class AdaptadorUsers extends RecyclerView.Adapter<AdaptadorUsers.ViewHold
         @Override
         public void onClick(View view) {
             position = getAdapterPosition();
-            C_Activity_Menu  c_activity_menu = new C_Activity_Menu();
-            c_activity_menu.selecionarUser(view);
+            Activity_Menu.getInstance().c_activity_menu.selecionarUser(view);
         }
     }
 }
