@@ -37,10 +37,6 @@
         <activity android:name=".Vista.Activity.ListaProductos" />
         <activity android:name=".Vista.Activity.ListaCategorias" />
         <activity android:name="com.example.proyectdam.Vista.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- MENU PRINCIPAL -->
         <activity android:name=".Vista.Activity.PerdidoContrasenya"
@@ -62,6 +58,12 @@
         <activity android:name=".Vista.Activity.Activity_AddProveedor"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
         <activity android:name=".Vista.Activity.Activity_VerMovimientos" />
+        <activity android:name=".Start" android:theme="@style/inicio" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 
