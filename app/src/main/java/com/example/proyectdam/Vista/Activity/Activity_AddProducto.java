@@ -104,6 +104,13 @@ public class Activity_AddProducto extends AppCompatActivity {
                     spinner_estanteria.setSelection(i);
                 }
             }
+        } else {
+            imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    c_almacen.alertDialog_setImagenProductoNuevo();
+                }
+            });
         }
 
         spinner_categoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -151,12 +158,7 @@ public class Activity_AddProducto extends AppCompatActivity {
             }
         });
 
-        imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                c_almacen.alertDialog_setImagenProductoNuevo();
-            }
-        });
+
 
         button_subirProducto.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -55,8 +55,8 @@ public class C_Almacen {
     public static ArrayList<Proveedor> proveedores = new ArrayList<>();
     public static ArrayList<Incidencia> incidencias = new ArrayList<>();
     private static Almacen almacenActual = null;
-    static final String HOST = "192.168.1.44";
-    static final int PUERTO = 5000;
+    public static final String HOST = "192.168.1.44";
+    public static final int PUERTO = 5000;
 
     public void cargarAlmacenesApp() {
         FirebaseDatabase database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
@@ -96,7 +96,7 @@ public class C_Almacen {
                 categoriasProductos.clear();
                 for (DataSnapshot categoria : dataSnapshot.getChildren()) {
                     Categoria categoriaApp = new Categoria(categoria.child("nombre").getValue(String.class));
-                    for (DataSnapshot almacenCategoria : categoria.child("almacen").getChildren()) {
+                    for (DataSnapshot almacenCategoria : categoria.child("idAlmacenes").getChildren()) {
                         categoriaApp.setIdAlmacenes(almacenCategoria.getValue(String.class));
                     }
                     if (categoriaApp.getIdAlmacenes().contains(almacenActual.getId())) {
@@ -289,6 +289,14 @@ public class C_Almacen {
         return categorias;
     }
 
+    public String[] spinner_cargarAlmacenes(){
+        String[] nombresAlmacenes = new String[almacenes.size()];
+        for (int i = 0; i < almacenes.size(); i++) {
+            nombresAlmacenes[i] = almacenes.get(i).getId() + " - " + almacenes.get(i).getDireccion();
+        }
+        return nombresAlmacenes;
+    }
+
     public void addProducto_guardarImagenCamara(Context context, Bitmap bmp, Producto p) {
         File imagenCamara = new File(context.getFilesDir().getPath() + "/Productos/" + p.getCategoria().getNombre() + "/" + p.getId() + ".jpeg");
         try {
@@ -297,10 +305,6 @@ public class C_Almacen {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-//        String[] a = new File(context.getFilesDir().getPath() + "/Productos/" + p.getCategoria().getNombre()).list();
-//        for (String s : a) {
-//            Log.d("aaa", s);
-//        }
         producto_enviarImagenServer(imagenCamara, p);
     }
 
@@ -410,89 +414,6 @@ public class C_Almacen {
                 //call delete to delete files and empty directory
                 file.delete();
                 System.out.println("Deleted file/folder: " + file.getAbsolutePath());
-            }
-        }).start();
-    }
-
-    public void menuAlmacen_crearCategoria(final Activity activity, final String nombreCategoria){
-        new Thread(new Runnable() {
-            byte[] imagenBytes;
-            InputStream is;
-            OutputStream os;
-            DataOutputStream envias;
-            DataInputStream recibir;
-            FileOutputStream guardar;
-            @Override
-            public void run() {
-                Socket skCliente = null;
-                try {
-                    skCliente = new Socket(HOST, PUERTO);
-                    os = skCliente.getOutputStream();
-                    is = skCliente.getInputStream();
-                    recibir = new DataInputStream(is);
-                    envias = new DataOutputStream(os);
-
-                    //enviamos peticion
-                    envias.writeUTF("CREAR_CATEGORIA");
-
-                    // enviamos el nombre de la categoria nueva
-
-                    envias.writeUTF(nombreCategoria);
-
-                    //creamos el file con la ruta donde se pondran las categorias y los archivos.
-                    File rutaNuevaCategoria = new File(activity.getFilesDir()
-                            .getPath() + "/Productos/" + nombreCategoria);
-                    //creo las carpetas correspondientes;
-                    rutaNuevaCategoria.mkdirs();
-
-                    File dirImagenesCat = new File(activity.getFilesDir()
-                            .getPath() + "/Productos/Imagenes Categoria");
-                    dirImagenesCat.mkdirs();
-
-
-                    //guardamos  la imagen en la aplicacion del movil
-                    guardar = new FileOutputStream(activity.getFilesDir()
-                            .getPath() + "/Productos/Imagenes Categoria/" + nombreCategoria + ".JPEG");
-                    guardar.write(imagenBytes);
-
-                    // String extension = nombreImagen.substring(nombreImagen.lastIndexOf("."));
-                    //nombre de la imagen de la categoria con su extension (cada imagen se llamara como su categoria)
-                    //  String img = btCrear.getText().toString() + extension;
-                    //enviamos el nombre de la imagen que equivale a las 3 primeras letras de la categoria en mayusculas
-                    String img = (nombreCategoria.substring(0, 3)).toUpperCase() + ".JPEG";
-
-                    //envio en nombre de la imagen
-                    envias.writeUTF(img);
-                    //enviamos la longitud array de bites y el array de bytes.
-                    envias.writeInt(imagenBytes.length);
-                    envias.write(imagenBytes);
-
-                    Categoria c = new Categoria(nombreCategoria);
-                    //accedemos a la base de datos
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    //accedemos al nodo de categorias.
-                    DatabaseReference reference = database.getReference("categorias/" + c.getId());
-
-                    reference.setValue(c);
-
-                    //Todo: falta asignarle almacen a la categoria.
-
-                    activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(activity, "Categoria creada correctamente", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    activity.finish();
-                } catch (IOException e) {
-                    activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(activity, "Error al crear la categoria", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    activity.finish();
-                }
             }
         }).start();
     }
