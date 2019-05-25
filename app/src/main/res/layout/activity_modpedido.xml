@@ -19,9 +19,9 @@
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
             android:layout_weight="0"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@android:drawable/ic_menu_info_details" />
 
         <TextView
             android:id="@+id/textView16"
