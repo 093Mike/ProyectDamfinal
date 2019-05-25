@@ -36,4 +36,32 @@ public class C_PermisoTrabajador implements Permiso {
         }
         return null;
     }
+
+    @Override
+    public int[] permisosAlmacen() {
+        switch (tipo_Encargo){
+            case "Almacen":
+                C_PermisoTrabajador_Almacen pe_Almacen = new C_PermisoTrabajador_Almacen();
+                return pe_Almacen.permisosAlmacen();
+            case "Pedidos":
+                C_PermisoTrabajador_Pedidos pe_pedidos = new C_PermisoTrabajador_Pedidos();
+                return pe_pedidos.permisosAlmacen();
+
+        }
+        return null;
+    }
+
+    @Override
+    public boolean permisosAlmacen_modificarProducto() {
+        switch (tipo_Encargo){
+            case "Almacen":
+                C_PermisoTrabajador_Almacen pe_Almacen = new C_PermisoTrabajador_Almacen();
+                return pe_Almacen.permisosAlmacen_modificarProducto();
+            case "Pedidos":
+                C_PermisoTrabajador_Pedidos pe_pedidos = new C_PermisoTrabajador_Pedidos();
+                return pe_pedidos.permisosAlmacen_modificarProducto();
+
+        }
+        return false;
+    }
 }

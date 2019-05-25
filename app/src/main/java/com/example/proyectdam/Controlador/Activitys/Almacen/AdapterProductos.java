@@ -1,13 +1,8 @@
 package com.example.proyectdam.Controlador.Activitys.Almacen;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -21,12 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyectdam.Controlador.IntentsMenu;
-import com.example.proyectdam.Model.Categoria;
+import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Model.Producto;
-import com.example.proyectdam.Vista.Activity.AddProducto;
-import com.example.proyectdam.Vista.Activity.ImagenProducto;
-import com.example.proyectdam.Vista.Activity.ListaProductos;
+import com.example.proyectdam.Vista.Activity.Activity_ListaProductos;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -36,10 +29,12 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
 
     private ArrayList<Producto> exampleList;
     private ArrayList<Producto> exampleListFull;
+    private C_Permisos c_permisos;
 
     public AdapterProductos(ArrayList productosCategoria){
         this.exampleList = productosCategoria;
         exampleListFull = new ArrayList<>(productosCategoria);
+        c_permisos = new C_Permisos();
     }
 
     @NonNull
@@ -47,27 +42,25 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
     public ProductosViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.producto_adapter, viewGroup, false);
         return new ProductosViewHolder(view);
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductosViewHolder productosViewHolder, int i) {
-        String path = ListaProductos.getInstance().getApplicationContext().getFilesDir().getPath() +
-                "/Productos/" + exampleList.get(i).getCategoria().getNombre() + "/";
-        String[] listFiles = new File(path).list();
-        for (String file : listFiles) {
-            Log.d("aaa", file.substring(0,file.lastIndexOf(".")));
-            if (file.substring(0,file.lastIndexOf(".")).equals(exampleList.get(i).getId())){
-                path += file;
-                break;
-            }
-        }
         try {
+            String path = Activity_ListaProductos.getInstance().getApplicationContext().getFilesDir().getPath() +
+                    "/Productos/" + exampleList.get(i).getCategoria().getNombre() + "/";
+            String[] listFiles = new File(path).list();
+            for (String file : listFiles) {
+                if (file.substring(0,file.lastIndexOf(".")).equals(exampleList.get(i).getId())){
+                    path += file;
+                    break;
+                }
+            }
             Bitmap bmp = BitmapFactory.decodeFile(path);
             productosViewHolder.imageView_imagenProducto.setImageBitmap(bmp);
             productosViewHolder.imageView_imagenProducto.setTag(path);
         } catch (Exception e){
-
+            Log.d("AdapterProductos", e.getMessage());
         }
         productosViewHolder.textView_nombreProducto.setText(exampleList.get(i).getNombre() + " (" + exampleList.get(i).getId() + ")");
         productosViewHolder.textView_cantidadProducto.setText("STOCK: " + String.valueOf(exampleList.get(i).getCantidad()));
@@ -135,25 +128,25 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
             textView_precioPVP = itemView.findViewById(R.id.textView_precioPVP);
             cardView = itemView.findViewById(R.id.cadView_producto);
 
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO: Implementar metodos IntentsMenu.class para abrir intents
-                    Log.d("aaa", "Click en el cardView");
-                    Intent intent = new IntentsMenu().gestioIntent("MODIFICAR_PRODUCTO");
-                    intent.putExtra("productoModificar", exampleList.get(getLayoutPosition()));
-                    intent.putExtra("rutaImagen", imageView_imagenProducto.getTag().toString());
-                    v.getContext().startActivity(intent);
-                }
-            });
+            if (c_permisos.permisosAlmacen_modificarProducto()){
+                cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new IntentsMenu().gestioIntent(v.getTag().toString().toUpperCase().trim());
+                        intent.putExtra("productoModificar", exampleList.get(getLayoutPosition()));
+                        intent.putExtra("rutaImagen", imageView_imagenProducto.getTag().toString());
+                        v.getContext().startActivity(intent);
+                    }
+                });
+            }
 
             imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new IntentsMenu().gestioIntent("AMPLIAR_IMAGEN_PRODUCTO");
+                    Intent intent = new IntentsMenu().gestioIntent(v.getTag().toString().toUpperCase().trim());
                     intent.putExtra("productoString", textView_nombreProducto.getText().toString());
                     intent.putExtra("rutaImagen", imageView_imagenProducto.getTag().toString());
-                    ListaProductos.getInstance().startActivity(intent);
+                    v.getContext().startActivity(intent);
                 }
             });
         }

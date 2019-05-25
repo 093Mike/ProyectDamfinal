@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vista.Activity.AddProducto">
+    tools:context=".Vista.Activity.Activity_AddProducto">
 
     <ScrollView
         android:layout_width="match_parent"

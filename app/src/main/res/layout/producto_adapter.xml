@@ -18,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:tag="adapterProducto_modificarProducto">
 
         <RelativeLayout
             android:id="@+id/relativeLayout_producto"
@@ -37,7 +38,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:tag="ampliar_imagen_producto"
+                android:tag="adapterProducto_ampliarImagen"
                 app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
                 tools:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 

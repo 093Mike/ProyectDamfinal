@@ -12,4 +12,10 @@ public class C_PermisoTrabajador_Almacen implements Permiso {
 
     @Override
     public int[] permisosMenuUsers() { return new int[]{0}; }
+
+    @Override
+    public int[] permisosAlmacen() { return new int[]{0,3,5,6}; }
+
+    @Override
+    public boolean permisosAlmacen_modificarProducto() { return false; }
 }

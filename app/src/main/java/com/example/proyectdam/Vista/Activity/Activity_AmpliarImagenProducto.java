@@ -2,15 +2,13 @@ package com.example.proyectdam.Vista.Activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.proyectdam.R;
 
-public class ImagenProducto extends AppCompatActivity {
+public class Activity_AmpliarImagenProducto extends AppCompatActivity {
     private ImageView imagenProductoAmpliada;
     private TextView textView_infoProducto;
 

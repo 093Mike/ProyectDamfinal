@@ -3,6 +3,7 @@ package com.example.proyectdam.Vista.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.example.proyectdam.Controlador.Activitys.C_Activity_Olvidar;
@@ -16,7 +17,13 @@ public class PerdidoContrasenya extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_olvidar);
+<<<<<<< HEAD
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+=======
         setTitle("¿Has olvidado la contraseña? Escribe tu email de tu usuario y te enviaremos un correo electronico");
+>>>>>>> master
         email = findViewById(R.id.editText6);
 
         c_activity_olvidar = new C_Activity_Olvidar();

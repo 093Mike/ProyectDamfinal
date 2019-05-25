@@ -8,7 +8,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
+import android.os.Bundle;
+=======
 import android.util.Log;
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -26,10 +30,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
+=======
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 
-public class AddProducto extends AppCompatActivity {
+public class Activity_AddProducto extends AppCompatActivity {
     private C_Almacen c_almacen;
     private ImageView imageView_imagenProducto;
     private EditText editText_nombreProducto,
@@ -56,6 +63,8 @@ public class AddProducto extends AppCompatActivity {
         setContentView(R.layout.activity_add_producto);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         myContext = this;
         c_almacen = new C_Almacen();
@@ -105,6 +114,13 @@ public class AddProducto extends AppCompatActivity {
                     spinner_estanteria.setSelection(i);
                 }
             }
+        } else {
+            imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    c_almacen.alertDialog_setImagenProductoNuevo();
+                }
+            });
         }
 
         spinner_categoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -152,19 +168,18 @@ public class AddProducto extends AppCompatActivity {
             }
         });
 
-        imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                c_almacen.alertDialog_setImagenProductoNuevo();
-            }
-        });
+
 
         button_subirProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO: Modificar imagen
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
+                if (productoModificar == null){ // ES UN PRODUCTO NUEVO
+=======
                 if (productoModificar == null) {
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     Producto p = new Producto(editText_nombreProducto.getText().toString().trim(),
                             editText_descripcion.getText().toString().trim(),
                             new Categoria(c_almacen.buscaCategoria(categoriaSeleccionada).getNombre()),
@@ -175,8 +190,12 @@ public class AddProducto extends AppCompatActivity {
                             Double.parseDouble(editText_precioProveedor.getText().toString().trim()),
                             Double.parseDouble(editText_pvp.getText().toString().trim()));
 
+                    c_almacen.addProducto_guardarImagenCamara(Activity_AddProducto.this, bitmap_imagenProducto, p);
                     DatabaseReference reference = database.getReference("productos/" + p.getId());
                     reference.setValue(p);
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
+                } else { // ESTAMOS MODIFICANDO UN PRODUCTO QUE YA EXISTE
+=======
                     reference = FirebaseDatabase.getInstance().getReference("almacenes/" + c_almacen.getAlmacenActual().getId() + "/movimientos/" +
                             new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
                     reference.child("idproducto").setValue(Integer.parseInt(Producto.nextId));
@@ -186,6 +205,7 @@ public class AddProducto extends AppCompatActivity {
                             " Se dispone de " + cantidad_total + " unidades de este producto.");
                     reference.child("tipo").setValue(1);
                 } else {
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     DatabaseReference reference = database.getReference("productos/" + productoModificar.getId());
                     productoModificar.setNombre(editText_nombreProducto.getText().toString());
                     productoModificar.setDescripcion(editText_descripcion.getText().toString());
@@ -220,14 +240,14 @@ public class AddProducto extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0 && resultCode == RESULT_OK){
+        if (requestCode == 0 && resultCode == RESULT_OK){ // IMAGEN DE LA CAMARA
             bitmap_imagenProducto = data.getParcelableExtra("data");
             imageView_imagenProducto.setImageBitmap(bitmap_imagenProducto);
-        } else if (requestCode == 1 && resultCode == RESULT_OK){
+        } else if (requestCode == 1 && resultCode == RESULT_OK){ // IMAGEN DE LA GALERIA
             Uri selectedImage = data.getData();
-            String pathImagen = selectedImage.getPath();
-            Log.d("aaa", selectedImage.toString());
+            //String pathImagen = selectedImage.getPath();
             try {
+                bitmap_imagenProducto = data.getParcelableExtra("data");
                 imageView_imagenProducto.setImageBitmap(BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage)));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

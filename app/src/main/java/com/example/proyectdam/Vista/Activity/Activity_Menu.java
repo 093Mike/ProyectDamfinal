@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
-
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
@@ -19,23 +18,14 @@ import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.example.proyectdam.Vista.MainActivity;
 
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.OutputStream;
-import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Activity_Menu extends AppCompatActivity {
     public C_Activity_Menu c_activity_menu;
     public C_Fragment_Menu c_fragment_menu;
     public C_Almacen c_almacen;
     public String tag_escogido;
 
+<<<<<<< HEAD
+=======
     static final String HOST = "192.168.1.44";
     static final int PUERTO = 5000;
     InputStream is;
@@ -46,6 +36,7 @@ public class Activity_Menu extends AppCompatActivity {
     IntentsMenu intentsMenu;
 
 
+>>>>>>> master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +54,16 @@ public class Activity_Menu extends AppCompatActivity {
             ft.commit();
         }
         getSupportActionBar().hide();
+<<<<<<< HEAD
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        c_activity_menu = new C_Activity_Menu();
+        c_fragment_menu = new C_Fragment_Menu();
+        c_activity_menu.initialite();
+=======
+
+>>>>>>> master
         c_almacen = new C_Almacen();
         c_almacen.cargarAlmacenesApp();
         c_almacen.cargarProveedoresApp();
@@ -75,7 +75,6 @@ public class Activity_Menu extends AppCompatActivity {
         super.onBackPressed();
         finishAffinity();
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void gestioMenu(View view) {
@@ -91,7 +90,6 @@ public class Activity_Menu extends AppCompatActivity {
         ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu(tag_escogido), "fragment_meters");
         ft.commit();
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void menuAlmacen(View v) {
@@ -111,7 +109,6 @@ public class Activity_Menu extends AppCompatActivity {
             ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu(tag_escogido), "fragment_meters");
             ft.commit();
         }
-
     }
 
     public void selecionarPedido(View view){
@@ -148,6 +145,10 @@ public class Activity_Menu extends AppCompatActivity {
         Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.anadirPedido();
     }
 
+<<<<<<< HEAD
+    private static Activity_Menu myContext;
+
+=======
 
     public void ActualizarImagenes(View vista) {
 
@@ -258,11 +259,16 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     private static Activity_Menu myContext;
+>>>>>>> master
     public Activity_Menu() {
         myContext = this;
     }
     public static Activity_Menu getInstance() {
         return myContext;
     }
+<<<<<<< HEAD
+}
+=======
 
 }
+>>>>>>> master
