@@ -26,10 +26,24 @@ public class Activity_Menu extends AppCompatActivity {
 
 <<<<<<< HEAD
 =======
+    static final String HOST = "192.168.1.44";
+    static final int PUERTO = 5000;
+    InputStream is;
+    OutputStream os;
+    DataOutputStream envia;
+    ObjectInputStream recibir;
+    private HashMap<String, byte[]> dirCategoria = new HashMap();
+    IntentsMenu intentsMenu;
+
+
 >>>>>>> master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        c_activity_menu = new C_Activity_Menu();
+        c_fragment_menu = new C_Fragment_Menu();
+        c_activity_menu.initialite();
+        intentsMenu = new IntentsMenu();
         try {
             setContentView(R.layout.activity_menu);
         }
@@ -97,10 +111,20 @@ public class Activity_Menu extends AppCompatActivity {
         }
     }
 
+    public void selecionarPedido(View view){
+        int tipo = c_activity_menu.selecionarPedido();
+        if(tipo == 1){
+            startActivity(intentsMenu.gestioIntent("MV_Pedido"));
+
+        }
+        else{
+            startActivity(intentsMenu.gestioIntent("MV_Mod_Pedido"));
+        }
+    }
+
     public void gestioaddUsers(View view) {
         if (c_fragment_menu.entrarAddUsers()) {
             String tag = (String) view.getTag();
-            IntentsMenu intentsMenu = new IntentsMenu();
             startActivity(new Intent(this, MenuUser_add.class));
         } else {
             Toast.makeText(myContext, "No tienes permisos para entrar a ese sitio.", Toast.LENGTH_SHORT).show();
@@ -110,7 +134,6 @@ public class Activity_Menu extends AppCompatActivity {
     public void powerOff(View view) {
         MainActivity.getInstance().c_activityMain.getmAuth().signOut();
         MainActivity.getInstance().c_activityMain.control = false;
-//        MainActivity.getInstance().c_activityMain.setmAuth(null);
         finish();
     }
 
@@ -126,6 +149,116 @@ public class Activity_Menu extends AppCompatActivity {
     private static Activity_Menu myContext;
 
 =======
+
+    public void ActualizarImagenes(View vista) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Socket skCliente = null;
+
+
+                try {
+                    skCliente = new Socket(HOST, PUERTO);
+                    os = skCliente.getOutputStream();
+                    envia = new DataOutputStream(os);
+
+
+                    //enviamos peticion
+                    envia.writeUTF("ACTUALIZAR_IMAGENES");
+                    //borramos la carpeta productos con todas las categorias dentro
+                    Log.d("asd", getApplicationContext().getFilesDir()
+                            .getPath());
+                    File rutaProductos = new File(getApplicationContext().getFilesDir()
+                            .getPath() + "/Productos");
+                     rutaProductos.mkdirs();
+                    recursiveDelete(rutaProductos);
+
+                    is = skCliente.getInputStream();
+                    recibir = new ObjectInputStream(is);
+
+
+                    //recibimos el numero de categorias que recibiremos.
+                    int numCategorias = recibir.readInt();
+
+                    for (int i = 0; i < numCategorias; i++) {
+                        String categoria = recibir.readUTF();
+
+                        //creamos el file con la ruta donde se pondran las categorias y los archivos.
+                        File rutaCategoria = new File(getApplicationContext().getFilesDir()
+                                .getPath() + "/Productos/" + categoria);
+
+                        //creo las carpetas correspondientes;
+                        rutaCategoria.mkdirs();
+                        dirCategoria = (HashMap) recibir.readObject();
+
+
+                        //metemos las imagenes del hashmap en la carpeta.
+                        for (Map.Entry<String, byte[]> entrada : dirCategoria.entrySet()) {
+
+                            //creamos   fileoutputstram con la ruta qu ele corresponde para guardar las imagenes
+                            FileOutputStream guardar = new FileOutputStream(rutaCategoria + "/" + entrada.getKey());
+                            guardar.write(entrada.getValue());
+
+                        }
+                     String[] a=   rutaCategoria.list();
+
+                        for (int j = 0; j < a.length; j++) {
+                            Log.d("aaa",categoria+": "+a[j]);
+                        }
+                    }
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Activity_Menu.this, "Imagenes actualizadas", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            //funcion que borra_todo lo que haya dentro de un directorio.
+            private void recursiveDelete(File file) {
+                //to end the recursive loop
+                if (!file.exists())
+                    return;
+
+                //if directory, go inside and call recursively
+                if (file.isDirectory()) {
+                    for (File f : file.listFiles()) {
+                        //call recursively
+                        recursiveDelete(f);
+                    }
+                }
+                //call delete to delete files and empty directory
+                file.delete();
+                System.out.println("Deleted file/folder: " + file.getAbsolutePath());
+            }
+        }).start();
+
+
+    }
+
+    public void NuevaCategoria(View view) {
+        IntentsMenu intentsMenu = new IntentsMenu();
+        startActivity(intentsMenu.gestioIntent(view.getTag().toString()));
+    }
+
+    public void gestioAddCliente(View view) {
+        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddCliente.class));
+    }
+
+    public void gestioAddProv(View view) {
+        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProveedor.class));
+
+    }
+
+    private static Activity_Menu myContext;
 >>>>>>> master
     public Activity_Menu() {
         myContext = this;
@@ -134,6 +267,8 @@ public class Activity_Menu extends AppCompatActivity {
         return myContext;
     }
 <<<<<<< HEAD
+}
 =======
+
 }
 >>>>>>> master

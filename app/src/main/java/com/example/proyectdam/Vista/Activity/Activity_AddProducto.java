@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 <<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
@@ -31,6 +32,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.FileNotFoundException;
 <<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
 =======
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 >>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 
 public class Activity_AddProducto extends AppCompatActivity {
@@ -175,6 +178,7 @@ public class Activity_AddProducto extends AppCompatActivity {
 <<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
                 if (productoModificar == null){ // ES UN PRODUCTO NUEVO
 =======
+                if (productoModificar == null) {
 >>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     Producto p = new Producto(editText_nombreProducto.getText().toString().trim(),
                             editText_descripcion.getText().toString().trim(),
@@ -191,6 +195,17 @@ public class Activity_AddProducto extends AppCompatActivity {
                     reference.setValue(p);
 <<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
                 } else { // ESTAMOS MODIFICANDO UN PRODUCTO QUE YA EXISTE
+=======
+                    reference = FirebaseDatabase.getInstance().getReference("almacenes/" + c_almacen.getAlmacenActual().getId() + "/movimientos/" +
+                            new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
+                    reference.child("idproducto").setValue(Integer.parseInt(Producto.nextId));
+                    double cantidad_total = Double.parseDouble(editText_stock.getText().toString().trim());
+                    reference.child("descripcion").setValue("Se ha añadido un producto nuevo: " +
+                            editText_nombreProducto.getText().toString().trim() + "." +
+                            " Se dispone de " + cantidad_total + " unidades de este producto.");
+                    reference.child("tipo").setValue(1);
+                } else {
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     DatabaseReference reference = database.getReference("productos/" + productoModificar.getId());
                     productoModificar.setNombre(editText_nombreProducto.getText().toString());
                     productoModificar.setDescripcion(editText_descripcion.getText().toString());
@@ -202,7 +217,17 @@ public class Activity_AddProducto extends AppCompatActivity {
                     productoModificar.setPrecioProveedor(Double.parseDouble(editText_precioProveedor.getText().toString().trim()));
                     productoModificar.setPrecioPVP(Double.parseDouble(editText_pvp.getText().toString().trim()));
                     reference.setValue(productoModificar);
+
+                    reference = FirebaseDatabase.getInstance().getReference("almacenes/" + c_almacen.getAlmacenActual().getId() + "/movimientos/" +
+                            new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
+                    reference.child("idproducto").setValue(Integer.parseInt(productoModificar.getId()));
+                    double cantidad_total = Double.parseDouble(editText_stock.getText().toString().trim());
+                    reference.child("descripcion").setValue("Se ha modificado un producto : " +
+                            editText_nombreProducto.getText().toString().trim() + "." +
+                            " Se dispone de " + cantidad_total + " unidades de este producto.");
+                    reference.child("tipo").setValue(1);
                 }
+
                 finish();
             }
         });

@@ -71,12 +71,16 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 <<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/imageView154" />
 =======
+        app:layout_constraintTop_toTopOf="parent" />
 >>>>>>> master
 
     <Spinner
@@ -87,7 +91,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:entries="@array/puesto"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editText7"
+        app:layout_constraintStart_toStartOf="@+id/editText7"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Spinner
@@ -98,7 +103,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:entries="@array/rol"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editText7"
+        app:layout_constraintStart_toStartOf="@+id/editText7"
         app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
 
@@ -108,12 +114,42 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="info"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="0"
+        android:onClick="modUser"
+        android:text="GUARDAR"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 <<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/imageView154" />
 =======
+        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="173dp" />
 >>>>>>> master
 
 </android.support.constraint.ConstraintLayout>

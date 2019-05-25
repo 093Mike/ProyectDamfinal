@@ -38,22 +38,33 @@
         <activity android:name=".Vista.Activity.Activity_ListaProductos" />
         <activity android:name=".Vista.Activity.Activity_ListaCategorias" />
         <activity android:name="com.example.proyectdam.Vista.MainActivity">
+        </activity>
+        <!-- MENU PRINCIPAL -->
+        <activity android:name=".Vista.Activity.PerdidoContrasenya"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity
+            android:name=".Vista.Activity.Activity_Menu"
+            android:screenOrientation="portrait" />
+        <!-- USERS -->
+        <activity android:name=".Vista.Activity.MenuUser_add"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Vista.Activity.Activity_GestioUserModVer"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Vista.Activity.Activity_VerPedido" />
+        <activity android:name=".Vista.Activity.Activity_ModPedido" />
+        <activity android:name=".Vista.Activity.Activity_all_Products" />
+        <activity android:name=".Vista.Activity.Activity_all_Clientes" />
+        <activity android:name=".Vista.Activity.Activity_AddCliente"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Vista.Activity.Activity_AddProveedor"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Vista.Activity.Activity_VerMovimientos" />
+        <activity android:name=".Start" android:theme="@style/inicio" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vista.Activity.PerdidoContrasenya" /> <!-- MENU PRINCIPAL -->
-        <!-- <activity android:name=".Menu.MenuPrincipal"/> -->
-        <activity
-            android:name=".Vista.Activity.Activity_Menu"
-            android:screenOrientation="portrait" /> <!-- USERS -->
-        <activity android:name=".Vista.Activity.MenuUser_add" />
-        <activity android:name=".Vista.Activity.Activity_GestioUserModVer" />
-        <activity android:name=".Vista.Activity.Activity_VerPedido" />
-        <activity android:name=".Vista.Activity.Activity_ModPedido" />
-        <activity android:name=".Vista.Activity.Activity_all_Products" />
-        <activity android:name=".Vista.Activity.Activity_all_Clientes" />
     </application>
 
 

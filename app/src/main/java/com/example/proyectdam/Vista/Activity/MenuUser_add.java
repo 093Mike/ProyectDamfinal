@@ -25,6 +25,7 @@ public class MenuUser_add extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 =======
+        setTitle("Añadir Usuario");
 >>>>>>> master
         nombre = findViewById(R.id.editText3);
         correo = findViewById(R.id.editText4);

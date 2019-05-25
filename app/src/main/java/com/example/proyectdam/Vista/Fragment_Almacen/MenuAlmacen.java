@@ -56,6 +56,7 @@ public class MenuAlmacen extends Fragment {
     private C_Almacen c_almacen;
     private C_Permisos c_permisos;
 =======
+    public C_Almacen c_almacen;
 
 >>>>>>> master
 
@@ -83,6 +84,16 @@ public class MenuAlmacen extends Fragment {
         c_almacen.menuAlmacen_asignarBotones(buttons, c_permisos.permisosAlmacen());
 
         buttons[0].setOnClickListener(new View.OnClickListener() { // VER INVENTARIO
+=======
+        button_verInventario = view.findViewById(R.id.button_inventario);
+        button_movimientos = view.findViewById(R.id.button_movimientos2);
+        button_incidencias = view.findViewById(R.id.button_incidencias);
+        button_cambiarAlmacen = view.findViewById(R.id.button_cambiarAlmacen);
+        button_anadirProducto = view.findViewById(R.id.button_añadirProducto);
+        button_verIncidencias = view.findViewById(R.id.button_ver_incidencias);
+
+        button_verInventario.setOnClickListener(new View.OnClickListener() {
+>>>>>>> master
             @Override
             public void onClick(View v) {
                 IntentsMenu intentsMenu = new IntentsMenu();
@@ -97,6 +108,9 @@ public class MenuAlmacen extends Fragment {
                 // TODO: falta por implementar
                 IntentsMenu intentsMenu = new IntentsMenu();
 =======
+                Activity_VerMovimientos activity_verMovimientos = new Activity_VerMovimientos(c_almacen.getAlmacenActual());
+                IntentsMenu intentsMenu = new IntentsMenu();
+                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase()));
 >>>>>>> master
             }
         });
@@ -147,4 +161,7 @@ public class MenuAlmacen extends Fragment {
             }
         });
     }
+    private static MenuAlmacen myContext;
+    public MenuAlmacen() { myContext = this; }
+    public static MenuAlmacen getInstance() { return myContext; }
 }

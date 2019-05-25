@@ -10,6 +10,7 @@ import com.example.proyectdam.Vista.Activity.Nueva_Categoria;
 import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
+import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
 import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
 <<<<<<< HEAD
 import com.example.proyectdam.Vista.Activity.Activity_AmpliarImagenProducto;
@@ -18,12 +19,21 @@ import com.example.proyectdam.Vista.Activity.Activity_ListaCategorias;
 import com.example.proyectdam.Vista.Activity.Activity_AddProducto;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
 
+=======
+import com.example.proyectdam.Vista.Activity.AddProducto;
+import com.example.proyectdam.Vista.Activity.ImagenProducto;
+import com.example.proyectdam.Vista.Activity.ListaCategorias;
+import com.example.proyectdam.Vista.Activity.ListaProductos;
+>>>>>>> master
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
+import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.example.proyectdam.Vista.Fragment_About.Fragment_AboutUs;
 import com.example.proyectdam.Vista.Fragment_Clientes.Fragment_Clientes;
 import com.example.proyectdam.Vista.Fragment_GestioUsers.Fragment_GestioUsuarios;
+import com.example.proyectdam.Vista.Fragment_Menu.Fragment_MenuMain;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.example.proyectdam.Vista.Fragment_Proveedores.Fragment_Proveedores;
+import com.example.proyectdam.Vista.MainActivity;
 
 public class IntentsMenu {
 
@@ -59,6 +69,10 @@ public class IntentsMenu {
     public Intent gestioIntent(String text_button){
         Intent intent = null;
         switch (text_button){
+            //MAIN ACTIVITY:
+            case "PERDIDO":
+                intent = new Intent(MainActivity.getInstance(),PerdidoContrasenya.class);
+                break;
             // USUARIOS
             case "AÑADIR USUARIO":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
@@ -104,6 +118,9 @@ public class IntentsMenu {
                 break;
             case "ADAPTERPRODUCTO_MODIFICARPRODUCTO":
                 intent = new Intent(Activity_ListaProductos.getInstance().getApplicationContext(), Activity_AddProducto.class);
+                break;
+            case "MOVIMIENTOS_ALMACEN":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerMovimientos.class);
                 break;
         }
         return intent;
