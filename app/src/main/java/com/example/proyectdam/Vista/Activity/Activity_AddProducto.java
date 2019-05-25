@@ -8,11 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
-import android.os.Bundle;
-=======
-import android.util.Log;
->>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -30,11 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
-<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
-=======
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
->>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 
 public class Activity_AddProducto extends AppCompatActivity {
     private C_Almacen c_almacen;
@@ -175,11 +167,7 @@ public class Activity_AddProducto extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO: Modificar imagen
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
-                if (productoModificar == null){ // ES UN PRODUCTO NUEVO
-=======
                 if (productoModificar == null) {
->>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     Producto p = new Producto(editText_nombreProducto.getText().toString().trim(),
                             editText_descripcion.getText().toString().trim(),
                             new Categoria(c_almacen.buscaCategoria(categoriaSeleccionada).getNombre()),
@@ -193,19 +181,7 @@ public class Activity_AddProducto extends AppCompatActivity {
                     c_almacen.addProducto_guardarImagenCamara(Activity_AddProducto.this, bitmap_imagenProducto, p);
                     DatabaseReference reference = database.getReference("productos/" + p.getId());
                     reference.setValue(p);
-<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
-                } else { // ESTAMOS MODIFICANDO UN PRODUCTO QUE YA EXISTE
-=======
-                    reference = FirebaseDatabase.getInstance().getReference("almacenes/" + c_almacen.getAlmacenActual().getId() + "/movimientos/" +
-                            new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
-                    reference.child("idproducto").setValue(Integer.parseInt(Producto.nextId));
-                    double cantidad_total = Double.parseDouble(editText_stock.getText().toString().trim());
-                    reference.child("descripcion").setValue("Se ha añadido un producto nuevo: " +
-                            editText_nombreProducto.getText().toString().trim() + "." +
-                            " Se dispone de " + cantidad_total + " unidades de este producto.");
-                    reference.child("tipo").setValue(1);
                 } else {
->>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     DatabaseReference reference = database.getReference("productos/" + productoModificar.getId());
                     productoModificar.setNombre(editText_nombreProducto.getText().toString());
                     productoModificar.setDescripcion(editText_descripcion.getText().toString());
@@ -233,9 +209,6 @@ public class Activity_AddProducto extends AppCompatActivity {
         });
     }
 
-    public static Context getInstance() {
-        return myContext;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -254,4 +227,12 @@ public class Activity_AddProducto extends AppCompatActivity {
             }
         }
     }
+    private static Activity_AddProducto myContext2;
+    public Activity_AddProducto() {
+        myContext2 = this;
+    }
+    public static Activity_AddProducto getInstance() {
+        return myContext2;
+    }
+
 }

@@ -19,14 +19,10 @@ public class MenuUser_add extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_gestioadduser);
-<<<<<<< HEAD
-        getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-=======
         setTitle("Añadir Usuario");
->>>>>>> master
         nombre = findViewById(R.id.editText3);
         correo = findViewById(R.id.editText4);
         contrasenya = findViewById(R.id.editText5);

@@ -4,30 +4,21 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 import com.example.proyectdam.Vista.Activity.Activity_AddIncidencia;
-import com.example.proyectdam.Vista.Activity.Activity_ListaProductos;
-import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
-import com.example.proyectdam.Vista.Activity.Nueva_Categoria;
+import com.example.proyectdam.Vista.Activity.Activity_AddProducto;
+import com.example.proyectdam.Vista.Activity.Activity_AmpliarImagenProducto;
 import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
+import com.example.proyectdam.Vista.Activity.Activity_ListaCategorias;
+import com.example.proyectdam.Vista.Activity.Activity_ListaProductos;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
+import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
 import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
 import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
-<<<<<<< HEAD
-import com.example.proyectdam.Vista.Activity.Activity_AmpliarImagenProducto;
-import com.example.proyectdam.Vista.Activity.Activity_ListaCategorias;
-
-import com.example.proyectdam.Vista.Activity.Activity_AddProducto;
-import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
-
-=======
-import com.example.proyectdam.Vista.Activity.AddProducto;
-import com.example.proyectdam.Vista.Activity.ImagenProducto;
-import com.example.proyectdam.Vista.Activity.ListaCategorias;
-import com.example.proyectdam.Vista.Activity.ListaProductos;
->>>>>>> master
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
+import com.example.proyectdam.Vista.Activity.Nueva_Categoria;
 import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.example.proyectdam.Vista.Fragment_About.Fragment_AboutUs;
+import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
 import com.example.proyectdam.Vista.Fragment_Clientes.Fragment_Clientes;
 import com.example.proyectdam.Vista.Fragment_GestioUsers.Fragment_GestioUsuarios;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_MenuMain;
@@ -104,7 +95,7 @@ public class IntentsMenu {
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerIncidencias.class);
                 break;
             case "MENUALMACEN_MOVIMIENTOS":
-//                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerIncidencias.class);
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerMovimientos.class);
                 break;
 
             // AdapterCategoria.java

@@ -22,17 +22,14 @@ import com.example.proyectdam.Model.Incidencia;
 import com.example.proyectdam.Model.Producto;
 import com.example.proyectdam.Model.Proveedor;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_AddProducto;
-import com.example.proyectdam.Vista.Activity.Nueva_Categoria;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,7 +38,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -96,11 +92,7 @@ public class C_Almacen {
                 categoriasProductos.clear();
                 for (DataSnapshot categoria : dataSnapshot.getChildren()) {
                     Categoria categoriaApp = new Categoria(categoria.child("nombre").getValue(String.class));
-<<<<<<< HEAD
-                    for (DataSnapshot almacenCategoria : categoria.child("idAlmacenes").getChildren()) {
-=======
                     for (DataSnapshot almacenCategoria : categoria.child("idAlmacenes").getChildren()){
->>>>>>> master
                         categoriaApp.setIdAlmacenes(almacenCategoria.getValue(String.class));
                     }
                     if (categoriaApp.getIdAlmacenes().contains(almacenActual.getId())) {

@@ -15,12 +15,7 @@ import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
-<<<<<<< HEAD
-=======
-import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
 import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
-import com.example.proyectdam.Vista.Activity.AddProducto;
->>>>>>> master
 
 public class MenuAlmacen extends Fragment {
 
@@ -52,13 +47,8 @@ public class MenuAlmacen extends Fragment {
             R.id.button_menuAlmacen_crearCategoria};
 
     private TextView textView_almacenActual;
-<<<<<<< HEAD
-    private C_Almacen c_almacen;
-    private C_Permisos c_permisos;
-=======
     public C_Almacen c_almacen;
-
->>>>>>> master
+    private C_Permisos c_permisos;
 
 
     @Nullable
@@ -74,7 +64,6 @@ public class MenuAlmacen extends Fragment {
         c_almacen = new C_Almacen();
         textView_almacenActual = view.findViewById(R.id.textView_menuAlmacen_almacenActual);
         textView_almacenActual.setText(c_almacen.getAlmacenActual().getId() + " - " + c_almacen.getAlmacenActual().getDireccion());
-<<<<<<< HEAD
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = view.findViewById(idButtons[i]);
@@ -84,34 +73,20 @@ public class MenuAlmacen extends Fragment {
         c_almacen.menuAlmacen_asignarBotones(buttons, c_permisos.permisosAlmacen());
 
         buttons[0].setOnClickListener(new View.OnClickListener() { // VER INVENTARIO
-=======
-        button_verInventario = view.findViewById(R.id.button_inventario);
-        button_movimientos = view.findViewById(R.id.button_movimientos2);
-        button_incidencias = view.findViewById(R.id.button_incidencias);
-        button_cambiarAlmacen = view.findViewById(R.id.button_cambiarAlmacen);
-        button_anadirProducto = view.findViewById(R.id.button_añadirProducto);
-        button_verIncidencias = view.findViewById(R.id.button_ver_incidencias);
-
-        button_verInventario.setOnClickListener(new View.OnClickListener() {
->>>>>>> master
             @Override
             public void onClick(View v) {
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase().trim()));
+                startActivity(intentsMenu.gestioIntent("MENUALMACEN_INVENTARIO"));
             }
         });
 
         buttons[1].setOnClickListener(new View.OnClickListener() { // MOVIMIENTOS ALMACÉN
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 // TODO: falta por implementar
-                IntentsMenu intentsMenu = new IntentsMenu();
-=======
                 Activity_VerMovimientos activity_verMovimientos = new Activity_VerMovimientos(c_almacen.getAlmacenActual());
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase()));
->>>>>>> master
+                startActivity(intentsMenu.gestioIntent("MENUALMACEN_MOVIMIENTOS"));
             }
         });
 
@@ -119,7 +94,7 @@ public class MenuAlmacen extends Fragment {
             @Override
             public void onClick(View v) {
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase().trim()));
+                startActivity(intentsMenu.gestioIntent("MENUALMACEN_CREARINCIDENCIA"));
             }
         });
 
@@ -134,7 +109,7 @@ public class MenuAlmacen extends Fragment {
             @Override
             public void onClick(View v) { // AÑADIR PRODUCTO
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase().trim()));
+                startActivity(intentsMenu.gestioIntent("MENUALMACEN_CREARPRODUCTO"));
             }
         });
 
@@ -142,7 +117,7 @@ public class MenuAlmacen extends Fragment {
             @Override
             public void onClick(View v) { // VER INCIDENCIAS
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase().trim()));
+                startActivity(intentsMenu.gestioIntent("MENUALMACEN_VERINCIDENCIAS"));
             }
         });
 
@@ -157,7 +132,7 @@ public class MenuAlmacen extends Fragment {
             @Override
             public void onClick(View v) { // CREAR CATEGORIA
                 IntentsMenu intentsMenu = new IntentsMenu();
-                startActivity(intentsMenu.gestioIntent(v.getTag().toString().toUpperCase().trim()));
+                startActivity(intentsMenu.gestioIntent("MENUALMACEN_CREARCATEGORIA"));
             }
         });
     }

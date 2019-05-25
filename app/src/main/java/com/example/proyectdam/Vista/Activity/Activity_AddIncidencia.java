@@ -15,11 +15,7 @@ import com.example.proyectdam.Model.Producto;
 import com.example.proyectdam.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-<<<<<<< HEAD
-=======
-
 import java.text.SimpleDateFormat;
->>>>>>> master
 import java.util.ArrayList;
 import java.util.Calendar;
 

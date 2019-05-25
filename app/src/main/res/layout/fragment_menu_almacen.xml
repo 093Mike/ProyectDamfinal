@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView_almacenActual"
+                android:id="@+id/textView_menuAlmacen_almacenActual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button_cambiarAlmacen"
+                android:id="@+id/button_menuAlmacen_cambiarAlmacen"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -46,25 +46,14 @@
                 android:text="Cambiar almacén"
                 android:textColor="@color/cardview_light_background"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_incidencias" />
+                app:layout_constraintStart_toStartOf="parent"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-<<<<<<< HEAD
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-=======
             android:layout_height="0dp"
             android:orientation="horizontal"
->>>>>>> master
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,146 +65,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp">
 
-<<<<<<< HEAD
-                <TextView
-                    android:id="@+id/textView_menuAlmacen_almacenActual"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="center"
-                    android:text="Almacen actual"
-                    android:textSize="24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_movimientos"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:tag="menuAlmacen_movimientos"
-                    android:text="Movimientos almacén"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_inventario" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_crearIncidencia"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:tag="menuAlmacen_crearIncidencia"
-                    android:text="Crear incidencia"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_movimientos" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_cambiarAlmacen"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:tag="Almacen"
-                    android:text="Cambiar almacén"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_crearIncidencia" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_crearProducto"
-                    android:layout_width="0dp"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Crear producto"
-                    android:tag="menuAlmacen_crearProducto"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_cambiarAlmacen" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_inventario"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:tag="menuAlmacen_inventario"
-                    android:text="Inventario"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_menuAlmacen_almacenActual" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_verIncidencias"
-                    android:layout_width="0dp"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Ver incidencias"
-                    android:tag="menuAlmacen_verIncidencias"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_crearProducto" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_actualizarImagenes"
-                    android:layout_width="0dp"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Actualizar imágenes"
-                    android:tag="menuAlmacen_actualizarImagenes"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_verIncidencias" />
-
-                <Button
-                    android:id="@+id/button_menuAlmacen_crearCategoria"
-                    android:layout_width="0dp"
-                    android:layout_height="140dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:tag="menuAlmacen_crearCategoria"
-                    android:text="Crear categoria"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_menuAlmacen_actualizarImagenes" />
-
-            </android.support.constraint.ConstraintLayout>
-        </ScrollView>
-=======
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -249,7 +98,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView13">
 
                         <Button
-                            android:id="@+id/button_añadirProducto"
+                            android:id="@+id/button_menuAlmacen_crearProducto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -257,7 +106,7 @@
                             android:text="Añadir producto" />
 
                         <Button
-                            android:id="@+id/button_inventario"
+                            android:id="@+id/button_menuAlmacen_inventario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -266,17 +115,46 @@
                             android:text="Inventario" />
 
                         <Button
-                            android:id="@+id/button_movimientos2"
+                            android:id="@+id/button_menuAlmacen_movimientos"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_weight="1"
-                            android:tag="movimientos_almacen"
+                            android:tag="MENUALMACEN_INVENTARIO"
                             android:text="Movimientos almacén"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+                        <Button
+                            android:id="@+id/button_menuAlmacen_actualizarImagenes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:tag="menuAlmacen_actualizarImagenes"
+                            android:text="Actualizar imágenes"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <Button
+                            android:id="@+id/button_menuAlmacen_crearCategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:tag="menuAlmacen_crearCategoria"
+                            android:text="Crear categoria"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
                     </LinearLayout>
 
                     <TextView
@@ -305,7 +183,7 @@
                         tools:layout_editor_absoluteX="0dp">
 
                         <Button
-                            android:id="@+id/button_incidencias"
+                            android:id="@+id/button_menuAlmacen_crearIncidencia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -320,7 +198,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
                         <Button
-                            android:id="@+id/button_ver_incidencias"
+                            android:id="@+id/button_menuAlmacen_verIncidencias"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -337,7 +215,6 @@
                 </android.support.constraint.ConstraintLayout>
             </ScrollView>
         </LinearLayout>
->>>>>>> master
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
