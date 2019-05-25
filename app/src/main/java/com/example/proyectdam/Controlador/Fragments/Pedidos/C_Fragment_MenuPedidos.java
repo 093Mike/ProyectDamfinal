@@ -115,17 +115,26 @@ public class C_Fragment_MenuPedidos  {
 
             }
         });
+
+        todosproductos();
+
+    }
+
+    public void todosproductos(){
         mref2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 all_prodcutos.clear();
+                String id_almacen="";
                 for (DataSnapshot producto : dataSnapshot.getChildren()) {
+                    id_almacen = producto.child("almacen").child("id").getValue(String.class);
                     all_prodcutos.add(new Producto_para_Pedidos(
                             Integer.parseInt(producto.child("id").getValue(String.class)),
                             producto.child("nombre").getValue(String.class),
                             producto.child("cantidad").getValue(Double.class),
                             producto.child("precioProveedor").getValue(Double.class),
-                            producto.child("precioPVP").getValue(Double.class)
+                            producto.child("precioPVP").getValue(Double.class),
+                            id_almacen
                     ));
                 }
             }
@@ -135,8 +144,6 @@ public class C_Fragment_MenuPedidos  {
 
             }
         });
-
-
     }
 
     public void actualizarProductos() {
@@ -154,6 +161,7 @@ public class C_Fragment_MenuPedidos  {
                         try {
                             productos = pedidos_all.child("productos").getValue(String.class).split(",");
                             cantidades = pedidos_all.child("cantidades").getValue(String.class).split(",");
+
                         }catch (Exception e){
                             productos = new String[]{""};
                             cantidades = new String[]{""};

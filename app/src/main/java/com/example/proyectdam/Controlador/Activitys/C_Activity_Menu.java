@@ -1,7 +1,6 @@
 package com.example.proyectdam.Controlador.Activitys;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -25,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class C_Activity_Menu extends Activity {
     DatabaseReference mref;
     FirebaseDatabase database;
-    public User user;
+    public static User user;
     IntentsMenu intentsMenu;
 
     public void initialite(){
@@ -41,15 +40,15 @@ public class C_Activity_Menu extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot user : dataSnapshot.getChildren()) {
-                    String nombre = user.child("Nombre").getValue(String.class);
-                    String permisos = user.child("Permisos").getValue(String.class);
+                for (DataSnapshot userdata : dataSnapshot.getChildren()) {
+                    String nombre = userdata.child("Nombre").getValue(String.class);
+                    String permisos = userdata.child("Permisos").getValue(String.class);
                     if (permisos.equals("Encargado") || permisos.equals("Trabajador")) {
-                        String tipo_encargo = user.child("Encargo").getValue(String.class);
-                        C_Activity_Menu.this.user = new User(nombre,permisos,tipo_encargo, MainActivity.getInstance().c_activityMain.getUser().getUid());
+                        String tipo_encargo = userdata.child("Encargo").getValue(String.class);
+                        user = new User(nombre,permisos,tipo_encargo, MainActivity.getInstance().c_activityMain.getUser().getUid());
                     }
                     else{
-                        C_Activity_Menu.this.user = new User(nombre,permisos,MainActivity.getInstance().c_activityMain.getUser().getUid());
+                        user = new User(nombre,permisos,MainActivity.getInstance().c_activityMain.getUser().getUid());
                     }
                     C_Permisos c_permisos = new C_Permisos();
                     Fragment_Menu fragment_menu = new Fragment_Menu();
@@ -70,7 +69,7 @@ public class C_Activity_Menu extends Activity {
     public void selecionarUser(View view){
         Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_User"));
     }
-    public Intent selecionarPedido(){
+    public int selecionarPedido(){
         Pedido pedidoActual = null;
         boolean filtro=false;
         for (int i = 0 ; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getCheck().length ; i++){
@@ -82,11 +81,11 @@ public class C_Activity_Menu extends Activity {
         if(!filtro){
             pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidos().get(AdaptadorPedidos.position);
         }
-        if(pedidoActual.getEstado()==3 || pedidoActual.getEstado()==4 || Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Admin")){
-           return intentsMenu.gestioIntent("MV_Pedido");
+        if(pedidoActual.getEstado()==3 || pedidoActual.getEstado()==4 || user.getPermisos().equals("Admin")){
+           return 1;
         }
         else{
-            return intentsMenu.gestioIntent("MV_Mod_Pedido");
+            return 0;
         }
     }
 

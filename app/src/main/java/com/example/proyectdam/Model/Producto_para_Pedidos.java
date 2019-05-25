@@ -6,13 +6,16 @@ public class Producto_para_Pedidos {
     private double cantidad;
     private double precioProveedor;
     private double precioPVP;
+    private String almacen;
 
-    public Producto_para_Pedidos(int id,String nombre, double cantidad, double precioProveedor, double precioPVP) {
+    public Producto_para_Pedidos(int id,String nombre, double cantidad, double precioProveedor, double precioPVP, String almacen) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precioProveedor = precioProveedor;
         this.precioPVP = precioPVP;
+        this.almacen = almacen;
+
     }
 
     public int getId() {
@@ -54,4 +57,8 @@ public class Producto_para_Pedidos {
     public void setPrecioPVP(double precioPVP) {
         this.precioPVP = precioPVP;
     }
+
+    public String  getAlmacen() { return almacen; }
+
+    public void setAlmacen(String almacen) { this.almacen = almacen; }
 }

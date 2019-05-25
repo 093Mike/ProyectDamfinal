@@ -73,7 +73,7 @@ public class C_Almacen {
                 categoriasProductos.clear();
                 for (DataSnapshot categoria : dataSnapshot.getChildren()) {
                     Categoria categoriaApp = new Categoria(categoria.child("nombre").getValue(String.class));
-                    for (DataSnapshot almacenCategoria : categoria.child("almacen").getChildren()){
+                    for (DataSnapshot almacenCategoria : categoria.child("idAlmacenes").getChildren()){
                         categoriaApp.setIdAlmacenes(almacenCategoria.getValue(String.class));
                     }
                     //categoriasProductos.add(categoriaApp);

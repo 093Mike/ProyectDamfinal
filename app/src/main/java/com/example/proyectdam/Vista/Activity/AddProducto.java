@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,10 +25,9 @@ import com.example.proyectdam.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class AddProducto extends AppCompatActivity {
     private C_Almacen c_almacen;
@@ -165,7 +164,7 @@ public class AddProducto extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO: Modificar imagen
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                if (productoModificar == null){
+                if (productoModificar == null) {
                     Producto p = new Producto(editText_nombreProducto.getText().toString().trim(),
                             editText_descripcion.getText().toString().trim(),
                             new Categoria(c_almacen.buscaCategoria(categoriaSeleccionada).getNombre()),
@@ -178,6 +177,14 @@ public class AddProducto extends AppCompatActivity {
 
                     DatabaseReference reference = database.getReference("productos/" + p.getId());
                     reference.setValue(p);
+                    reference = FirebaseDatabase.getInstance().getReference("almacenes/" + c_almacen.getAlmacenActual().getId() + "/movimientos/" +
+                            new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
+                    reference.child("idproducto").setValue(Integer.parseInt(Producto.nextId));
+                    double cantidad_total = Double.parseDouble(editText_stock.getText().toString().trim());
+                    reference.child("descripcion").setValue("Se ha añadido un producto nuevo: " +
+                            editText_nombreProducto.getText().toString().trim() + "." +
+                            " Se dispone de " + cantidad_total + " unidades de este producto.");
+                    reference.child("tipo").setValue(1);
                 } else {
                     DatabaseReference reference = database.getReference("productos/" + productoModificar.getId());
                     productoModificar.setNombre(editText_nombreProducto.getText().toString());
@@ -190,7 +197,17 @@ public class AddProducto extends AppCompatActivity {
                     productoModificar.setPrecioProveedor(Double.parseDouble(editText_precioProveedor.getText().toString().trim()));
                     productoModificar.setPrecioPVP(Double.parseDouble(editText_pvp.getText().toString().trim()));
                     reference.setValue(productoModificar);
+
+                    reference = FirebaseDatabase.getInstance().getReference("almacenes/" + c_almacen.getAlmacenActual().getId() + "/movimientos/" +
+                            new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
+                    reference.child("idproducto").setValue(Integer.parseInt(productoModificar.getId()));
+                    double cantidad_total = Double.parseDouble(editText_stock.getText().toString().trim());
+                    reference.child("descripcion").setValue("Se ha modificado un producto : " +
+                            editText_nombreProducto.getText().toString().trim() + "." +
+                            " Se dispone de " + cantidad_total + " unidades de este producto.");
+                    reference.child("tipo").setValue(1);
                 }
+
                 finish();
             }
         });

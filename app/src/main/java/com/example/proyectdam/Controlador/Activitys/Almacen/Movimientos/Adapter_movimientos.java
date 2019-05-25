@@ -35,7 +35,7 @@ public class Adapter_movimientos extends RecyclerView.Adapter<Adapter_movimiento
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         TextView desc;
         desc = viewHolder.desc;
-        desc.setText( itemList.get(i).getIdproducto()+"\n"+
+        desc.setText( itemList.get(i).getIdproducto()+" - "+itemList.get(i).getFecha()+"\n\n"+
                 itemList.get(i).getDescripcion());
 
     }
