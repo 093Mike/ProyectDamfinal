@@ -15,6 +15,12 @@ import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
+<<<<<<< HEAD
+=======
+import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
+import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
+import com.example.proyectdam.Vista.Activity.AddProducto;
+>>>>>>> master
 
 public class MenuAlmacen extends Fragment {
 
@@ -46,10 +52,13 @@ public class MenuAlmacen extends Fragment {
             R.id.button_menuAlmacen_crearCategoria};
 
     private TextView textView_almacenActual;
+<<<<<<< HEAD
     private C_Almacen c_almacen;
     private C_Permisos c_permisos;
+=======
 
-    public MenuAlmacen() { }
+>>>>>>> master
+
 
     @Nullable
     @Override
@@ -64,6 +73,7 @@ public class MenuAlmacen extends Fragment {
         c_almacen = new C_Almacen();
         textView_almacenActual = view.findViewById(R.id.textView_menuAlmacen_almacenActual);
         textView_almacenActual.setText(c_almacen.getAlmacenActual().getId() + " - " + c_almacen.getAlmacenActual().getDireccion());
+<<<<<<< HEAD
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = view.findViewById(idButtons[i]);
@@ -83,8 +93,11 @@ public class MenuAlmacen extends Fragment {
         buttons[1].setOnClickListener(new View.OnClickListener() { // MOVIMIENTOS ALMACÉN
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 // TODO: falta por implementar
                 IntentsMenu intentsMenu = new IntentsMenu();
+=======
+>>>>>>> master
             }
         });
 

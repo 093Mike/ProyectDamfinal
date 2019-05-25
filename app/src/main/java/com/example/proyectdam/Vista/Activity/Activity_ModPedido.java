@@ -69,7 +69,10 @@ public class Activity_ModPedido extends AppCompatActivity {
         d.setPositiveButton("DONE", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                c_activity_pedidos_mod.getPedidoActual().getProductos().set(Adapter_Pedidos_AddMod.position,new Prodcuto_en_Pedido(np.getValue(),c_activity_pedidos_mod.getPedidoActual().getProductos().get(Adapter_Pedidos_AddMod.position).getId_producto()));
+                c_activity_pedidos_mod.getPedidoActual().getProductos().set(Adapter_Pedidos_AddMod.position,new Prodcuto_en_Pedido(
+                        np.getValue(),
+                        c_activity_pedidos_mod.getPedidoActual().getProductos().get(Adapter_Pedidos_AddMod.position).getId_producto()
+                ));
                 adaptadorPedidos.notifyDataSetChanged();
                 total.setText(c_activity_pedidos_mod.actualizarPrecios()+"€");
             }

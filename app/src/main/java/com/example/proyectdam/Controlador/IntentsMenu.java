@@ -11,6 +11,7 @@ import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
 import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
+<<<<<<< HEAD
 import com.example.proyectdam.Vista.Activity.Activity_AmpliarImagenProducto;
 import com.example.proyectdam.Vista.Activity.Activity_ListaCategorias;
 
@@ -20,7 +21,6 @@ import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
 import com.example.proyectdam.Vista.Fragment_About.Fragment_AboutUs;
 import com.example.proyectdam.Vista.Fragment_Clientes.Fragment_Clientes;
-import com.example.proyectdam.Vista.Fragment_Menu.Fragment_MenuMain;
 import com.example.proyectdam.Vista.Fragment_GestioUsers.Fragment_GestioUsuarios;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.example.proyectdam.Vista.Fragment_Proveedores.Fragment_Proveedores;

@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import com.example.proyectdam.Controlador.Fragments.Pedidos.AdaptadorPedidos;
 import com.example.proyectdam.Model.Pedido;
 import com.example.proyectdam.R;
-import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +37,7 @@ public class C_Activity_Pedidos_Ver extends Activity {
         if(!filtro){
             pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidos().get(AdaptadorPedidos.position);
         }
-        database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
+        database = FirebaseDatabase.getInstance();
         mref = database.getReference("productos");
         mref.addValueEventListener(new ValueEventListener() {
 
@@ -111,7 +110,7 @@ public class C_Activity_Pedidos_Ver extends Activity {
     public int getTelefonoCliente(){
         for (int i = 0; i < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().size();i++){
             if(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getId() == pedidoActual.getId_cliente()){
-                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getNum_telefono();
+                return Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getClientes().get(i).getTelefono();
             }
         }
         return Integer.parseInt(null);

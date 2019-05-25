@@ -24,6 +24,9 @@ public class Activity_Menu extends AppCompatActivity {
     public C_Almacen c_almacen;
     public String tag_escogido;
 
+<<<<<<< HEAD
+=======
+>>>>>>> master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +40,16 @@ public class Activity_Menu extends AppCompatActivity {
             ft.commit();
         }
         getSupportActionBar().hide();
+<<<<<<< HEAD
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         c_activity_menu = new C_Activity_Menu();
         c_fragment_menu = new C_Fragment_Menu();
         c_activity_menu.initialite();
+=======
+
+>>>>>>> master
         c_almacen = new C_Almacen();
         c_almacen.cargarAlmacenesApp();
         c_almacen.cargarProveedoresApp();
@@ -99,6 +106,7 @@ public class Activity_Menu extends AppCompatActivity {
             Toast.makeText(myContext, "No tienes permisos para entrar a ese sitio.", Toast.LENGTH_SHORT).show();
         }
     }
+
     public void powerOff(View view) {
         MainActivity.getInstance().c_activityMain.getmAuth().signOut();
         MainActivity.getInstance().c_activityMain.control = false;
@@ -114,13 +122,18 @@ public class Activity_Menu extends AppCompatActivity {
         Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.anadirPedido();
     }
 
+<<<<<<< HEAD
     private static Activity_Menu myContext;
 
+=======
+>>>>>>> master
     public Activity_Menu() {
         myContext = this;
     }
-
     public static Activity_Menu getInstance() {
         return myContext;
     }
+<<<<<<< HEAD
+=======
 }
+>>>>>>> master

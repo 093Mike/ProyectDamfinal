@@ -1,7 +1,7 @@
 package com.example.proyectdam.Vista.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -15,6 +15,10 @@ import com.example.proyectdam.Model.Producto;
 import com.example.proyectdam.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 import java.util.ArrayList;
 
 public class Activity_AddIncidencia extends AppCompatActivity {
@@ -44,7 +48,6 @@ public class Activity_AddIncidencia extends AppCompatActivity {
         button_aceptar = findViewById(R.id.button_incidencias_ok);
 
         spinner_incidencias_productos.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, dataSpinnerProductos()));
-        spinner_incidencias_motivo.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, new String[]{"Rotura", "Devolución"}));
 
         spinner_incidencias_productos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

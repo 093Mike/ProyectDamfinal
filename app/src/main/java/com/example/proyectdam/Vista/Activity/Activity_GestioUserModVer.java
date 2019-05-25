@@ -3,7 +3,10 @@ package com.example.proyectdam.Vista.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+<<<<<<< HEAD
 import android.view.WindowManager;
+=======
+>>>>>>> master
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,15 +29,16 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menugestiomod_veruser);
         c_activity_gestioUserModVer = new C_Activity_GestioUserModVer();
+<<<<<<< HEAD
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         initialite();
+=======
+>>>>>>> master
         c_activity_gestioUserModVer.inicialite();
-
         info.setVisibility(View.INVISIBLE);
-
         if(!Activity_Menu.getInstance().c_activity_menu.user.getPermisos().equals("Super")){
             gua_mod.setVisibility(View.INVISIBLE);
             e_permisos.setVisibility(View.INVISIBLE);
@@ -44,13 +48,8 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
             info.setText("Nombre:"+c_activity_gestioUserModVer.recibirNombre()+"\nPermiso:"+c_activity_gestioUserModVer.recibirPermisos());
         }
         if(c_activity_gestioUserModVer.isAlTra()){
-            nombre.setText(c_activity_gestioUserModVer.recibirNombre()+"\n"+c_activity_gestioUserModVer.recibirPermisos()+" - "+c_activity_gestioUserModVer.recibirEncargo());
             info.setText(info.getText().toString() + "\nEncargo : "+c_activity_gestioUserModVer.recibirEncargo());
         }
-        else{
-            nombre.setText(c_activity_gestioUserModVer.recibirNombre()+"\n"+c_activity_gestioUserModVer.recibirPermisos());
-        }
-
     }
 
     public void initialite(){

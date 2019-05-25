@@ -96,7 +96,10 @@ public class C_Almacen {
                 categoriasProductos.clear();
                 for (DataSnapshot categoria : dataSnapshot.getChildren()) {
                     Categoria categoriaApp = new Categoria(categoria.child("nombre").getValue(String.class));
+<<<<<<< HEAD
                     for (DataSnapshot almacenCategoria : categoria.child("idAlmacenes").getChildren()) {
+=======
+>>>>>>> master
                         categoriaApp.setIdAlmacenes(almacenCategoria.getValue(String.class));
                     }
                     if (categoriaApp.getIdAlmacenes().contains(almacenActual.getId())) {

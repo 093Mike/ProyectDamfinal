@@ -5,12 +5,14 @@ public class Proveedor {
     private String nombre;
     private String telefonoContacto;
     private String correoContacto;
+    public static int id_proximo = 1;
 
     public Proveedor(String idProveedor, String nombre, String telefonoContacto, String correoContacto){
         this.idProveedor = idProveedor;
         this.nombre = nombre;
         this.telefonoContacto = telefonoContacto;
         this.correoContacto = correoContacto;
+        id_proximo++;
     }
 
     public Proveedor(String nombre, String telefonoContacto, String correoContacto){

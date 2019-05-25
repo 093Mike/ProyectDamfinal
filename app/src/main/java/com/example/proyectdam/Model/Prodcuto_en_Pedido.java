@@ -7,6 +7,7 @@ public class Prodcuto_en_Pedido {
     public Prodcuto_en_Pedido(int cantidad, int id_producto){
         this.cantidad = cantidad;
         this.id_producto=id_producto;
+
     }
 
     public int getCantidad() {

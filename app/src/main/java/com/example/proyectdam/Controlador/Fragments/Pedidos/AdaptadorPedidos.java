@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Model.Pedido;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 
 import java.util.ArrayList;
@@ -103,8 +103,7 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
         @Override
         public void onClick(View view) {
             position = getAdapterPosition();
-            C_Activity_Menu c_activity_menu = new C_Activity_Menu();
-            c_activity_menu.selecionarPedido(view);
+            Activity_Menu.getInstance().selecionarPedido(view);
         }
     }
 }

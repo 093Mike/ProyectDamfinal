@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -61,6 +62,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="@mipmap/ic_launcher" />
 
+=======
+>>>>>>> master
     <EditText
         android:id="@+id/editText7"
         android:layout_width="wrap_content"
@@ -71,7 +74,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/imageView154" />
+=======
+>>>>>>> master
 
     <Spinner
         android:id="@+id/spinner2"
@@ -105,6 +111,9 @@
         android:text="info"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/imageView154" />
+=======
+>>>>>>> master
 
 </android.support.constraint.ConstraintLayout>

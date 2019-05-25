@@ -7,7 +7,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
 import android.os.Bundle;
+=======
+import android.util.Log;
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -25,6 +29,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
+=======
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
 
 public class Activity_AddProducto extends AppCompatActivity {
     private C_Almacen c_almacen;
@@ -165,7 +172,10 @@ public class Activity_AddProducto extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO: Modificar imagen
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
                 if (productoModificar == null){ // ES UN PRODUCTO NUEVO
+=======
+>>>>>>> master:app/src/main/java/com/example/proyectdam/Vista/Activity/AddProducto.java
                     Producto p = new Producto(editText_nombreProducto.getText().toString().trim(),
                             editText_descripcion.getText().toString().trim(),
                             new Categoria(c_almacen.buscaCategoria(categoriaSeleccionada).getNombre()),
@@ -179,6 +189,7 @@ public class Activity_AddProducto extends AppCompatActivity {
                     c_almacen.addProducto_guardarImagenCamara(Activity_AddProducto.this, bitmap_imagenProducto, p);
                     DatabaseReference reference = database.getReference("productos/" + p.getId());
                     reference.setValue(p);
+<<<<<<< HEAD:app/src/main/java/com/example/proyectdam/Vista/Activity/Activity_AddProducto.java
                 } else { // ESTAMOS MODIFICANDO UN PRODUCTO QUE YA EXISTE
                     DatabaseReference reference = database.getReference("productos/" + productoModificar.getId());
                     productoModificar.setNombre(editText_nombreProducto.getText().toString());

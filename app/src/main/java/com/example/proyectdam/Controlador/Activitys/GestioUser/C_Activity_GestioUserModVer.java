@@ -33,6 +33,20 @@ public class C_Activity_GestioUserModVer extends Activity {
         return users.get(pos).getPermisos();
     }
     public String recibirEncargo(){ return users.get(pos).getTipo_permisos();}
+    public int posRol (String rol){
+        switch (rol){
+            case "Super":
+                return 0;
+            case "Admin":
+                return 1;
+            case "Encargado":
+                return 2;
+            case "Trabajador":
+                return 3;
+        }
+        return 0;
+    }
+
 
     public void modificar(String permisos, String rol,String encargo ){
         String uid = users.get(pos).getUid();
@@ -48,6 +62,11 @@ public class C_Activity_GestioUserModVer extends Activity {
         }
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
 
-
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
 }

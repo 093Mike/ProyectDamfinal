@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="0"
+                android:onClick="gestioAddCliente"
                 app:srcCompat="@android:drawable/ic_input_add" />
 
         </LinearLayout>

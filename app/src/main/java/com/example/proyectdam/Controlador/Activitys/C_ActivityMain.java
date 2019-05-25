@@ -6,9 +6,9 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.MainActivity;
-import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,12 +21,10 @@ public class C_ActivityMain extends Activity{
     public boolean control;
 
     public void initialize(){
-
         user = mAuth.getCurrentUser();
         if (user != null) {
             Intent intent = new Intent(MainActivity.getInstance(), Activity_Menu.class);
             MainActivity.getInstance().startActivity(intent);
-
         }
     }
 
@@ -35,12 +33,28 @@ public class C_ActivityMain extends Activity{
 
         if(!control) {
             control=true;
-            if (email.contains("@") && pass.length() >= 6) {
+            boolean con_email = false, con_pass = false;
+            if(email.length() > 0 && email.contains("@")) {
+                con_email = true;
+            }
+            if (pass.length()>=6){
+                con_pass = true;
+            }
+            if(con_email && con_pass){
                 mAuth = FirebaseAuth.getInstance();
                 controlLogin(email, pass);
-            } else {
+            }
+            else {
                 control=false;
-                Toast.makeText(MainActivity.getInstance(), "Campos incorrectos", Toast.LENGTH_SHORT).show();
+                if(!con_email && !con_pass){
+                    Toast.makeText(MainActivity.getInstance(), "Campos incompletos", Toast.LENGTH_SHORT).show();
+                }
+                else if(!con_email){
+                    Toast.makeText(MainActivity.getInstance(), "Email incorrecto", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.getInstance(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
@@ -50,27 +64,23 @@ public class C_ActivityMain extends Activity{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d("LOGIN", "signInWithEmail:success");
                             user = mAuth.getCurrentUser();
                             Intent intent = new Intent(MainActivity.getInstance(), Activity_Menu.class);
                             MainActivity.getInstance().startActivity(intent);
                         } else {
                             control=false;
-                            // If sign in fails, display a message to the user.
                             Log.w("NO LOGIN", "signInWithEmail:failure", task.getException());
                             Toast.makeText(MainActivity.getInstance(), "La autentificación a sido incorrecta.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
     }
 
-    public void olvidaIntent() {
-        Intent intent = new Intent(MainActivity.getInstance(), PerdidoContrasenya.class);
-        MainActivity.getInstance().startActivity(intent);
+    public Intent olvidaIntent() {
+        IntentsMenu intentsMenu = new IntentsMenu();
+        return intentsMenu.gestioIntent("PERDIDO");
     }
 
     public FirebaseAuth getmAuth() {

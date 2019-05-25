@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else {
                             token = task.getResult().getToken();
-                            // Log and toast
-
                             Log.w("TAG", token);
                         }
 
@@ -78,10 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void iniciarLogin(View view){ c_activityMain.iniciarLogin(e_user.getText().toString(),password.getText().toString()); }
 
-    public void olvidaIntent(View view) {
-        c_activityMain.olvidaIntent();
-    }
-
+    public void olvidaIntent(View view) { startActivity(c_activityMain.olvidaIntent()); }
 
     private static MainActivity myContext;
     public MainActivity() { myContext = this; }
