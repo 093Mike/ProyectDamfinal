@@ -51,7 +51,7 @@ public class C_Almacen {
     public static ArrayList<Proveedor> proveedores = new ArrayList<>();
     public static ArrayList<Incidencia> incidencias = new ArrayList<>();
     private static Almacen almacenActual = null;
-    public static final String HOST = "192.168.1.44";
+    public static final String HOST = "192.168.1.109";
     public static final int PUERTO = 5000;
 
     public void cargarAlmacenesApp() {

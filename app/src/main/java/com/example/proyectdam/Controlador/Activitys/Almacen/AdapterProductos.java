@@ -143,7 +143,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Prod
             imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new IntentsMenu().gestioIntent(v.getTag().toString().toUpperCase().trim());
+                    Intent intent = new IntentsMenu().gestioIntent("ADAPTERPRODUCTO_AMPLIARIMAGEN");
                     intent.putExtra("productoString", textView_nombreProducto.getText().toString());
                     intent.putExtra("rutaImagen", imageView_imagenProducto.getTag().toString());
                     v.getContext().startActivity(intent);
