@@ -1,7 +1,7 @@
 package com.example.proyectdam.Vista.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,7 +16,9 @@ import com.example.proyectdam.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Activity_AddIncidencia extends AppCompatActivity {
 
@@ -82,6 +84,47 @@ public class Activity_AddIncidencia extends AppCompatActivity {
                         editText_incidencias_detalles.getText().toString());
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("incidencias/" + incidencia.getIdIncidencia());
                 reference.setValue(incidencia);
+                reference =  FirebaseDatabase.getInstance().getReference("productos/"+Integer.parseInt(productoSeleccionado));
+                double cantidad=0.0;
+                for (int i = 0 ; i < C_Almacen.productos.size() ; i++){
+                    if(C_Almacen.productos.get(i).getId().equals(productoSeleccionado)){
+                        cantidad = C_Almacen.productos.get(i).getCantidad();
+                        if(motivoSeleccionado.equals("Rotura")) {
+                            cantidad -= Integer.parseInt(editText_incidencias_cantidad.getText().toString());
+                        }
+                        else{
+                            cantidad += Integer.parseInt(editText_incidencias_cantidad.getText().toString());
+                        }
+                    }
+                }
+                reference.child("cantidad").setValue(cantidad);
+
+                reference =  FirebaseDatabase.getInstance().getReference("almacenes/"+c_almacen.getAlmacenActual().getId()+"/movimientos/"+
+                        new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
+                reference.child("idproducto").setValue(Integer.parseInt(productoSeleccionado));
+                double cantidad_total = cantidad;
+                if(motivoSeleccionado.equals("Rotura")){
+                reference.child("descripcion").setValue("Se ha deteriorado el producto: "+
+                         spinner_incidencias_productos.getSelectedItem() +
+                        " " +
+                        editText_incidencias_cantidad.getText().toString() +
+                        " unidades del inventario. Faltan: " +
+                        cantidad_total +
+                        " unidades de este producto.");
+                    reference.child("tipo").setValue(3);
+
+                }
+                else {
+                    reference.child("descripcion").setValue("Se ha devuelto el producto: " +
+                            spinner_incidencias_productos.getSelectedItem() +
+                            " " +
+                            editText_incidencias_cantidad.getText().toString() +
+                            " unidades del inventario. Faltan: " +
+                            cantidad_total +
+                            " unidades de este producto.");
+                    reference.child("tipo").setValue(4);
+                }
+
                 finish();
             }
         });

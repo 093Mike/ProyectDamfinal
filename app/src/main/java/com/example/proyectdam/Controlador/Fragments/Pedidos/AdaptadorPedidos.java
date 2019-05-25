@@ -103,8 +103,7 @@ public class AdaptadorPedidos  extends RecyclerView.Adapter<AdaptadorPedidos.Vie
         @Override
         public void onClick(View view) {
             position = getAdapterPosition();
-            Activity_Menu activity_menu = new Activity_Menu();
-            activity_menu.selecionarPedido(view);
+            Activity_Menu.getInstance().selecionarPedido(view);
         }
     }
 }

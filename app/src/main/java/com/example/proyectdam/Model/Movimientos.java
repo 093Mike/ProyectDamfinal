@@ -2,11 +2,13 @@ package com.example.proyectdam.Model;
 
 public class Movimientos {
     private int idproducto;
+    private String fecha;
     private String descripcion;
     private int tipo;
 
-    public Movimientos(int idproducto, String descripcion, int tipo) {
+    public Movimientos(int idproducto, String fecha, String descripcion, int tipo) {
         this.idproducto = idproducto;
+        this.fecha = fecha;
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
@@ -33,5 +35,13 @@ public class Movimientos {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }

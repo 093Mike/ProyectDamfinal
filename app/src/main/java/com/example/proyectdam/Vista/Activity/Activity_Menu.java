@@ -115,7 +115,14 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     public void selecionarPedido(View view){
-        startActivity(c_activity_menu.selecionarPedido());
+        int tipo = c_activity_menu.selecionarPedido();
+        if(tipo == 1){
+            startActivity(intentsMenu.gestioIntent("MV_Pedido"));
+
+        }
+        else{
+            startActivity(intentsMenu.gestioIntent("MV_Mod_Pedido"));
+        }
     }
 
     public void gestioaddUsers(View view) {

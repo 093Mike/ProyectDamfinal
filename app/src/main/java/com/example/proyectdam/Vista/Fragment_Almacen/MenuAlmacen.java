@@ -46,7 +46,7 @@ public class MenuAlmacen extends Fragment {
         textView_almacenActual = view.findViewById(R.id.textView_almacenActual);
         textView_almacenActual.setText(c_almacen.getAlmacenActual().getId() + " - " + c_almacen.getAlmacenActual().getDireccion());
         button_verInventario = view.findViewById(R.id.button_inventario);
-        button_movimientos = view.findViewById(R.id.button_movimientos);
+        button_movimientos = view.findViewById(R.id.button_movimientos2);
         button_incidencias = view.findViewById(R.id.button_incidencias);
         button_cambiarAlmacen = view.findViewById(R.id.button_cambiarAlmacen);
         button_anadirProducto = view.findViewById(R.id.button_añadirProducto);
