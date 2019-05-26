@@ -3,4 +3,6 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B1B</color>
+    <color name="colorFrag">#ffdfcc</color>
+    <color name="ColorSpinner">#f4a16e</color>
 </resources>

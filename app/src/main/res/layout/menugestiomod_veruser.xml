@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorFrag"
     android:layout_height="match_parent">
 
     <EditText
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:popupBackground="@color/colorFrag"
         android:layout_marginTop="8dp"
         android:entries="@array/puesto"
         app:layout_constraintEnd_toEndOf="@+id/editText7"
@@ -40,6 +42,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:popupBackground="@color/colorFrag"
         android:entries="@array/rol"
         app:layout_constraintEnd_toEndOf="@+id/editText7"
         app:layout_constraintStart_toStartOf="@+id/editText7"
