@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.WindowManager;
 
 import com.example.proyectdam.Controlador.Activitys.Almacen.Movimientos.Adapter_movimientos;
 import com.example.proyectdam.Controlador.Activitys.Almacen.Movimientos.C_Activity_VerMovimientos;
@@ -26,6 +27,8 @@ public class Activity_VerMovimientos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_almacen_vermovimientos);
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         c_activity_verMovimientos = new C_Activity_VerMovimientos();
         c_activity_verMovimientos.initialize();
         recyclerView = findViewById(R.id.vermoviento);

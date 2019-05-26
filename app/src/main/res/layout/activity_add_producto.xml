@@ -6,9 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".Vista.Activity.Activity_AddProducto">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/texto_addproducto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="name"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button_subirProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Aceptar"
+            app:layout_constraintTop_toBottomOf="@+id/editText_precioProveedor" />
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -17,14 +50,11 @@
 
             <ImageView
                 android:id="@+id/imageView_prod"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_notification_clear_all"
@@ -32,13 +62,16 @@
 
             <Spinner
                 android:id="@+id/spinner_categorias"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_prod" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_proveedor" />
 
             <EditText
                 android:id="@+id/editText_nombreProducto"
@@ -46,15 +79,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:ems="10"
                 android:hint="Nombre del producto"
                 android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/spinner_categorias"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_prod" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView_prod"
+                app:layout_constraintTop_toTopOf="@+id/imageView_prod" />
 
             <EditText
                 android:id="@+id/editText_descripcion"
@@ -69,7 +101,7 @@
                 android:hint="Descripción"
                 android:inputType="textMultiLine|textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView_prod"
                 app:layout_constraintTop_toBottomOf="@+id/editText_nombreProducto" />
 
             <EditText
@@ -103,94 +135,99 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_descripcion" />
 
-            <Button
-                android:id="@+id/button_subirProducto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="32dp"
-                android:text="Aceptar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_precioProveedor" />
-
             <Spinner
                 android:id="@+id/spinner_ubicacionPasillo"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/textview_ubicacionPasillo"
+                app:layout_constraintStart_toStartOf="@+id/textview_ubicacionPasillo"
                 app:layout_constraintTop_toBottomOf="@+id/textview_ubicacionPasillo" />
 
             <Spinner
                 android:id="@+id/spinner_ubicacionEstanteria"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView_ubicacionEstanteria"
+                app:layout_constraintStart_toStartOf="@+id/textView_ubicacionEstanteria"
                 app:layout_constraintTop_toBottomOf="@+id/textView_ubicacionEstanteria" />
 
             <TextView
                 android:id="@+id/textview_ubicacionPasillo"
-                android:layout_width="193dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:text="Pasillo"
                 android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/textView_ubicacionEstanteria"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_proveedor" />
+                app:layout_constraintTop_toBottomOf="@+id/textview_ubicacionPasillo2" />
+
+            <TextView
+                android:id="@+id/textview_ubicacionPasillo2"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="Almacen"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_categorias" />
 
             <EditText
                 android:id="@+id/editText_precioPVP"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:ems="10"
                 android:hint="PVP"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_ubicacionEstanteria"
+                app:layout_constraintStart_toStartOf="@+id/spinner_ubicacionEstanteria"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_ubicacionEstanteria" />
 
             <EditText
                 android:id="@+id/editText_precioProveedor"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
                 android:ems="10"
                 android:hint="Precio proveedor"
-                android:inputType="number"
-                app:layout_constraintStart_toStartOf="parent"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_ubicacionPasillo"
+                app:layout_constraintStart_toStartOf="@+id/spinner_ubicacionPasillo"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_ubicacionPasillo" />
 
             <TextView
                 android:id="@+id/textView_ubicacionEstanteria"
-                android:layout_width="194dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:text="Estanteria"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_stock" />
+                app:layout_constraintStart_toEndOf="@+id/textview_ubicacionPasillo"
+                app:layout_constraintTop_toBottomOf="@+id/textview_ubicacionPasillo2" />
         </android.support.constraint.ConstraintLayout>
 
 

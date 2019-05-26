@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.Model.Categoria;
@@ -30,6 +31,7 @@ import java.util.Calendar;
 
 public class Activity_AddProducto extends AppCompatActivity {
     private C_Almacen c_almacen;
+    TextView textView;
     private ImageView imageView_imagenProducto;
     private EditText editText_nombreProducto,
             editText_descripcion,
@@ -63,6 +65,7 @@ public class Activity_AddProducto extends AppCompatActivity {
 
         productoModificar = (Producto) getIntent().getSerializableExtra("productoModificar");
 
+        textView = findViewById(R.id.texto_addproducto);
         imageView_imagenProducto = findViewById(R.id.imageView_prod);
         editText_nombreProducto = findViewById(R.id.editText_nombreProducto);
         editText_descripcion = findViewById(R.id.editText_descripcion);
@@ -75,11 +78,12 @@ public class Activity_AddProducto extends AppCompatActivity {
         spinner_estanteria = findViewById(R.id.spinner_ubicacionEstanteria);
         button_subirProducto = findViewById(R.id.button_subirProducto);
 
-        spinner_categoria.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.spinner_cargarCategorias()));
-        spinner_pasillo.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.getAlmacenActual().getPasillos()));
-        spinner_estanteria.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.getAlmacenActual().getEstanterias()));
+        spinner_categoria.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.spinner_cargarCategorias()));
+        spinner_pasillo.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.getAlmacenActual().getPasillos()));
+        spinner_estanteria.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, c_almacen.getAlmacenActual().getEstanterias()));
 
         if (productoModificar != null){
+            textView.setText("Editar : "+productoModificar.getNombre());
             imageView_imagenProducto.setImageBitmap( BitmapFactory.decodeFile(getIntent().getStringExtra("rutaImagen")));
             editText_nombreProducto.setText(productoModificar.getNombre());
             editText_descripcion.setText(productoModificar.getDescripcion());
@@ -107,6 +111,7 @@ public class Activity_AddProducto extends AppCompatActivity {
                 }
             }
         } else {
+            textView.setText("   Nuevo Producto");
             imageView_imagenProducto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -62,6 +62,8 @@
                     android:id="@+id/boton_menu_principal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/logoalmacen"
+
                     android:onClick="menuAlmacen"
                     android:text="Button" />
 
@@ -69,6 +71,7 @@
                     android:id="@+id/boton_menu_principal2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/logopedidos"
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
@@ -76,6 +79,7 @@
                     android:id="@+id/boton_menu_principal3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/logocliente"
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
@@ -83,6 +87,8 @@
                     android:id="@+id/boton_menu_principal4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/logoproveedor"
+                    android:drawablePadding="5dp"
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
@@ -91,6 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/logocliente"
                     android:onClick="gestioMenu"
                     android:text="Button" />
 
