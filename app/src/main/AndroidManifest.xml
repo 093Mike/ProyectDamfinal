@@ -25,15 +25,10 @@
             </intent-filter>
         </service>
 
-<<<<<<< HEAD
-        <activity android:name=".Nueva_Categoria"></activity>
-        <activity android:name=".Vista.Activity.AddProducto"></activity>
-=======
         <activity android:name=".Vista.Activity.Nueva_Categoria"></activity>
         <activity android:name=".Vista.Activity.Activity_AddProducto">
         </activity>
 
->>>>>>> master
         <activity android:name=".Vista.Activity.Activity_VerIncidencias"></activity>
         <activity
             android:name=".Vista.Activity.Activity_AddIncidencia"
