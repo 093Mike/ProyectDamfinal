@@ -3,17 +3,19 @@ package com.example.proyectdam.Controlador;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
-import com.example.proyectdam.Nueva_Categoria;
+import com.example.proyectdam.Vista.Activity.Activity_AddIncidencia;
+import com.example.proyectdam.Vista.Activity.Activity_AddProducto;
+import com.example.proyectdam.Vista.Activity.Activity_AmpliarImagenProducto;
 import com.example.proyectdam.Vista.Activity.Activity_GestioUserModVer;
+import com.example.proyectdam.Vista.Activity.Activity_ListaCategorias;
+import com.example.proyectdam.Vista.Activity.Activity_ListaProductos;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
+import com.example.proyectdam.Vista.Activity.Activity_VerIncidencias;
 import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
 import com.example.proyectdam.Vista.Activity.Activity_VerPedido;
-import com.example.proyectdam.Vista.Activity.AddProducto;
-import com.example.proyectdam.Vista.Activity.ImagenProducto;
-import com.example.proyectdam.Vista.Activity.ListaCategorias;
-import com.example.proyectdam.Vista.Activity.ListaProductos;
 import com.example.proyectdam.Vista.Activity.MenuUser_add;
+import com.example.proyectdam.Vista.Activity.Nueva_Categoria;
 import com.example.proyectdam.Vista.Activity.PerdidoContrasenya;
 import com.example.proyectdam.Vista.Fragment_About.Fragment_AboutUs;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
@@ -66,9 +68,6 @@ public class IntentsMenu {
             case "AÑADIR USUARIO":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
                 break;
-            case "CREAR CATEGORIA":
-                intent= new Intent(Activity_Menu.getInstance().getApplicationContext(), Nueva_Categoria.class);
-                break;
             case "MV_User":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_GestioUserModVer.class);
                 break;
@@ -78,18 +77,38 @@ public class IntentsMenu {
             case "MV_Mod_Pedido":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_ModPedido.class);
                 break;
-            // ALMACEN
-            case "INVENTARIO ALMACEN":
-                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), ListaCategorias.class);
+
+            // MenuAlmacen.java
+            case "MENUALMACEN_INVENTARIO":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_ListaCategorias.class);
                 break;
-            case "ESCOGE_CATEGORIA":
-                intent = new Intent(ListaCategorias.getInstance().getApplicationContext(), ListaProductos.class);
+            case "MENUALMACEN_CREARCATEGORIA":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Nueva_Categoria.class);
                 break;
-            case "AMPLIAR_IMAGEN_PRODUCTO":
-                intent = new Intent(ListaProductos.getInstance().getApplicationContext(), ImagenProducto.class);
+            case "MENUALMACEN_CREARPRODUCTO":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProducto.class);
                 break;
-            case "MODIFICAR_PRODUCTO":
-                intent = new Intent(ListaProductos.getInstance().getApplicationContext(), AddProducto.class);
+            case "MENUALMACEN_CREARINCIDENCIA":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddIncidencia.class);
+                break;
+            case "MENUALMACEN_VERINCIDENCIAS":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerIncidencias.class);
+                break;
+            case "MENUALMACEN_MOVIMIENTOS":
+                intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerMovimientos.class);
+                break;
+
+            // AdapterCategoria.java
+            case "ADAPTERCATEGORIA_ENTRACATEGORIA":
+                intent = new Intent(Activity_ListaCategorias.getInstance().getApplicationContext(), Activity_ListaProductos.class);
+                break;
+
+            // AdapterProducto.java
+            case "ADAPTERPRODUCTO_AMPLIARIMAGEN":
+                intent = new Intent(Activity_ListaProductos.getInstance().getApplicationContext(), Activity_AmpliarImagenProducto.class);
+                break;
+            case "ADAPTERPRODUCTO_MODIFICARPRODUCTO":
+                intent = new Intent(Activity_ListaProductos.getInstance().getApplicationContext(), Activity_AddProducto.class);
                 break;
             case "MOVIMIENTOS_ALMACEN":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_VerMovimientos.class);

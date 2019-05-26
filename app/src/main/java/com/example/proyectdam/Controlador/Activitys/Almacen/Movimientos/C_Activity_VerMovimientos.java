@@ -31,6 +31,7 @@ public class C_Activity_VerMovimientos extends Activity {
                     movimientos.add(
                             new Movimientos(
                             movimiento.child("idproducto").getValue(Integer.class),
+                            movimiento.getKey(),
                             movimiento.child("descripcion").getValue(String.class),
                             movimiento.child("tipo").getValue(Integer.class)
                             ));

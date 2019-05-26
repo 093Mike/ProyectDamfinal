@@ -3,6 +3,7 @@ package com.example.proyectdam.Vista.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -29,6 +30,8 @@ public class Activity_GestioUserModVer extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.menugestiomod_veruser);
         c_activity_gestioUserModVer = new C_Activity_GestioUserModVer();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         c_activity_gestioUserModVer.inicialite();
         initialite();
         setTitle("");

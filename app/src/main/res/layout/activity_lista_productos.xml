@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@drawable/deg_color"
     tools:context=".Vista.Activity.ListaProductos">
+=======
+    tools:context=".Vista.Activity.Activity_ListaProductos">
+>>>>>>> master
 
     <include layout="@layout/recyclerview_listaproductos" />
 

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
@@ -35,8 +36,7 @@ public class Activity_Menu extends AppCompatActivity {
     public C_Fragment_Menu c_fragment_menu;
     public C_Almacen c_almacen;
     public String tag_escogido;
-
-    static final String HOST = "192.168.1.44";
+    static final String HOST = "192.168.1.109";
     static final int PUERTO = 5000;
     InputStream is;
     OutputStream os;
@@ -44,7 +44,6 @@ public class Activity_Menu extends AppCompatActivity {
     ObjectInputStream recibir;
     private HashMap<String, byte[]> dirCategoria = new HashMap();
     IntentsMenu intentsMenu;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,9 @@ public class Activity_Menu extends AppCompatActivity {
             ft.commit();
         }
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         c_almacen = new C_Almacen();
         c_almacen.cargarAlmacenesApp();
@@ -75,7 +77,6 @@ public class Activity_Menu extends AppCompatActivity {
         super.onBackPressed();
         finishAffinity();
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void gestioMenu(View view) {
@@ -91,7 +92,6 @@ public class Activity_Menu extends AppCompatActivity {
         ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu(tag_escogido), "fragment_meters");
         ft.commit();
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void menuAlmacen(View v) {
@@ -111,11 +111,17 @@ public class Activity_Menu extends AppCompatActivity {
             ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu(tag_escogido), "fragment_meters");
             ft.commit();
         }
-
     }
 
     public void selecionarPedido(View view){
-        startActivity(c_activity_menu.selecionarPedido());
+        int tipo = c_activity_menu.selecionarPedido();
+        if(tipo == 1){
+            startActivity(intentsMenu.gestioIntent("MV_Pedido"));
+
+        }
+        else{
+            startActivity(intentsMenu.gestioIntent("MV_Mod_Pedido"));
+        }
     }
 
     public void gestioaddUsers(View view) {
@@ -251,6 +257,7 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     private static Activity_Menu myContext;
+
     public Activity_Menu() {
         myContext = this;
     }
@@ -259,3 +266,4 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
 }
+

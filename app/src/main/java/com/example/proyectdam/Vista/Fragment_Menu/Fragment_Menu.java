@@ -7,13 +7,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Activity_Menu;
 
 public class Fragment_Menu extends Fragment {
 
@@ -46,6 +49,10 @@ public class Fragment_Menu extends Fragment {
             options[i].setTextColor(Color.parseColor("#D81B1B"));
             options[i].setEnabled(false);
         }
+        FragmentTransaction ft = Activity_Menu.getInstance().getSupportFragmentManager().beginTransaction();
+        IntentsMenu intentsMenu = new IntentsMenu();
+        ft.replace(R.id.fragment_global, intentsMenu.gestioIntent_Menu("VACIO"), "fragment_meters");
+        ft.commit();
     }
 
     public static void asignarBotones(int[] botones){

@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -32,6 +33,9 @@ public class Activity_ModPedido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modpedido);
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         fecha = findViewById(R.id.textView5);
         cliente = findViewById(R.id.textView9);
         estado = findViewById(R.id.spinner5);
@@ -65,7 +69,10 @@ public class Activity_ModPedido extends AppCompatActivity {
         d.setPositiveButton("DONE", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                c_activity_pedidos_mod.getPedidoActual().getProductos().set(Adapter_Pedidos_AddMod.position,new Prodcuto_en_Pedido(np.getValue(),c_activity_pedidos_mod.getPedidoActual().getProductos().get(Adapter_Pedidos_AddMod.position).getId_producto()));
+                c_activity_pedidos_mod.getPedidoActual().getProductos().set(Adapter_Pedidos_AddMod.position,new Prodcuto_en_Pedido(
+                        np.getValue(),
+                        c_activity_pedidos_mod.getPedidoActual().getProductos().get(Adapter_Pedidos_AddMod.position).getId_producto()
+                ));
                 adaptadorPedidos.notifyDataSetChanged();
                 total.setText(c_activity_pedidos_mod.actualizarPrecios()+"€");
             }

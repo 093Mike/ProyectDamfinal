@@ -18,7 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class C_Activity_Pedidos_Mod extends Activity {
     DatabaseReference mref;
@@ -47,10 +49,9 @@ public class C_Activity_Pedidos_Mod extends Activity {
         if (!filtro) {
             pedidoActual = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getPedidos().get(AdaptadorPedidos.position);
         }
-        database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
+        database = FirebaseDatabase.getInstance();
         mref = database.getReference("productos");
         mref.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 id_productos.clear();
@@ -68,13 +69,6 @@ public class C_Activity_Pedidos_Mod extends Activity {
                     }
                 }
 
-                for (int i = 0; i < all_productos.size();i++){
-                    for (int j = 0; j < id_productos.size();j++){
-                        if(all_productos.get(i).getId()==id_productos.get(j)){
-                            all_productos.remove(i);
-                        }
-                    }
-                }
 
                 Activity_ModPedido.getInstance().adaptadorPedidos.notifyDataSetChanged();
                 Activity_ModPedido.getInstance().total.setText(actualizarPrecios()+"€");
@@ -94,15 +88,13 @@ public class C_Activity_Pedidos_Mod extends Activity {
                 double precio = Activity_ModPedido.getInstance().c_activity_pedidos_mod.precios.get(i);
                 precio= precio * Activity_ModPedido.getInstance().c_activity_pedidos_mod.pedidoActual.getProductos().get(i).getCantidad();
                 total+=precio;
-
             }
         }
         catch (Exception e){
          total=0;
         }
-        finally {
-            return total;
-        }
+        return total;
+
     }
     public void anadirProducto(){
         id_productos.add(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(Adapter_Todos_Productos.position).getId());
@@ -110,16 +102,10 @@ public class C_Activity_Pedidos_Mod extends Activity {
         catidadtotales.add(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(Adapter_Todos_Productos.position).getCantidad());
         precios.add(Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(Adapter_Todos_Productos.position).getPrecioPVP());
         Activity_all_Products.getInstance().finish();
-        Activity_ModPedido.getInstance().c_activity_pedidos_mod.pedidoActual.getProductos().add(new Prodcuto_en_Pedido(1,Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(Adapter_Todos_Productos.position).getId()));
-
-
-        for (int i = 0; i < all_productos.size();i++){
-            for (int j = 0; j < id_productos.size();j++){
-                if(all_productos.get(i).getId()==id_productos.get(j)){
-                    all_productos.remove(i);
-                }
-            }
-        }
+        Activity_ModPedido.getInstance().c_activity_pedidos_mod.pedidoActual.getProductos().add(new Prodcuto_en_Pedido(
+                1,
+                Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(Adapter_Todos_Productos.position).getId())
+        );
 
         Activity_ModPedido.getInstance().adaptadorPedidos.notifyDataSetChanged();
         Activity_ModPedido.getInstance().total.setText(actualizarPrecios()+"€");
@@ -130,8 +116,8 @@ public class C_Activity_Pedidos_Mod extends Activity {
         String productos="", cantidades="";
         int estado=Activity_ModPedido.getInstance().estado.getSelectedItemPosition();
         for (int i = 0 ;i< pedidoActual.getProductos().size();i++){
-            productos+=pedidoActual.getProductos().get(i).getId_producto()+",";
-            cantidades+=pedidoActual.getProductos().get(i).getCantidad()+",";
+            productos += pedidoActual.getProductos().get(i).getId_producto()+",";
+            cantidades += pedidoActual.getProductos().get(i).getCantidad()+",";
             if(estado==3){
                 DatabaseReference myRef = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("productos/" + pedidoActual.getProductos().get(i).getId_producto());
                 Double all_cantidades = catidadtotales.get(i)-pedidoActual.getProductos().get(i).getCantidad();
@@ -144,11 +130,36 @@ public class C_Activity_Pedidos_Mod extends Activity {
             cantidades = cantidades.substring(0, cantidades.length() - 1);
             precio = Double.parseDouble(Activity_ModPedido.getInstance().total.getText().toString().replaceAll("€", ""));
         }
-        DatabaseReference myRef = Activity_Menu.getInstance().c_activity_menu.getDatabase().getReference("pedidos/" + pedidoActual.getId());
+
+        DatabaseReference myRef =FirebaseDatabase.getInstance().getReference("pedidos/" + pedidoActual.getId());
         myRef.child("estado").setValue(estado);
         myRef.child("cantidades").setValue(cantidades);
         myRef.child("productos").setValue(productos);
         myRef.child("preciototal").setValue(precio);
+        Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.todosproductos();
+        if(estado==3 && productos.split(",").length!=0) {
+            DatabaseReference myRef2;
+            for (int k = 0; k < Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().size(); k++) {
+                int id_producto = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(k).getId();
+                String id_almacen = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(k).getAlmacen();
+                for (int j = 0; j < productos.split(",").length; j++) {
+                    if (id_producto == Integer.parseInt(productos.split(",")[j])) {
+                        myRef2 = FirebaseDatabase.getInstance().getReference("almacenes/" + id_almacen +
+                                "/movimientos/" + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime()));
+                        myRef2.child("idproducto").setValue(id_producto);
+                        double cantidad_total = Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(k).getCantidad();
+                        myRef2.child("descripcion").setValue("Se ha retirado el producto: "+
+                                Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.getAll_prodcutos().get(k).getNombre() +
+                                " "+
+                                cantidades.split(",")[j] +
+                                " unidades del inventario. Faltan: " +
+                                cantidad_total +
+                                " unidades de este producto.");
+                        myRef2.child("tipo").setValue(2);
+                    }
+                }
+            }
+        }
 
     }
 

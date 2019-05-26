@@ -16,22 +16,22 @@ public class C_Fragment_About {
     private int pos;
     private String[] plan = new String[]{"Topacio","LapisLazuli","Firestone"};
 
-    public void initialite() {
+    public void initialite(final Runnable r) {
         database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
         mref = database.getReference("info");
         mref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot empresa : dataSnapshot.getChildren()){
-                    }
-                }
+                nombre = dataSnapshot.child("nombre").getValue(String.class);
+                pos = Integer.parseInt(dataSnapshot.child("plan").getValue(String.class));
+                r.run();
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
     }
 
     public String getNombreEmpresa(){

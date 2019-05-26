@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">ProyectDAM</string>
+    <string name="app_name">PUF</string>
     <!-- MAIN -->
-    <string name="version_app">V. 0.2.10 ContGest</string>
+    <string name="version_app">V. 0.7.1 PUF</string>
     <string name="correo_electronico">Correo Electronico</string>
     <string name="contrasenya">Contraseña</string>
     <string name="Login">Log In</string>
+    <string name="nombre"><u>NOMBRE CATEGORIA</u></string>
 
     <string-array name="rol">
         <item>SuperAdmin</item>
