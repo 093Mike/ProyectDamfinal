@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,8 +22,8 @@ public class Activity_AddCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.alertdialog_nuevocliente);
-        setTitle("Añadir Cliente");
         guardar = findViewById(R.id.button7);
         nombre = findViewById(R.id.editText9);
         direccion = findViewById(R.id.editText10);
@@ -32,7 +33,7 @@ public class Activity_AddCliente extends AppCompatActivity {
         guardar.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    anadirCliente();
+                    anadirCliente(v);
                     return true;
                 }
                 return false;
@@ -42,13 +43,13 @@ public class Activity_AddCliente extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                anadirCliente();
+                anadirCliente(view);
             }
         });
     }
 
 
-    public void anadirCliente(){
+    public void anadirCliente(View view){
         if(nombre.getText().toString().length()>0 &&
         direccion.getText().toString().length()>0 &&
         ciudad.getText().toString().length()>0 &&

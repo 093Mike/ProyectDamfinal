@@ -23,8 +23,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
+            android:drawableLeft="@drawable/prodcutos"
+            android:drawablePadding="5dp"
             android:gravity="center|left"
-            android:text="MOVIMIENTOS"
+            android:text="PRODUCTOS"
             android:textColor="@color/cardview_light_background"
             android:textSize="14sp" />
 
