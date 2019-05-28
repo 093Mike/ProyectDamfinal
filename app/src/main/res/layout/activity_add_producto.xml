@@ -25,14 +25,16 @@
             android:gravity="center|left"
             android:text="name"
             android:textColor="@color/cardview_light_background"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_subirProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            android:background="@drawable/boton_redondo"
             android:text="Aceptar"
             app:layout_constraintTop_toBottomOf="@+id/editText_precioProveedor" />
 
@@ -52,26 +54,41 @@
 
             <ImageView
                 android:id="@+id/imageView_prod"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/boton_redondo"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_notification_clear_all"
-                tools:srcCompat="@android:drawable/ic_notification_clear_all" />
+                app:srcCompat="@drawable/sinfoto"
+                tools:srcCompat="@drawable/sinfoto" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_categorias"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_categorias"
+                app:layout_constraintStart_toStartOf="@+id/spinner_categorias"
+                app:layout_constraintTop_toTopOf="@+id/spinner_categorias"
+                app:srcCompat="@drawable/boton_redondo" />
 
             <Spinner
                 android:id="@+id/spinner_categorias"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:popupBackground="@color/colorFrag"
                 android:layout_marginRight="8dp"
+                android:popupBackground="@color/colorFrag"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_proveedor" />
@@ -79,89 +96,122 @@
             <EditText
                 android:id="@+id/editText_nombreProducto"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/boton_redondo"
                 android:ems="10"
                 android:hint="Nombre del producto"
                 android:inputType="textPersonName"
+                android:paddingLeft="5dp"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView_prod"
-                app:layout_constraintTop_toTopOf="@+id/imageView_prod" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_prod" />
 
             <EditText
                 android:id="@+id/editText_descripcion"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/boton_redondo"
                 android:ems="10"
                 android:hint="Descripción"
                 android:inputType="textMultiLine|textPersonName"
+                android:paddingLeft="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView_prod"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_nombreProducto" />
 
             <EditText
                 android:id="@+id/editText_proveedor"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/boton_redondo"
                 android:clickable="true"
                 android:ems="10"
                 android:focusable="false"
                 android:hint="Proveedor"
                 android:inputType="textPersonName"
+                android:paddingLeft="5dp"
                 app:layout_constraintEnd_toStartOf="@+id/editText_stock"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_descripcion" />
 
             <EditText
                 android:id="@+id/editText_stock"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/boton_redondo"
                 android:ems="10"
                 android:hint="Stock"
                 android:inputType="number"
+                android:paddingLeft="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_descripcion" />
+                app:layout_constraintStart_toEndOf="@+id/editText_proveedor"
+                app:layout_constraintTop_toTopOf="@+id/editText_proveedor" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_ubicacionPasillo"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_ubicacionPasillo"
+                app:layout_constraintStart_toStartOf="@+id/spinner_ubicacionPasillo"
+                app:layout_constraintTop_toTopOf="@+id/spinner_ubicacionPasillo"
+                app:srcCompat="@drawable/boton_redondo" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_ubicacionEstanteria"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_ubicacionEstanteria"
+                app:layout_constraintStart_toStartOf="@+id/spinner_ubicacionEstanteria"
+                app:layout_constraintTop_toTopOf="@+id/spinner_ubicacionEstanteria"
+                app:srcCompat="@drawable/boton_redondo" />
 
             <Spinner
                 android:id="@+id/spinner_ubicacionPasillo"
                 android:layout_width="0dp"
-                android:layout_height="25dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:popupBackground="@color/colorFrag"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:dropDownWidth="match_parent"
                 app:layout_constraintEnd_toEndOf="@+id/textview_ubicacionPasillo"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textview_ubicacionPasillo" />
 
             <Spinner
                 android:id="@+id/spinner_ubicacionEstanteria"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
-                android:popupBackground="@color/colorFrag"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:popupBackground="@color/colorFrag"
                 app:layout_constraintEnd_toEndOf="@+id/textView_ubicacionEstanteria"
                 app:layout_constraintStart_toStartOf="@+id/textView_ubicacionEstanteria"
                 app:layout_constraintTop_toBottomOf="@+id/textView_ubicacionEstanteria" />
@@ -177,6 +227,7 @@
                 android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:text="Pasillo"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/textView_ubicacionEstanteria"
                 app:layout_constraintStart_toStartOf="parent"
@@ -189,7 +240,9 @@
                 android:layout_marginTop="24dp"
                 android:gravity="center"
                 android:text="Almacen"
-                android:textSize="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_categorias" />
@@ -197,11 +250,15 @@
             <EditText
                 android:id="@+id/editText_precioPVP"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/boton_redondo"
                 android:ems="10"
                 android:hint="PVP"
                 android:inputType="number|numberDecimal"
+                android:paddingLeft="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/spinner_ubicacionEstanteria"
                 app:layout_constraintStart_toStartOf="@+id/spinner_ubicacionEstanteria"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_ubicacionEstanteria" />
@@ -209,11 +266,15 @@
             <EditText
                 android:id="@+id/editText_precioProveedor"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/boton_redondo"
                 android:ems="10"
                 android:hint="Precio proveedor"
                 android:inputType="number|numberDecimal"
+                android:paddingLeft="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/spinner_ubicacionPasillo"
                 app:layout_constraintStart_toStartOf="@+id/spinner_ubicacionPasillo"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_ubicacionPasillo" />
@@ -229,10 +290,12 @@
                 android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:text="Estanteria"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textview_ubicacionPasillo"
                 app:layout_constraintTop_toBottomOf="@+id/textview_ubicacionPasillo2" />
+
         </android.support.constraint.ConstraintLayout>
 
 

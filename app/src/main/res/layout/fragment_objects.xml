@@ -33,7 +33,7 @@
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:text="MENU PRINCIPAL"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorPrimary"
                 android:textSize="24sp" />
 
             <ImageView
@@ -56,57 +56,106 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/boton_menu_principal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/logoalmacen"
+                    android:background="@drawable/boton_redondo_menu"
 
+                    android:drawableLeft="@drawable/logoalmacen"
                     android:onClick="menuAlmacen"
-                    android:text="Button" />
+                    android:paddingRight="5dp"
+                    android:text="Button"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/boton_menu_principal2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_menu"
                     android:drawableLeft="@drawable/logopedidos"
+                    android:drawablePadding="5dp"
                     android:onClick="gestioMenu"
+                    android:paddingRight="5dp"
                     android:text="Button" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/boton_menu_principal3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_menu"
                     android:drawableLeft="@drawable/logocliente"
                     android:onClick="gestioMenu"
+                    android:paddingRight="5dp"
                     android:text="Button" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/boton_menu_principal4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_menu"
                     android:drawableLeft="@drawable/logoproveedor"
                     android:drawablePadding="5dp"
                     android:onClick="gestioMenu"
+                    android:paddingRight="5dp"
                     android:text="Button" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/boton_menu_principal5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/boton_redondo_menu"
                     android:drawableLeft="@drawable/logocliente"
                     android:onClick="gestioMenu"
+                    android:paddingRight="5dp"
                     android:text="Button" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/boton_menu_principal6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_menu"
                     android:onClick="gestioMenu"
                     android:text="Button" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
             </LinearLayout>
         </HorizontalScrollView>

@@ -30,7 +30,7 @@
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:text="Almacen actual"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -45,9 +45,9 @@
                 android:layout_marginEnd="8dp"
                 android:tag="Almacen"
                 android:text="Cambiar almacén"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
 
@@ -79,7 +79,11 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
+                        android:drawableLeft="@drawable/logoalmacen"
+                        android:drawablePadding="10dp"
                         android:text="Inventario"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -103,8 +107,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
                             android:layout_marginEnd="8dp"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/anadir"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:text="Añadir producto" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
 
                         <Button
                             android:id="@+id/button_menuAlmacen_inventario"
@@ -112,8 +125,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/inventario"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:tag="inventario almacen"
                             android:text="Inventario" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
 
                         <Button
                             android:id="@+id/button_menuAlmacen_movimientos"
@@ -122,11 +143,19 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_weight="1"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/movimientos"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:tag="MENUALMACEN_INVENTARIO"
                             android:text="Movimientos almacén"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
 
                         <Button
                             android:id="@+id/button_menuAlmacen_actualizarImagenes"
@@ -134,10 +163,18 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/actualiza"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:tag="menuAlmacen_actualizarImagenes"
                             android:text="Actualizar imágenes"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
 
                         <Button
                             android:id="@+id/button_menuAlmacen_crearCategoria"
@@ -145,6 +182,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/anadir"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:tag="menuAlmacen_crearCategoria"
                             android:text="Crear categoria"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +202,11 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
+                        android:drawableLeft="@drawable/logoincidencias"
+                        android:drawablePadding="10dp"
                         android:text="Incidencias"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
@@ -186,11 +231,19 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/anadir"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:tag="incidencias_almacen"
                             android:text="CREAR Incidencia"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
 
                         <Button
                             android:id="@+id/button_menuAlmacen_verIncidencias"
@@ -200,6 +253,10 @@
                             android:layout_marginLeft="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
+                            android:background="@drawable/boton_redondo"
+                            android:drawableTop="@drawable/incidencias"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
                             android:text="VER INCIDENCIAS"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

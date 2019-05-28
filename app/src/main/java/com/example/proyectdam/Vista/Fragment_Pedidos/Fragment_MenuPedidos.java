@@ -23,7 +23,7 @@ public class Fragment_MenuPedidos  extends Fragment {
     public AdaptadorPedidos adaptadorPedidos;
     private CheckBox recibido,enprogres,sendit,completed,canceled;
     private CheckBox all_filters [] = {recibido,enprogres,sendit,completed,canceled};
-    private String[] tags = {"RECIBIDO","EN PROGRESO","ENVIADO","COMPLETADO","CANCELADO"};
+    private String[] tags = {"RECIBIDO ","EN PROGRESO ","ENVIADO ","COMPLETADO ","CANCELADO "};
     private String[] colores = {"#A9F5A9","#58FA58","#58ACFA","#F5A9F2","#FA5858"};
     private int[] id_all = {R.id.check1,R.id.check2,R.id.check3,R.id.check4,R.id.check5};
     boolean[] setCh;
