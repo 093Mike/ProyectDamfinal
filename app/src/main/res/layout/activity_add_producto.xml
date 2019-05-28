@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/deg_color"
+    android:background="@color/colorFrag"
     tools:context=".Vista.Activity.Activity_AddProducto">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/ColorSpinner"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,6 @@
             app:layout_constraintTop_toBottomOf="@+id/editText_precioProveedor" />
 
     </LinearLayout>
->>>>>>> master
 
     <ScrollView
         android:layout_width="match_parent"
@@ -87,6 +86,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:popupBackground="@color/ColorSpinner"
                 android:layout_marginRight="8dp"
                 android:popupBackground="@color/colorFrag"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -193,6 +193,9 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:popupBackground="@color/ColorSpinner"
+                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
@@ -205,6 +208,8 @@
             <Spinner
                 android:id="@+id/spinner_ubicacionEstanteria"
                 android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:popupBackground="@color/ColorSpinner"
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"

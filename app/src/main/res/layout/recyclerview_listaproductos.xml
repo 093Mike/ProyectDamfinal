@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/deg_color"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/ColorSpinner"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +53,7 @@
         android:id="@+id/searchView_buscarProducto"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@android:color/transparent"
         android:iconifiedByDefault="false"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
