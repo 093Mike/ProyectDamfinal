@@ -54,6 +54,11 @@ public class C_Almacen {
     public static final String HOST = "192.168.1.109";
     public static final int PUERTO = 5000;
 
+
+    /**
+     * Se conecta a la BBDD, hace una lectura de los almacenes y los carga en la aplicación.
+     * Se ejecuta al arrancar la app (una vez está logueado el usuario).
+     */
     public void cargarAlmacenesApp() {
         FirebaseDatabase database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
         DatabaseReference reference = database.getReference("almacenes");
@@ -83,6 +88,12 @@ public class C_Almacen {
         });
     }
 
+    /**
+     * Se conecta a la BBDD, hace una lectura de las categorias y los carga en la aplicación.
+     * Solo cargará las categorias que pertenezcan al almacen actual.
+     * Se ejecuta al seleccionar un almacén.
+     */
+
     public void cargarCategoriasApp() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("categorias");
@@ -107,6 +118,10 @@ public class C_Almacen {
             }
         });
     }
+
+    /**
+     *
+     */
 
     public void cargarProductosApp() {
         FirebaseDatabase database = Activity_Menu.getInstance().c_activity_menu.getDatabase();
