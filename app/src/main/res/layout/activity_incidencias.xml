@@ -7,53 +7,76 @@
     android:background="@color/colorFrag"
     tools:context=".Vista.Activity.Activity_AddIncidencia">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_incidencias_productos"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_incidencias_productos"
+        app:layout_constraintStart_toStartOf="@+id/spinner_incidencias_productos"
+        app:layout_constraintTop_toTopOf="@+id/spinner_incidencias_productos"
+        app:srcCompat="@drawable/boton_redondo" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_incidencias_motivo"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_incidencias_motivo"
+        app:layout_constraintStart_toStartOf="@+id/spinner_incidencias_motivo"
+        app:layout_constraintTop_toTopOf="@+id/spinner_incidencias_motivo"
+        app:srcCompat="@drawable/boton_redondo" />
+
     <TextView
         android:id="@+id/textView_incidencias_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Producto"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_incidencias_productos"
+        app:layout_constraintStart_toStartOf="@+id/spinner_incidencias_productos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_incidencias_motivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:text="Motivo"
+        android:textColor="@color/colorPrimary"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_incidencias_motivo"
+        app:layout_constraintStart_toStartOf="@+id/spinner_incidencias_motivo"
         app:layout_constraintTop_toBottomOf="@+id/spinner_incidencias_productos" />
 
     <TextView
         android:id="@+id/textView_incidencias_detalles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:text="Detalles"
+        android:textColor="@color/colorPrimary"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editText_incidencias_detalles"
+        app:layout_constraintStart_toStartOf="@+id/editText_incidencias_detalles"
         app:layout_constraintTop_toBottomOf="@+id/spinner_incidencias_motivo" />
 
     <TextView
         android:id="@+id/textView_incidencias_cantidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Cantidad"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_incidencias_productos" />
+        app:layout_constraintStart_toStartOf="@+id/editText_incidencias_cantidad"
+        app:layout_constraintTop_toTopOf="@+id/textView_incidencias_motivo" />
 
     <EditText
         android:id="@+id/editText_incidencias_detalles"
@@ -70,6 +93,7 @@
         android:hint="Detalles de la incidencia..."
         android:inputType="textPersonName"
         android:paddingLeft="5dp"
+        android:paddingTop="3dp"
         android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,42 +101,44 @@
 
     <EditText
         android:id="@+id/editText_incidencias_cantidad"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/boton_redondo"
         android:ems="10"
         android:inputType="number"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView_incidencias_cantidad"
         app:layout_constraintTop_toBottomOf="@+id/textView_incidencias_cantidad" />
 
     <Spinner
         android:id="@+id/spinner_incidencias_productos"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:popupBackground="@color/ColorSpinner"
         android:layout_marginRight="24dp"
+        android:popupBackground="@color/ColorSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_incidencias_producto" />
 
     <Spinner
         android:id="@+id/spinner_incidencias_motivo"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:popupBackground="@color/ColorSpinner"
-        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_incidencias_cantidad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_incidencias_motivo" />
 
@@ -126,6 +152,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/boton_redondo"
         android:text="@android:string/ok"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"

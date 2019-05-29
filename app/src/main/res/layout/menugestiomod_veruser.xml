@@ -7,15 +7,36 @@
     android:background="@color/colorFrag"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/spinner"
+        app:srcCompat="@drawable/boton_redondo" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
+        app:layout_constraintEnd_toEndOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="@+id/spinner2"
+        app:layout_constraintTop_toTopOf="@+id/spinner2"
+        app:srcCompat="@drawable/boton_redondo" />
+
     <EditText
         android:id="@+id/editText7"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/boton_redondo"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +46,12 @@
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:popupBackground="@color/colorFrag"
         android:layout_marginTop="8dp"
         android:entries="@array/puesto"
+        android:popupBackground="@color/colorFrag"
         app:layout_constraintEnd_toEndOf="@+id/editText7"
         app:layout_constraintStart_toStartOf="@+id/editText7"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
@@ -38,12 +59,12 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:popupBackground="@color/colorFrag"
         android:entries="@array/rol"
+        android:popupBackground="@color/colorFrag"
         app:layout_constraintEnd_toEndOf="@+id/editText7"
         app:layout_constraintStart_toStartOf="@+id/editText7"
         app:layout_constraintTop_toBottomOf="@+id/editText7" />
@@ -71,9 +92,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="0"
+        android:background="@drawable/boton_redondo"
         android:onClick="modUser"
         android:text="GUARDAR"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -86,6 +109,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="173dp" />
+        app:layout_constraintGuide_begin="162dp" />
 
 </android.support.constraint.ConstraintLayout>

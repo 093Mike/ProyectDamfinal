@@ -62,7 +62,7 @@ public class Fragment_GestioUsuarios extends Fragment {
                 options[i].setTag(nombre_botones[i]);
                 options[i].setText(nombre_botones[i]);
                 if (botones[i] == 1) {
-                    options[i].setTextColor(getResources().getColorStateList(R.color.color_normal));
+                    options[i].setTextColor(getResources().getColorStateList(R.color.colorPrimary));
                 }
                 else{
                     options[i].setTextColor(getResources().getColorStateList(R.color.color_denegado));
