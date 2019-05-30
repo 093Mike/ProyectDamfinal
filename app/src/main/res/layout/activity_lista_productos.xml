@@ -7,6 +7,9 @@
     android:background="@drawable/deg_color"
     tools:context=".Vista.Activity.Activity_ListaProductos">
 
-    <include layout="@layout/recyclerview_listaproductos" />
+    <include
+        layout="@layout/recyclerview_listaproductos"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </android.support.constraint.ConstraintLayout>
