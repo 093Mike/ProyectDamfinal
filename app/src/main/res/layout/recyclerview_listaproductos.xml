@@ -27,7 +27,7 @@
             android:drawablePadding="5dp"
             android:gravity="center|left"
             android:text="PRODUCTOS"
-            android:textColor="@color/cardview_light_background"
+            android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
 
         <Space
