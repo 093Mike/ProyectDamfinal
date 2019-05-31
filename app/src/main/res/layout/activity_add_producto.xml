@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:gravity="center|left"
             android:text="name"
-            android:textColor="@color/cardview_light_background"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 
         <Button

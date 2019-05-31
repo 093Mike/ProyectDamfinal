@@ -83,7 +83,6 @@ public class MenuAlmacen extends Fragment {
         buttons[1].setOnClickListener(new View.OnClickListener() { // MOVIMIENTOS ALMACÉN
             @Override
             public void onClick(View v) {
-                // TODO: falta por implementar
                 Activity_VerMovimientos activity_verMovimientos = new Activity_VerMovimientos(c_almacen.getAlmacenActual());
                 IntentsMenu intentsMenu = new IntentsMenu();
                 startActivity(intentsMenu.gestioIntent("MENUALMACEN_MOVIMIENTOS"));

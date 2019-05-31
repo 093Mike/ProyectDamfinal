@@ -26,7 +26,7 @@
             android:drawableLeft="@drawable/prodcutos"
             android:gravity="center|left"
             android:text="ESCOGE PRODUCTO"
-            android:textColor="@color/cardview_light_background"
+            android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
 
         <Space

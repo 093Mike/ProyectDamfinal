@@ -22,6 +22,7 @@
             android:layout_marginStart="9dp"
             android:layout_marginLeft="9dp"
             android:paddingBottom="5dp"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 
     </RelativeLayout>

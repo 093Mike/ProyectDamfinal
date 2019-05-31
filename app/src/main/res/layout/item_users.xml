@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:padding="5dp"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
 
@@ -31,7 +32,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/pedidoid"
-            android:layout_toRightOf="@+id/pedidoid" />
+            android:layout_toRightOf="@+id/pedidoid"
+            android:textColor="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/num_pedidos"
@@ -44,6 +46,7 @@
             android:layout_marginLeft="9dp"
             android:layout_marginTop="8dp"
             android:paddingBottom="5dp"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 
     </RelativeLayout>

@@ -54,6 +54,7 @@
                 android:layout_toEndOf="@+id/imageView_producto"
                 android:layout_toRightOf="@+id/imageView_producto"
                 android:text="nombre"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
 
             <TextView
@@ -66,7 +67,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imageView_producto"
                 android:layout_toRightOf="@+id/imageView_producto"
-                android:text="cantidad" />
+                android:text="cantidad"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/textView_ubicacionProducto"
@@ -78,7 +80,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imageView_producto"
                 android:layout_toRightOf="@+id/imageView_producto"
-                android:text="ubicacion" />
+                android:text="ubicacion"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/textView_proveedor"
@@ -90,7 +93,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imageView_producto"
                 android:layout_toRightOf="@+id/imageView_producto"
-                android:text="proveedor" />
+                android:text="proveedor"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/textView_precioProveedor"
@@ -102,7 +106,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imageView_producto"
                 android:layout_toRightOf="@+id/imageView_producto"
-                android:text="precioProveedor" />
+                android:text="precioProveedor"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/textView_precioPVP"
@@ -116,7 +121,8 @@
                 android:layout_marginBottom="8dp"
                 android:layout_toEndOf="@+id/imageView_producto"
                 android:layout_toRightOf="@+id/imageView_producto"
-                android:text="precioPVP" />
+                android:text="precioPVP"
+                android:textColor="@color/colorPrimary" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

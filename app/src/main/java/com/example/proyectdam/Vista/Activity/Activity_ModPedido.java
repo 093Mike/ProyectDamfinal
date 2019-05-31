@@ -59,14 +59,13 @@ public class Activity_ModPedido extends AppCompatActivity {
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.alertdialog_numberpicker, null);
         d.setView(dialogView);
-        d.setTitle("NumberPicker");
         final NumberPicker np = dialogView.findViewById(R.id.numberPicker1);
         np.setMinValue(1);
         long max = Math.round(c_activity_pedidos_mod.getCatidadtotales().get(Adapter_Pedidos_AddMod.position));
         np.setMaxValue((int) max);
         np.setValue(c_activity_pedidos_mod.getPedidoActual().getProductos().get(Adapter_Pedidos_AddMod.position).getCantidad());
         np.setWrapSelectorWheel(false);
-        d.setPositiveButton("DONE", new DialogInterface.OnClickListener() {
+        d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 c_activity_pedidos_mod.getPedidoActual().getProductos().set(Adapter_Pedidos_AddMod.position,new Prodcuto_en_Pedido(

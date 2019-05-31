@@ -47,7 +47,7 @@
             android:layout_weight="1"
             android:gravity="center|left"
             android:text="name"
-            android:textColor="@color/cardview_light_background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp" />
 
         <ImageView
