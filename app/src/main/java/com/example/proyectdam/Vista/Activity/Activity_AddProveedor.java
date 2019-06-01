@@ -3,6 +3,7 @@ package com.example.proyectdam.Vista.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -18,8 +19,8 @@ public class Activity_AddProveedor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.alertdialog_nuevoproveedor);
-        setTitle("Añadir Proveedor");
         guardar = findViewById(R.id.button8);
         nombre = findViewById(R.id.editText12);
         email = findViewById(R.id.editText14);
