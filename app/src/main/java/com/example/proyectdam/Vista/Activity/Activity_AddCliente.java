@@ -26,6 +26,8 @@ public class Activity_AddCliente extends AppCompatActivity {
         setContentView(R.layout.alertdialog_nuevocliente);
         guardar = findViewById(R.id.button7);
         nombre = findViewById(R.id.editText9);
+        ciudad = findViewById(R.id.editText8);
+
         direccion = findViewById(R.id.editText10);
         telefono = findViewById(R.id.editText11);
         nombre.requestFocus();
