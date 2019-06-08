@@ -28,7 +28,6 @@ public class C_ActivityMain extends Activity{
         }
     }
 
-
     public void iniciarLogin(String email , String pass){
 
         if(!control) {

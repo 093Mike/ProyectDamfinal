@@ -9,7 +9,7 @@ import com.example.proyectdam.Model.Prodcuto_en_Pedido;
 import com.example.proyectdam.Model.Producto_para_Pedidos;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
 import com.example.proyectdam.Vista.Activity.Activity_ModPedido;
-import com.example.proyectdam.Vista.Activity.Activity_all_Clientes;
+import com.example.proyectdam.Vista.Activity.Clientes.Activity_all_Clientes;
 import com.example.proyectdam.Vista.Activity.Activity_all_Products;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.google.firebase.database.DataSnapshot;

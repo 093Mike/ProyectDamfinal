@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorFrag"
-    tools:context=".Vista.Activity.Activity_AddIncidencia">
+    tools:context=".Vista.Activity.Almacen.Activity_AddIncidencia">
 
     <ImageView
         android:id="@+id/imageView3"

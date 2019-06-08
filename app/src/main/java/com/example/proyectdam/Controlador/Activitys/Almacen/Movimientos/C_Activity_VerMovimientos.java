@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.example.proyectdam.Model.Movimientos;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
-import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
+import com.example.proyectdam.Vista.Activity.Almacen.Activity_VerMovimientos;
 import com.example.proyectdam.Vista.Fragment_Almacen.MenuAlmacen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

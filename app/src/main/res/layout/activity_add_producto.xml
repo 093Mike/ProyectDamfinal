@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center|left"
+            android:paddingLeft="10dp"
             android:text="name"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp" />

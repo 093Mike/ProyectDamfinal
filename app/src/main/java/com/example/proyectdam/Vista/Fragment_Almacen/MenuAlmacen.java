@@ -15,7 +15,7 @@ import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.Controlador.Users.C_Permisos;
 import com.example.proyectdam.R;
 import com.example.proyectdam.Vista.Activity.Activity_Menu;
-import com.example.proyectdam.Vista.Activity.Activity_VerMovimientos;
+import com.example.proyectdam.Vista.Activity.Almacen.Activity_VerMovimientos;
 
 public class MenuAlmacen extends Fragment {
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorFrag"
     android:layout_height="wrap_content"
-    tools:context="Vista.Activity.Activity_AddCliente">
+    tools:context=".Vista.Activity.Clientes.Activity_AddCliente">
 
     <Button
         android:id="@+id/button7"

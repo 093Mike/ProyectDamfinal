@@ -1,5 +1,6 @@
 package com.example.proyectdam.Vista;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 
 import com.example.proyectdam.Controlador.Activitys.C_ActivityMain;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Estadisticas.Activity_estadisticas_Pedidos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
     public void iniciarLogin(View view){ c_activityMain.iniciarLogin(e_user.getText().toString(),password.getText().toString()); }
 
     public void olvidaIntent(View view) { startActivity(c_activityMain.olvidaIntent()); }
+
+    public void registrarseGoogle(View view) {
+        startActivity(new Intent(this, Activity_estadisticas_Pedidos.class));
+    }
 
     private static MainActivity myContext;
     public MainActivity() { myContext = this; }

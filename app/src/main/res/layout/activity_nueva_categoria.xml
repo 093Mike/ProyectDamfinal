@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/deg_color"
-    tools:context=".Vista.Activity.Nueva_Categoria">
+    tools:context=".Vista.Activity.Almacen.Nueva_Categoria">
 
     <LinearLayout
         android:id="@+id/linearLayout"

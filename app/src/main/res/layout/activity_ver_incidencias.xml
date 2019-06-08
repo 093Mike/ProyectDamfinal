@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/deg_color"
     android:layout_height="match_parent"
-    tools:context=".Vista.Activity.Activity_VerIncidencias">
+    tools:context=".Vista.Activity.Almacen.Activity_VerIncidencias">
 
     <include layout="@layout/recyclerview_incidencias" />
 

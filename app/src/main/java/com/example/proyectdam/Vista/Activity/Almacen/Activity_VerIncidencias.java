@@ -1,12 +1,11 @@
-package com.example.proyectdam.Vista.Activity;
+package com.example.proyectdam.Vista.Activity.Almacen;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 
-import com.example.proyectdam.Controlador.Activitys.Almacen.AdapterCategorias;
 import com.example.proyectdam.Controlador.Activitys.Almacen.AdapterIncidencias;
 import com.example.proyectdam.Controlador.Activitys.Almacen.C_Almacen;
 import com.example.proyectdam.R;

@@ -16,6 +16,8 @@ import com.example.proyectdam.Controlador.Activitys.C_Activity_Menu;
 import com.example.proyectdam.Controlador.Fragments.C_Fragment_Menu;
 import com.example.proyectdam.Controlador.IntentsMenu;
 import com.example.proyectdam.R;
+import com.example.proyectdam.Vista.Activity.Clientes.Activity_AddCliente;
+import com.example.proyectdam.Vista.Activity.Proveedores.Activity_AddProveedor;
 import com.example.proyectdam.Vista.Fragment_Menu.Fragment_Menu;
 import com.example.proyectdam.Vista.Fragment_Pedidos.Fragment_MenuPedidos;
 import com.example.proyectdam.Vista.MainActivity;
