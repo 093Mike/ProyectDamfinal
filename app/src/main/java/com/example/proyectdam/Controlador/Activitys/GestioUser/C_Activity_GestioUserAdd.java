@@ -13,6 +13,7 @@ import com.example.proyectdam.Vista.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,6 +61,8 @@ public class C_Activity_GestioUserAdd extends Activity {
         }
     }
     public void crearUsuario(final String nombre, String email, String pass, final String rol, final String encargo) {
+        final FirebaseUser useractual = MainActivity.getInstance().c_activityMain.getUser();
+        final FirebaseAuth authActual = MainActivity.getInstance().c_activityMain.getmAuth();
         boolean con_email = false, con_pass = false;
         if(email.length() > 0 && email.contains("@")) {
             con_email = true;
@@ -68,7 +71,8 @@ public class C_Activity_GestioUserAdd extends Activity {
             con_pass = true;
         }
         if(con_email && con_pass){
-            MainActivity.getInstance().c_activityMain.getmAuth().createUserWithEmailAndPassword(email,pass)
+            final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            firebaseAuth.createUserWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(MenuUser_add.getInstance(), new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -76,7 +80,7 @@ public class C_Activity_GestioUserAdd extends Activity {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("TAG", "createUserWithEmail:success");
-                                FirebaseUser user = MainActivity.getInstance().c_activityMain.getmAuth().getCurrentUser();
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
                                 DatabaseReference myRef = database.getReference("users/" + user.getUid() + "/user");
                                 myRef.child("Nombre").setValue(nombre);
                                 if (rol.equals("SuperAdmin")) {
@@ -89,6 +93,9 @@ public class C_Activity_GestioUserAdd extends Activity {
                                 }
                                 Toast.makeText(MenuUser_add.getInstance(), "¡Cuenta creada!",
                                         Toast.LENGTH_SHORT).show();
+                                MainActivity.getInstance().c_activityMain.setmAuth(authActual);
+                                MainActivity.getInstance().c_activityMain.getmAuth().updateCurrentUser(useractual);
+                                MenuUser_add.getInstance().finish();
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("TAG", "createUserWithEmail:failure", task.getException());

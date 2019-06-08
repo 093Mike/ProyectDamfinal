@@ -18,4 +18,20 @@ public class C_PermisoTrabajador_Almacen implements Permiso {
 
     @Override
     public boolean permisosAlmacen_modificarProducto() { return false; }
+
+    @Override
+    public boolean permisosCliente() {
+        return false;
+    }
+
+    @Override
+    public boolean permisoProveedor() {
+        return false;
+    }
+
+    @Override
+    public boolean permisoAddPedidos() {
+        return false;
+    }
+
 }

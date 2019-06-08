@@ -14,4 +14,20 @@ public class C_PermisoEncargado_Pedidos implements Permiso {
 
         @Override
         public boolean permisosAlmacen_modificarProducto() { return false; }
+
+        @Override
+        public boolean permisosCliente() {
+                return true;
+        }
+
+        @Override
+        public boolean permisoProveedor() {
+                return false;
+        }
+
+        @Override
+        public boolean permisoAddPedidos() {
+                return true;
+        }
+
 }

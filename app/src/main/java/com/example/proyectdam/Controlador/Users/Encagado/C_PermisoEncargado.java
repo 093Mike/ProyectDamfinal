@@ -1,7 +1,6 @@
 package com.example.proyectdam.Controlador.Users.Encagado;
 
 import com.example.proyectdam.Controlador.Users.Permiso;
-import com.example.proyectdam.Controlador.Users.Trabajador.C_PermisoTrabajador_Pedidos;
 
 public class C_PermisoEncargado implements Permiso {
 
@@ -61,6 +60,46 @@ public class C_PermisoEncargado implements Permiso {
             case "Pedidos":
                 C_PermisoEncargado_Pedidos pe_Pedidos = new C_PermisoEncargado_Pedidos();
                 return pe_Pedidos.permisosAlmacen_modificarProducto();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean permisosCliente() {
+        switch (tipo_Encargo) {
+            case "Almacen":
+                C_PermisoEncargado_Almacen pe_Almacen = new C_PermisoEncargado_Almacen();
+                return pe_Almacen.permisosCliente();
+            case "Pedidos":
+                C_PermisoEncargado_Pedidos pe_Pedidos = new C_PermisoEncargado_Pedidos();
+                return pe_Pedidos.permisosCliente();
+        }
+        return false;
+
+    }
+
+    @Override
+    public boolean permisoProveedor() {
+        switch (tipo_Encargo) {
+            case "Almacen":
+                C_PermisoEncargado_Almacen pe_Almacen = new C_PermisoEncargado_Almacen();
+                return pe_Almacen.permisoProveedor();
+            case "Pedidos":
+                C_PermisoEncargado_Pedidos pe_Pedidos = new C_PermisoEncargado_Pedidos();
+                return pe_Pedidos.permisoProveedor();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean permisoAddPedidos() {
+        switch (tipo_Encargo) {
+            case "Almacen":
+                C_PermisoEncargado_Almacen pe_Almacen = new C_PermisoEncargado_Almacen();
+                return pe_Almacen.permisoAddPedidos();
+            case "Pedidos":
+                C_PermisoEncargado_Pedidos pe_Pedidos = new C_PermisoEncargado_Pedidos();
+                return pe_Pedidos.permisoAddPedidos();
         }
         return false;
     }

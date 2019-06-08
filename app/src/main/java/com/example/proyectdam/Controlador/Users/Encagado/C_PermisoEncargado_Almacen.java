@@ -4,7 +4,6 @@ import com.example.proyectdam.Controlador.Users.Permiso;
 
 public class C_PermisoEncargado_Almacen implements Permiso {
 
-
     @Override
     public int[] permisosMenu() { return new int[]{0,3,4,5}; }
 
@@ -16,4 +15,20 @@ public class C_PermisoEncargado_Almacen implements Permiso {
 
     @Override
     public boolean permisosAlmacen_modificarProducto() { return true; }
+
+    @Override
+    public boolean permisosCliente() {
+        return false;
+    }
+
+    @Override
+    public boolean permisoProveedor() {
+        return true;
+    }
+
+    @Override
+    public boolean permisoAddPedidos() {
+        return false;
+    }
+
 }

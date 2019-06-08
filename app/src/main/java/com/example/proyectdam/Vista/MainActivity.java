@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         c_activityMain = new C_ActivityMain();
         c_activityMain.setmAuth(FirebaseAuth.getInstance());
         e_user = findViewById(R.id.editText);

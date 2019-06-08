@@ -69,6 +69,7 @@ public class C_Activity_Menu extends Activity {
     public void selecionarUser(View view){
         Activity_Menu.getInstance().startActivity(intentsMenu.gestioIntent("MV_User"));
     }
+
     public int selecionarPedido(){
         Pedido pedidoActual = null;
         boolean filtro=false;
@@ -87,6 +88,21 @@ public class C_Activity_Menu extends Activity {
         else{
             return 0;
         }
+    }
+
+    public boolean controlClientes() {
+        C_Permisos c_permisos = new C_Permisos();
+        return c_permisos.permisosCliente();
+    }
+
+    public boolean controlProveedores() {
+        C_Permisos c_permisos = new C_Permisos();
+        return c_permisos.permisoProveedor();
+    }
+
+    public boolean controlAddPerdidos() {
+        C_Permisos c_permisos = new C_Permisos();
+        return c_permisos.permisoAddPedidos();
     }
 
 

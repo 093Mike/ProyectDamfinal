@@ -51,10 +51,8 @@ public class C_Almacen {
     public static ArrayList<Proveedor> proveedores = new ArrayList<>();
     public static ArrayList<Incidencia> incidencias = new ArrayList<>();
     private static Almacen almacenActual = null;
-    public static final String HOST = "192.168.1.109";
+    public static final String HOST = "192.168.19.56";
     public static final int PUERTO = 5000;
-
-
     /**
      * Se conecta a la BBDD, hace una lectura de los almacenes y los carga en la aplicación.
      * Se ejecuta al arrancar la app (una vez está logueado el usuario).

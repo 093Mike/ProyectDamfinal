@@ -83,4 +83,61 @@ public class C_Permisos implements Permiso {
         return false;
     }
 
+    @Override
+    public boolean permisosCliente() {
+        switch (Activity_Menu.getInstance().c_activity_menu.user.getPermisos()) {
+            case "Super":
+                C_PermisoSuperAdmin c_PermisoSuperAdmin = new C_PermisoSuperAdmin();
+                return c_PermisoSuperAdmin.permisosCliente();
+            case "Admin":
+                C_PermisoAdmin c_PermisoAdmin = new C_PermisoAdmin();
+                return c_PermisoAdmin.permisosCliente();
+            case "Encargado":
+                C_PermisoEncargado C_permisoEncargado = new C_PermisoEncargado(Activity_Menu.getInstance().c_activity_menu.user.getTipo_permisos());
+                return C_permisoEncargado.permisosCliente();
+            case "Trabajador":
+                C_PermisoTrabajador m_permisosTrabajador = new C_PermisoTrabajador(Activity_Menu.getInstance().c_activity_menu.user.getTipo_permisos());
+                return m_permisosTrabajador.permisosCliente();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean permisoProveedor() {
+        switch (Activity_Menu.getInstance().c_activity_menu.user.getPermisos()) {
+            case "Super":
+                C_PermisoSuperAdmin c_PermisoSuperAdmin = new C_PermisoSuperAdmin();
+                return c_PermisoSuperAdmin.permisoProveedor();
+            case "Admin":
+                C_PermisoAdmin c_PermisoAdmin = new C_PermisoAdmin();
+                return c_PermisoAdmin.permisoProveedor();
+            case "Encargado":
+                C_PermisoEncargado C_permisoEncargado = new C_PermisoEncargado(Activity_Menu.getInstance().c_activity_menu.user.getTipo_permisos());
+                return C_permisoEncargado.permisoProveedor();
+            case "Trabajador":
+                C_PermisoTrabajador m_permisosTrabajador = new C_PermisoTrabajador(Activity_Menu.getInstance().c_activity_menu.user.getTipo_permisos());
+                return m_permisosTrabajador.permisoProveedor();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean permisoAddPedidos() {
+        switch (Activity_Menu.getInstance().c_activity_menu.user.getPermisos()) {
+            case "Super":
+                C_PermisoSuperAdmin c_PermisoSuperAdmin = new C_PermisoSuperAdmin();
+                return c_PermisoSuperAdmin.permisoAddPedidos();
+            case "Admin":
+                C_PermisoAdmin c_PermisoAdmin = new C_PermisoAdmin();
+                return c_PermisoAdmin.permisoAddPedidos();
+            case "Encargado":
+                C_PermisoEncargado C_permisoEncargado = new C_PermisoEncargado(Activity_Menu.getInstance().c_activity_menu.user.getTipo_permisos());
+                return C_permisoEncargado.permisoAddPedidos();
+            case "Trabajador":
+                C_PermisoTrabajador m_permisosTrabajador = new C_PermisoTrabajador(Activity_Menu.getInstance().c_activity_menu.user.getTipo_permisos());
+                return m_permisosTrabajador.permisoAddPedidos();
+        }
+        return false;
+    }
+
 }

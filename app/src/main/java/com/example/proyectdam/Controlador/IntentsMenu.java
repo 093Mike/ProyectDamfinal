@@ -65,7 +65,7 @@ public class IntentsMenu {
                 intent = new Intent(MainActivity.getInstance(),PerdidoContrasenya.class);
                 break;
             // USUARIOS
-            case "AÑADIR USUARIO":
+            case "AÑADIR USUARIOS":
                 intent = new Intent(Activity_Menu.getInstance().getApplicationContext(), MenuUser_add.class);
                 break;
             case "MV_User":

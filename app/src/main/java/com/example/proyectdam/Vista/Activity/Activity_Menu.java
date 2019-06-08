@@ -127,7 +127,8 @@ public class Activity_Menu extends AppCompatActivity {
     public void gestioaddUsers(View view) {
         if (c_fragment_menu.entrarAddUsers()) {
             String tag = (String) view.getTag();
-            startActivity(new Intent(this, MenuUser_add.class));
+            IntentsMenu intentsMenu = new IntentsMenu();
+            startActivity(intentsMenu.gestioIntent(tag));
         } else {
             Toast.makeText(myContext, "No tienes permisos para entrar a ese sitio.", Toast.LENGTH_SHORT).show();
         }
@@ -141,10 +142,6 @@ public class Activity_Menu extends AppCompatActivity {
 
     public void gestioFiltro(View view) {
         Fragment_MenuPedidos.getInstance().gestioFiltro(view);
-    }
-
-    public void gestionAddPedido(View view) {
-        Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.anadirPedido();
     }
 
 
@@ -248,12 +245,28 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     public void gestioAddCliente(View view) {
-        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddCliente.class));
+        if (c_activity_menu.controlClientes()) {
+            startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddCliente.class));
+        } else {
+            Toast.makeText(this, "No cumples los requisitos para añadir clientes nuevos", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void gestioAddProv(View view) {
-        startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProveedor.class));
+        if (c_activity_menu.controlProveedores()) {
+            startActivity(new Intent(Activity_Menu.getInstance().getApplicationContext(), Activity_AddProveedor.class));
+        } else {
+            Toast.makeText(this, "No cumples los requisitos para añadir proveedores nuevos", Toast.LENGTH_SHORT).show();
+        }
 
+    }
+
+    public void gestionAddPedido(View view) {
+        if (c_activity_menu.controlAddPerdidos()) {
+            Fragment_MenuPedidos.getInstance().c_fragment_menuPedidos.anadirPedido();
+        } else {
+            Toast.makeText(this, "No cumples los requisitos para añadir pedidos nuevos", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private static Activity_Menu myContext;

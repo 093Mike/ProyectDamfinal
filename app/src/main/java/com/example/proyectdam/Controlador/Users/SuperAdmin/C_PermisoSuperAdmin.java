@@ -18,5 +18,20 @@ public class C_PermisoSuperAdmin implements Permiso {
     @Override
     public boolean permisosAlmacen_modificarProducto() { return true; }
 
+    @Override
+    public boolean permisosCliente() {
+        return true;
+    }
+
+    @Override
+    public boolean permisoProveedor() {
+        return true;
+    }
+
+    @Override
+    public boolean permisoAddPedidos() {
+        return true;
+    }
+
 
 }

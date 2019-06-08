@@ -7,4 +7,10 @@ public interface Permiso {
     int[] permisosAlmacen();
     boolean permisosAlmacen_modificarProducto();
 
+    boolean permisosCliente();
+
+    boolean permisoProveedor();
+
+    boolean permisoAddPedidos();
+
 }
